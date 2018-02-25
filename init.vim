@@ -104,6 +104,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'bubblegum'
 
+"CtrlP
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff)$',
+    \ 'file': '\v\.(exe|so|dll|DS_store|swp)$',
+    \ }
+
 "Rebind escape to capslock while vim is open
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
