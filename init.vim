@@ -14,7 +14,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 Plug 'jparise/vim-graphql'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/sessionman.vim'
@@ -33,26 +32,35 @@ set autoindent
 set textwidth=100
 set mouse=a
 set number
-set showcmd
 syntax on
 colorscheme onedark
 
 "Splitting, atom style
-map <C-k><left> :abo vsp %<CR>
-map <C-k><h :abo vsp %<CR>
-map <C-k><right> :bel vsp %<CR>
-map <C-k>l :bel vsp %<CR>
-map <C-k><up> :abo sp %<CR>
-map <C-k>k :abo sp %<CR>
-map <C-k><down> :bel sp %<CR>
-map <C-k>j :bel sp %<CR>
+imap <C-k><left> <C-o>:abo vsp %<CR>
+imap <C-k><h <C-o>:abo vsp %<CR>
+imap <C-k><right> <C-o>:bel vsp %<CR>
+imap <C-k>l <C-o>:bel vsp %<CR>
+imap <C-k><up> <C-o>:abo sp %<CR>
+imap <C-k>k <C-o>:abo sp %<CR>
+imap <C-k><down> <C-o>:bel sp %<CR>
+imap <C-k>j <C-o>:bel sp %<CR>
+
+nmap <C-k><left> :abo vsp %<CR>
+nmap <C-k><h :abo vsp %<CR>
+nmap <C-k><right> :bel vsp %<CR>
+nmap <C-k>l :bel vsp %<CR>
+nmap <C-k><up> :abo sp %<CR>
+nmap <C-k>k :abo sp %<CR>
+nmap <C-k><down> :bel sp %<CR>
+nmap <C-k>j :bel sp %<CR>
 
 "Git
 nmap gs :Gstatus<CR>
 nmap gc :Gcommit<CR>
 nmap gp :Gpush<CR>
+nmap ga :silent !git add -A<CR>
 nmap + :silent !git add %<CR>
-nmap - :silent !git reset %<CR>
+nmap - :silent !git reset %<CR><C-l>
 let g:gitgutter_diff_base = 'HEAD'
 
 "Easy motion
@@ -81,6 +89,7 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+inoremap <C-Space> <C-x><C-o>
 
 "Tree view
 map <C-\> :NERDTreeToggle<CR>
@@ -91,7 +100,9 @@ vmap <C-_> <leader>ci
 imap <C-_> <C-o><leader>ci
 
 "Airline
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'bubblegum'
 
 "Rebind escape to capslock while vim is open
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
