@@ -17,6 +17,9 @@ Plug 'jparise/vim-graphql'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/sessionman.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 filetype plugin on
@@ -34,25 +37,61 @@ set showcmd
 syntax on
 colorscheme onedark
 
+"Splitting, atom style
+map <C-k><left> :abo vsp %<CR>
+map <C-k><h :abo vsp %<CR>
+map <C-k><right> :bel vsp %<CR>
+map <C-k>l :bel vsp %<CR>
+map <C-k><up> :abo sp %<CR>
+map <C-k>k :abo sp %<CR>
+map <C-k><down> :bel sp %<CR>
+map <C-k>j :bel sp %<CR>
+
+"Git
+nmap gits :Gstatus<CR>
+nmap gitc :Gcommit<CR>
+nmap + :silent !git add %<CR>
+nmap - :silent !git reset %<CR>
+let g:gitgutter_diff_base = 'HEAD'
+
+"Easy motion
 let g:EasyMotion_smartcase = 1
 nmap <Leader> <Plug>(easymotion-prefix)
 nmap <Enter> <Plug>(easymotion-bd-w)
 nmap gl <Plug>(easymotion-bd-jk)
 nmap <C-s> <Plug>(easymotion-overwin-f)
-set hidden
 
+"Session management
+let v:this_session = 'default'
+let sessionman_save_on_exit = 1
+nmap ss :SessionSave<CR>
+nmap sa :SessionSaveAs<CR>
+nmap so :SessionOpen default<CR>
+nmap sl :SessionList<CR>
+
+"Language server integration
+set hidden
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ }
-
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
+"Tree view
 map <C-\> :NERDTreeToggle<CR>
-nmap <C-_> <plug>NERDCommenterToggle('n', 'toggle')<CR>
-vmap <C-_> <plug>NERDCommenterToggle('n', 'toggle')<CR>
 
-let g:airline#extensions#tabline#enabled = 1
+"Commenting
+nmap <C-_> <leader>ci
+vmap <C-_> <leader>ci
+imap <C-_> <C-o><leader>ci
+
+"Airline
+let g:airline#extensions#tabline#enabled = 0
+
+"Rebind escape to capslock while vim is open
+au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
