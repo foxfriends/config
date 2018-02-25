@@ -30,14 +30,15 @@ set autoindent
 set textwidth=100
 set mouse=a
 set number
+set showcmd
 syntax on
 colorscheme onedark
 
 let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-overwin-f)
 nmap <Leader> <Plug>(easymotion-prefix)
-nmap <Leader>w <Plug>(easymotion-bd-w)
-nmap l <Plug>(easymotion-bd-jk)
+nmap <Enter> <Plug>(easymotion-bd-w)
+nmap gl <Plug>(easymotion-bd-jk)
+nmap <C-s> <Plug>(easymotion-overwin-f)
 set hidden
 
 let g:LanguageClient_serverCommands = {
