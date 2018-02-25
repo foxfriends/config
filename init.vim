@@ -50,6 +50,7 @@ map <C-k>j :bel sp %<CR>
 "Git
 nmap gits :Gstatus<CR>
 nmap gitc :Gcommit<CR>
+nmap gitp :Gpush<CR>
 nmap + :silent !git add %<CR>
 nmap - :silent !git reset %<CR>
 let g:gitgutter_diff_base = 'HEAD'
