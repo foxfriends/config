@@ -48,9 +48,9 @@ map <C-k><down> :bel sp %<CR>
 map <C-k>j :bel sp %<CR>
 
 "Git
-nmap gits :Gstatus<CR>
-nmap gitc :Gcommit<CR>
-nmap gitp :Gpush<CR>
+nmap gs :Gstatus<CR>
+nmap gc :Gcommit<CR>
+nmap gp :Gpush<CR>
 nmap + :silent !git add %<CR>
 nmap - :silent !git reset %<CR>
 let g:gitgutter_diff_base = 'HEAD'
@@ -61,6 +61,7 @@ nmap <Leader> <Plug>(easymotion-prefix)
 nmap <Enter> <Plug>(easymotion-bd-w)
 nmap gl <Plug>(easymotion-bd-jk)
 nmap <C-s> <Plug>(easymotion-overwin-f)
+imap <C-s> <C-o><Plug>(easymotion-overwin-f)
 
 "Session management
 let v:this_session = 'default'
