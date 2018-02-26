@@ -54,6 +54,8 @@ nmap <C-k>k :abo sp %<CR>
 nmap <C-k><down> :bel sp %<CR>
 nmap <C-k>j :bel sp %<CR>
 
+nmap g, :vsp ~/.config/nvim/init.vim<CR>
+
 "Git
 nmap gs :Gstatus<CR>
 nmap gc :Gcommit<CR>
@@ -68,6 +70,7 @@ let g:EasyMotion_smartcase = 1
 nmap <Leader> <Plug>(easymotion-prefix)
 nmap <Enter> <Plug>(easymotion-bd-w)
 nmap gl <Plug>(easymotion-bd-jk)
+nmap g<S-l> <Plug>(easymotion-overwin-line)
 nmap <C-s> <Plug>(easymotion-overwin-f)
 imap <C-s> <C-o><Plug>(easymotion-overwin-f)
 
