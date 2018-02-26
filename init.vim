@@ -17,6 +17,7 @@ Plug 'jparise/vim-graphql'
 Plug 'airblade/vim-gitgutter'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/sessionman.vim'
+Plug 'lrvick/Conque-Shell'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 call plug#end()
@@ -116,4 +117,3 @@ let g:ctrlp_custom_ignore = {
 "Rebind escape to capslock while vim is open
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-
