@@ -91,6 +91,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'haskell': ['hie', '--lsp'],
+    \ 'lhaskell': ['hie', '--lsp'],
     \ 'ruby': ['language_server-ruby'],
     \ }
 nnoremap <silent> H :call LanguageClient_textDocument_hover()<CR>
