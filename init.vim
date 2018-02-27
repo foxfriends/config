@@ -20,6 +20,7 @@ Plug 'vim-scripts/sessionman.vim'
 Plug 'lrvick/Conque-Shell'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'kshenoy/vim-signature'
 call plug#end()
 
 filetype plugin on
@@ -89,8 +90,10 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'haskell': ['hie', '--lsp'],
+    \ 'ruby': ['language_server-ruby'],
     \ }
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> H :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 inoremap <C-Space> <C-x><C-o>
