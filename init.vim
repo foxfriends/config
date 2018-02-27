@@ -114,6 +114,9 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|DS_store|swp)$',
     \ }
 
+"Conque-Shell
+nmap <F9> :ConqueTermVSplit bash<CR>
+
 "Rebind escape to capslock while vim is open
 au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
