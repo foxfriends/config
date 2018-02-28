@@ -27,13 +27,15 @@ filetype plugin on
 set nocompatible
 set backspace=2
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set autoindent
 set textwidth=100
 set mouse=a
 set number
+set list
+set listchars=tab:▸\ ,eol:¬,space:·
 syntax on
 colorscheme onedark
 
@@ -57,6 +59,9 @@ nmap <C-k><down> :bel sp %<CR>
 nmap <C-k>j :bel sp %<CR>
 
 nmap g, :vsp ~/.config/nvim/init.vim<CR>
+
+"Trim whitespace from end of lines
+nnoremap tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "Git
 nmap gs :Gstatus<CR>
