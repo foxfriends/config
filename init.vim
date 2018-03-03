@@ -21,6 +21,7 @@ Plug 'lrvick/Conque-Shell'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'kshenoy/vim-signature'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 filetype plugin on
@@ -36,6 +37,8 @@ set mouse=a
 set number
 set list
 set listchars=tab:▸\ ,eol:¬,space:·
+set cursorline
+set termguicolors
 syntax on
 colorscheme onedark
 
@@ -119,7 +122,7 @@ let g:airline_theme = 'bubblegum'
 
 "CtrlP
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff)$',
+    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff|target)$',
     \ 'file': '\v\.(exe|so|dll|DS_store|swp)$',
     \ }
 
