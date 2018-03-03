@@ -24,13 +24,13 @@ Plug 'kshenoy/vim-signature'
 Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
-filetype plugin on
+filetype plugin indent on
 set nocompatible
 set backspace=2
 set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set textwidth=100
 set mouse=a
@@ -38,7 +38,9 @@ set number
 set list
 set listchars=tab:▸\ ,eol:¬,space:·
 set cursorline
-set termguicolors
+if has('unix') && !has('macunix')
+  set termguicolors
+endif
 syntax on
 colorscheme onedark
 
