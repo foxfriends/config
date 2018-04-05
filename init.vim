@@ -98,12 +98,14 @@ nmap sl :SessionList<CR>
 set hidden
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'javascript': ['flow-language-server', '--stdio'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio'],
     \ 'haskell': ['hie', '--lsp'],
     \ 'lhaskell': ['hie', '--lsp'],
     \ 'ruby': ['language_server-ruby'],
     \ }
+let g:LanguageClient_autoStart = 1
+
 nnoremap <silent> H :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
