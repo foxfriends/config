@@ -1,5 +1,7 @@
 "*":
   "arduino-upload": {}
+  "atom-ide-ui":
+    use: {}
   "atom-package-deps":
     ignored: []
   "autoclose-html": {}
@@ -10,9 +12,30 @@
       "node_modules"
     ]
   core:
+    allowPendingPaneItems: false
+    automaticallyUpdate: false
     closeEmptyWindows: false
+    customFileTypes:
+      "source.ini": [
+        ".hgrc"
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "markdown-preview"
+      "linter"
+      "vim-mode-plus"
+      "tree-view"
+      "atom-ide-ui"
+      "atom-typescript"
+      "hyperclick"
+      "ide-flowtype"
     ]
     ignoredNames: [
       ".git"
@@ -27,7 +50,7 @@
     projectHome: "/home/cam/code/"
     telemetryConsent: "limited"
   editor:
-    fontFamily: "Hack"
+    fontFamily: "Fira Code"
     invisibles: {}
     nonWordCharacters: "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-…。，"
     preferredLineLength: 100
@@ -43,6 +66,8 @@
     bytesPerLine: 4
   hyperclick:
     linuxTriggerKeys: "metaKey"
+  "ide-flowtype":
+    customFlowPath: {}
   "ide-haskell":
     autoHideOutput: true
   "ide-rust":
@@ -72,6 +97,23 @@
     enableLatexRenderingByDefault: true
     useLazyHeaders: false
   minimap: {}
+  nuclide:
+    "atom-ide-code-format":
+      formatOnType: false
+    "atom-ide-outline-view": {}
+    "nuclide-distraction-free-mode": {}
+    "nuclide-file-tree":
+      autoExpandSingleChild: false
+      showOpenFiles: false
+      showUncommittedChanges: false
+    "nuclide-health":
+      analyticsTimeout: 60
+      viewTimeout: 60
+    "nuclide-home":
+      showHome: false
+    "nuclide-terminal":
+      fontFamily: "Fira Code"
+    use: {}
   platomformio:
     verboseUpload: false
   racer:
@@ -99,7 +141,7 @@
     toggles:
       autoClose: true
   "tree-view":
-    hideVcsIgnoredFiles: true
+    alwaysOpenExisting: true
   welcome:
     showOnStartup: false
   wordcount:
@@ -107,9 +149,15 @@
 ".c.source":
   editor:
     tabLength: 4
+".js.jsx.source":
+  editor:
+    nonWordCharacters: "/\\()\"':,.;<>~!@#%^&*|+=[]{}`?-…"
 ".kotlin.source":
   editor:
     tabLength: 4
+".reason.source":
+  editor:
+    preferredLineLength: 110
 ".source.swift":
   editor:
     tabLength: 4
