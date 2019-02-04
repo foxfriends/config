@@ -38,14 +38,14 @@ set softtabstop=2
 set shiftwidth=2
 set autoindent
 " auto line wrap. don't like this feature too much tbh
-set textwidth=100
+"set textwidth=100
 " allow mouse controls...
 set mouse=a
 " show line numbers
 set number
 " show invisibles
 set list
-set listchars=tab:▸\ ,eol:¬,space:·
+set listchars=tab:»\ ,eol:¬,space:·
 " something something idk
 set cursorline
 
