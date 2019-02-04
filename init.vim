@@ -1,4 +1,53 @@
+""
+" Help:
+" ----------- | Navigation
+" C-\         | Show/hide tree view
+" g,          | - Open init.vim (this file)
+" g'          | - Open manfest file (language dependent)
+" gd          | - Go to declaration
+" gl          | - Jump to line
+" gL          | - Jump to line (any pane)
+" C-s         | - Jump to search (1 character)
+" \w          | - Jump to word (down)
+" <enter>     | - Jump to word
+" <F9>        | - Open an embedded terminal
+" C-p         | - Fuzzy finder open file
+" ----------- | Intellisense
+" H           | - Hover
+" <C-Space>   | - Autocomplete
+" <F2>        | - Refactor (Rename)
+" ----------- | Git
+" gs          | - git status
+" ga          | - git add -A
+" gc          | - git commit
+" gp          | - git push
+" +           | - git add %
+" -           | - git reset %
+" ----------- | Windows
+" C-k         | Split pane
+"    left     | - to the left
+"    right    | - to the right
+" ----------- | Formatting
+" tw          | Trim whitespace
+" ta          | Easy align
+"   ip=       | - align in paragraph on =
+" cs          | Change surroundings
+"   '"        | - from ' to "
+"   []        | - from [ ([] with spaces) to ] ([] with no spaces)
+" ys          | Add surroundings
+"   iw'       | - ' around word 
+" ds          | Remove surroundings
+"   '         | - ' from
+" ----------- | Sessions
+" ss          | - Save session
+" sa          | - Save session as
+" sl          | - Load session
+" so          | - Open default session
+""
+
 "Install the plugin thing if it isn't installed yet
+"note that it only auto-installs the first time. Later modifications must be
+"run manually with :PlugInstall
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -6,25 +55,25 @@ endif
 
 "Install the plugins
 call plug#begin('~/.vim/plugged')
-Plug 'joshdick/onedark.vim' " color scheme
-Plug 'sheerun/vim-polyglot' " language packs
-Plug 'scrooloose/nerdtree'  " tree view
-Plug 'scrooloose/nerdcommenter' " ctrl-slash for comment
-Plug 'vim-airline/vim-airline' " bottom bar
-Plug 'vim-airline/vim-airline-themes' " bottom bar colors
-Plug 'ctrlpvim/ctrlp.vim' " ctrl-p fuzzy finder
-Plug 'junegunn/fzf' " idk more fuzzy finder or something 
+Plug 'joshdick/onedark.vim'                                                          " color scheme
+Plug 'sheerun/vim-polyglot'                                                          " language packs
+Plug 'scrooloose/nerdtree'                                                           " tree view
+Plug 'scrooloose/nerdcommenter'                                                      " ctrl-slash for comment
+Plug 'vim-airline/vim-airline'                                                       " bottom bar
+Plug 'vim-airline/vim-airline-themes'                                                " bottom bar colors
+Plug 'ctrlpvim/ctrlp.vim'                                                            " ctrl-p fuzzy finder
+Plug 'junegunn/fzf'                                                                  " idk more fuzzy finder or something
+Plug 'junegunn/vim-easy-align'                                                       " auto align stuff
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' } " language server support
-Plug 'jparise/vim-graphql' " graphql syntax highlighting
-Plug 'airblade/vim-gitgutter' " git addition/deletions in the left bar
-Plug 'easymotion/vim-easymotion' " jumping around
-Plug 'vim-scripts/sessionman.vim' " sessions
-Plug 'lrvick/Conque-Shell' " terminal inside vim
-Plug 'tpope/vim-fugitive' " control git from inside vim
-Plug 'tpope/vim-rhubarb' " tbh idk what this one is just google it
-Plug 'kshenoy/vim-signature' " idk what this is either
-Plug 'terryma/vim-multiple-cursors' " some sort of multiple cursor support but its not that good
-"Plug 'flowtype/vim-flow'
+Plug 'jparise/vim-graphql'                                                           " graphql syntax highlighting
+Plug 'airblade/vim-gitgutter'                                                        " git addition/deletions in the left bar
+Plug 'easymotion/vim-easymotion'                                                     " jumping around
+Plug 'vim-scripts/sessionman.vim'                                                    " sessions
+Plug 'lrvick/Conque-Shell'                                                           " terminal inside vim
+Plug 'tpope/vim-fugitive'                                                            " control git from inside vim
+Plug 'tpope/vim-surround'                                                            " surround things in quotes, etc
+Plug 'kshenoy/vim-signature'                                                         " handles and displays the marks
+Plug 'terryma/vim-multiple-cursors'                                                  " multiple cursor support
 call plug#end()
 
 " fix the bugs?
@@ -113,7 +162,11 @@ nmap g<S-l> <Plug>(easymotion-overwin-line)
 nmap <C-s> <Plug>(easymotion-overwin-f)
 imap <C-s> <C-o><Plug>(easymotion-overwin-f)
 
-"Session management. 
+" EasyAlign
+xmap ta <Plug>(EasyAlign)
+nmap ta <Plug>(EasyAlign)
+
+"Session management.
 "Kind of difficult to get right always, but sometimes it is quick and handy
 let v:this_session = 'default'
 let sessionman_save_on_exit = 1
