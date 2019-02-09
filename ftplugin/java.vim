@@ -1,4 +1,4 @@
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-nnoremap g' :vsp pom.xml<CR>
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+nnoremap g' :vsp build.gradle<CR>

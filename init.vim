@@ -98,11 +98,8 @@ set listchars=tab:»\ ,eol:¬,space:·
 " something something idk
 set cursorline
 
-" fix the colours from being wrong
-if has('unix') && !has('macunix')
-  set termguicolors
-endif
-" pick color scheme
+" enable color scheme
+set termguicolors
 syntax on
 colorscheme onedark
 
