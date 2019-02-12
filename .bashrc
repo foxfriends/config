@@ -51,8 +51,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 # run the custom scripts in the config directory
 
 for file in $(ls "$HOME/.config/bash/"); do

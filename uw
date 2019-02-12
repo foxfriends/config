@@ -1,5 +1,6 @@
 #!/bin/bash
-# school things
+
+# school things, to be removed at the end of school!
 function ssh-school {
   if (( $# > 0 )); then
     ssh -Y "ckeldrid@ubuntu1604-00$1.student.cs.uwaterloo.ca"

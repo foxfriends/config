@@ -1,13 +1,12 @@
-# get ready for school
-if [ -f ~/.uwrc ]; then
-  . ~/.uwrc
-fi
-
 # some handy programs
 alias cati=img2txt
-alias vi=nvim
+
 alias inklecate=~/.inklecate/inklecate.exe
 
+# using nvim by default
+alias vi=nvim
+
+# htop is nicer
 alias top=htop
 
 # enable colors in grep by default

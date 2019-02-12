@@ -1,2 +1,9 @@
 #!/bin/bash
 
+which nvim || sudo apt install neovim
+which ranger || sudo apt install ranger
+which fzf || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install)
+which asdf || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.6.3
+which htop || sudo apt install htop
+which rustup || (curl https://sh.rustup.rs -sSf | sh)
+which exa || cargo install exa
