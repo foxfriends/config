@@ -24,9 +24,9 @@
 " +           | - git add %
 " -           | - git reset %
 " ----------- | Windows
-" C-k         | Split pane
-"    left     | - to the left
-"    right    | - to the right
+" <C-k>       | Split pane
+"      left   | - to the left
+"      right  | - to the right
 " ----------- | Formatting
 " tw          | Trim whitespace
 " ta          | Easy align
@@ -38,6 +38,7 @@
 "   iw'       | - ' around word 
 " ds          | Remove surroundings
 "   '         | - ' from
+" <C-l>       | Enter unicode as Latex
 " ----------- | Sessions
 " ss          | - Save session
 " sa          | - Save session as
@@ -74,6 +75,7 @@ Plug 'tpope/vim-fugitive'                                                       
 Plug 'tpope/vim-surround'                                                            " surround things in quotes, etc
 Plug 'kshenoy/vim-signature'                                                         " handles and displays the marks
 Plug 'terryma/vim-multiple-cursors'                                                  " multiple cursor support
+Plug 'joom/latex-unicoder.vim'                                                       " latex style unicode entry
 call plug#end()
 
 " fix the bugs?
