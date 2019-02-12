@@ -1,0 +1,21 @@
+#!/bin/bash
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go
+export GOPATH="$HOME/code/go"
+export PATH="$PATH:$GOPATH/bin"
+
+# Perl
+export PATH="/home/cam/.perl5/bin${PATH:+:${PATH}}"
+export PERL5LIB="/home/cam/.perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="/home/cam/.perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"/home/cam/.perl5\""
+export PERL_MM_OPT="INSTALL_BASE=/home/cam/.perl5"
