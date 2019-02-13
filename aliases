@@ -21,3 +21,7 @@ alias l='exa'
 
 # Dwarf Fortress... lets get into that?
 alias dwarf="$HOME/bin/df_linux/df"
+
+# Some typos I often make
+alias clearls="clear; ls"
+alias sgit="git"
