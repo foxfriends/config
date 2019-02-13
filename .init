@@ -2,8 +2,30 @@
 
 which nvim || sudo apt install neovim
 which ranger || sudo apt install ranger
-which fzf || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install)
-which asdf || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.6.3
 which htop || sudo apt install htop
+which autojump || sudo apt install autojump
+
+which fzf || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install)
+
+if ! which asdf ; then
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.6.3
+  [ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/asdf.sh"
+  [ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/completions/asdf.bash"
+
+  asdf plugin-add golang
+  asdf plugin-add haskell
+  asdf plugin-add io
+  asdf plugin-add java
+  asdf plugin-add nodejs
+  asdf plugin-add python
+  asdf plugin-add ruby
+  asdf plugin-add scala
+
+  # Get NodeJS installed right away because I use it more often than the rest
+  ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+  asdf install nodejs 11.9.0
+  npm i -g npm fx tldr
+fi
+
 which rustup || (curl https://sh.rustup.rs -sSf | sh)
 which exa || cargo install exa

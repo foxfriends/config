@@ -1,7 +1,6 @@
 #!/bin/bash
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
-
+[ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
+[ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/asdf.sh"
+[ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/completions/asdf.bash"
+[ -f "/usr/share/autojump/autojump.sh" ] && . "/usr/share/autojump/autojump.sh"
