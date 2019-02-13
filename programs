@@ -3,4 +3,9 @@
 [ -f "$HOME/.fzf.bash" ] && . "$HOME/.fzf.bash"
 [ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/asdf.sh"
 [ -f "$HOME/.asdf/asdf.sh" ] && . "$HOME/.asdf/completions/asdf.bash"
-[ -f "/usr/share/autojump/autojump.sh" ] && . "/usr/share/autojump/autojump.sh"
+
+if [ "$(uname)" == 'Darwin' ]; then 
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+else
+  [ -f "/usr/share/autojump/autojump.sh" ] && . "/usr/share/autojump/autojump.sh"
+fi

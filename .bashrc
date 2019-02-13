@@ -12,7 +12,9 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-shopt -s globstar
+if [ $(uname) != 'Darwin' ]; then
+  shopt -s globstar
+fi
 
 # append to the history file, don't overwrite it
 shopt -s histappend

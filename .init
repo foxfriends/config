@@ -1,9 +1,18 @@
 #!/bin/bash
 
-which nvim || sudo apt install neovim
-which ranger || sudo apt install ranger
-which htop || sudo apt install htop
-which autojump || sudo apt install autojump
+if [ "$(uname)" == 'Darwin' ]; then 
+  which gpg || brew install gpg
+  which nvim || brew install neovim
+  which ranger || brew install ranger
+  which htop || brew install htop
+  which autojump || brew install autojump
+else
+  which gpg || sudo apt install gpg
+  which nvim || sudo apt install neovim
+  which ranger || sudo apt install ranger
+  which htop || sudo apt install htop
+  which autojump || sudo apt install autojump
+fi 
 
 which fzf || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install)
 
@@ -24,6 +33,7 @@ if ! which asdf ; then
   # Get NodeJS installed right away because I use it more often than the rest
   ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf install nodejs 11.9.0
+  asdf global nodejs 11.9.0
   npm i -g npm fx tldr undollar
 fi
 
