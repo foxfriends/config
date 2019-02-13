@@ -24,7 +24,7 @@ if ! which asdf ; then
   # Get NodeJS installed right away because I use it more often than the rest
   ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf install nodejs 11.9.0
-  npm i -g npm fx tldr
+  npm i -g npm fx tldr undollar
 fi
 
 which rustup || (curl https://sh.rustup.rs -sSf | sh)
