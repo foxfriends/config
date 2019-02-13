@@ -1,11 +1,9 @@
 # some handy programs
+
+# cat images
 alias cati=img2txt
-
-alias inklecate=~/.inklecate/inklecate.exe
-
 # using nvim by default
 alias vi=nvim
-
 # htop is nicer
 alias top=htop
 
