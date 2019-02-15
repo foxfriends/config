@@ -22,6 +22,7 @@ if ! which diff-so-fancy ; then
   diff-so-fancy --set-defaults
 fi
 
+which kitty || (curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin)
 which fzf || (git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install)
 
 if ! which asdf ; then
@@ -48,3 +49,13 @@ fi
 which rustup || (curl https://sh.rustup.rs -sSf | sh)
 which exa || cargo install exa
 which rls || cargo install rls
+
+if [ ! -d "$HOME/.config/kitty/.git" ]; then
+  rm -r "$HOME/.config/kitty"
+  git clone git@github.com:oinkiguana/config -branch kitty "$HOME/.config/kitty"
+fi
+
+if [ ! -d "$HOME/.config/nvim/.git" ]; then
+  rm -r "$HOME/.config/nvim"
+  git clone git@github.com:oinkiguana/config -branch nvim "$HOME/.config/nvim"
+fi

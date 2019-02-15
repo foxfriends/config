@@ -9,3 +9,5 @@ if [ "$(uname)" == 'Darwin' ]; then
 else
   [ -f "/usr/share/autojump/autojump.sh" ] && . "/usr/share/autojump/autojump.sh"
 fi
+
+. <(kitty + complete setup bash)

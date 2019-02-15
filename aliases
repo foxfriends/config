@@ -1,11 +1,8 @@
 # some handy programs
-
-# cat images
-alias cati=img2txt
-# using nvim by default
+alias icat="kitty +kitten icat"
 alias vi=nvim
-# htop is nicer
 alias top=htop
+alias tree="git log --graph --oneline"
 
 # enable colors in grep by default
 alias grep='grep --color=auto'
@@ -18,9 +15,6 @@ alias ll='exa -alg --git'
 alias lt='exa -T'
 alias llt='exa -lT'
 alias l='exa'
-
-# Dwarf Fortress... lets get into that?
-alias dwarf="$HOME/bin/df_linux/df"
 
 # Some typos I often make
 alias clearls="clear; ls"
