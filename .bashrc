@@ -28,22 +28,6 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 
-# Prompt
-
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-  # detect a chroot so it can be shown
-  debian_chroot=$(cat /etc/debian_chroot)
-fi
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-
-# Various programs
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # enable programmable completion features
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
