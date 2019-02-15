@@ -6,12 +6,14 @@ if [ "$(uname)" == 'Darwin' ]; then
   which ranger || brew install ranger
   which htop || brew install htop
   which autojump || brew install autojump
+  which convert || brew install imagemagick
 else
   which gpg || sudo apt install gpg
   which nvim || sudo apt install neovim
   which ranger || sudo apt install ranger
   which htop || sudo apt install htop
   which autojump || sudo apt install autojump
+  which convert || sudo apt install imagemagick
 fi 
 
 if ! which diff-so-fancy ; then
@@ -45,3 +47,4 @@ fi
 
 which rustup || (curl https://sh.rustup.rs -sSf | sh)
 which exa || cargo install exa
+which rls || cargo install rls
