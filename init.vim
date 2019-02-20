@@ -116,6 +116,9 @@ set spell spelllang=en_ca
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell!<CR>
 
+"Save with sudo
+cmap w!! w !sudo tee > /dev/null %
+
 "Splitting, atom style (ctrl-k [direction])
 " insert mode
 imap <C-k><left> <C-o>:abo vsp %<CR>
