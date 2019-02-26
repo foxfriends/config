@@ -2,7 +2,7 @@
 " Help:
 " ----------- | Navigation
 " C-\         | Show/hide tree view
-" g,          | - Open init.Vim (this file)
+" g,          | - Open init.vim (this file)
 " g'          | - Open manfest file (language dependent)
 " gd          | - Go to declaration
 " gl          | - Jump to line
