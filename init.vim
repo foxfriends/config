@@ -1,17 +1,23 @@
 ""
 " Help:
 " ----------- | Navigation
-" C-\         | Show/hide tree view
+" <C-\>       | Show/hide tree view
 " g,          | - Open init.Vim (this file)
 " g'          | - Open manfest file (language dependent)
 " gd          | - Go to declaration
 " gl          | - Jump to line
 " gL          | - Jump to line (any pane)
-" C-s         | - Jump to search (1 character)
+" <C-s>       | - Jump to search (1 character)
 " \w          | - Jump to word (down)
-" <enter>     | - Jump to word
+" <Enter>     | - Jump to word
 " <F9>        | - Open an embedded terminal
-" C-p         | - Fuzzy finder open file
+" <C-p>       | - Fuzzy finder open file
+" <A-asdf>    | - Change windows
+" <A-hjkl>    | - Move fast
+" ----------- | Spelling
+" <Space>f    | - Fix
+" <Space>s    | - Toggle
+" zg          | - Mark as ok
 " ----------- | Intellisense
 " H           | - Hover
 " <C-Space>   | - Autocomplete
@@ -28,17 +34,17 @@
 "      left   | - to the left
 "      right  | - to the right
 " ----------- | Formatting
-" tw          | Trim whitespace
-" ta          | Easy align
-"   ip=       | - align in paragraph on =
+" <Space>w    | Trim whitespace
+" <Space>a    | Easy align
+"         ip= | - align in paragraph on =
 " cs          | Change surroundings
 "   '"        | - from ' to "
 "   []        | - from [ ([] with spaces) to ] ([] with no spaces)
 " ys          | Add surroundings
 "   iw'       | - ' around word
 " ds          | Remove surroundings
-"   '         | - ' from
-" <C-l>       | Enter unicode as Latex
+"   '         | - ' around
+" <C-l>       | Enter Unicode as Latex
 " ----------- | Sessions
 " ss          | - Save session
 " sa          | - Save session as
@@ -83,7 +89,19 @@ set nocompatible
 
 " some ergonomics things
 let mapleader = " "
-inoremap jk <ESC>
+inoremap <A-p> <ESC>
+noremap <A-h> 10h
+noremap <A-j> 10j
+noremap <A-k> 10k
+noremap <A-l> 10l
+inoremap <A-a> <C-o><C-w>h
+inoremap <A-s> <C-o><C-w>j
+inoremap <A-d> <C-o><C-w>k
+inoremap <A-f> <C-o><C-w>l
+nnoremap <A-a> <C-w>h
+nnoremap <A-s> <C-w>j
+nnoremap <A-d> <C-w>k
+nnoremap <A-f> <C-w>l
 
 " auto indents
 filetype plugin indent on
@@ -113,8 +131,8 @@ colorscheme onedark
 
 " spelling
 set spell spelllang=en_ca
-nnoremap <leader>f 1z=
-nnoremap <leader>s :set spell!<CR>
+nnoremap <Leader>f 1z=
+nnoremap <Leader>s :set spell!<CR>
 
 "Splitting, atom style (ctrl-k [direction])
 " insert mode
