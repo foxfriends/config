@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[ ! -d "$HOME/bin" ] && mkdir "$HOME/bin"
+
 if [ "$(uname)" == 'Darwin' ]; then 
   which gpg || brew install gpg
   which nvim || brew install neovim
