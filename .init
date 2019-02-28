@@ -52,10 +52,15 @@ which rls || cargo install rls
 
 if [ ! -d "$HOME/.config/kitty/.git" ]; then
   rm -r "$HOME/.config/kitty"
-  git clone git@github.com:oinkiguana/config -branch kitty "$HOME/.config/kitty"
+  git clone git@github.com:oinkiguana/config --branch kitty "$HOME/.config/kitty"
 fi
 
 if [ ! -d "$HOME/.config/nvim/.git" ]; then
   rm -r "$HOME/.config/nvim"
-  git clone git@github.com:oinkiguana/config -branch nvim "$HOME/.config/nvim"
+  git clone git@github.com:oinkiguana/config --branch nvim "$HOME/.config/nvim"
+fi
+
+if [ ! -d "$HOME/.config/ranger/.git" ]; then
+  rm -r "$HOME/.config/ranger"
+  git clone git@github.com:oinkiguana/config --branch ranger "$HOME/.config/ranger"
 fi
