@@ -2,7 +2,7 @@
 " Help:
 " ----------- | Navigation
 " <C-\>       | Show/hide tree view
-" g,          | - Open init.Vim (this file)
+" g,          | - Open init.vim (this file)
 " g'          | - Open manfest file (language dependent)
 " gd          | - Go to declaration
 " gl          | - Jump to line
@@ -133,6 +133,9 @@ colorscheme onedark
 set spell spelllang=en_ca
 nnoremap <Leader>f 1z=
 nnoremap <Leader>s :set spell!<CR>
+
+"Save with sudo
+cmap w!! w !sudo tee > /dev/null %
 
 "Splitting, atom style (ctrl-k [direction])
 " insert mode
