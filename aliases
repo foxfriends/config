@@ -4,6 +4,8 @@ alias vi=nvim
 alias top=htop
 alias tree="git log --graph --oneline"
 
+alias cat="syncat"
+
 # enable colors in grep by default
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'

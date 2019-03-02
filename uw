@@ -8,10 +8,10 @@ function ssh-school {
     ssh -Y ckeldrid@linux.student.cs.uwaterloo.ca
   fi
 }
-scp-school() {
+function scp-school {
   scp "$1" "ckeldrid@linux.student.cs.uwaterloo.ca:$2"
 }
-scp-back() {
+function scp-back {
   scp "ckeldrid@linux.student.cs.uwaterloo.ca:$1" "$2"
 }
 

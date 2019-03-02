@@ -38,7 +38,7 @@ if ! shopt -oq posix; then
 fi
 
 # run the custom scripts in the config directory
-for file in $(ls "$HOME/.config/bash/"); do
+for file in $(ls "${HOME}/.config/bash/"); do
   . "$HOME/.config/bash/$file"
 done
 
