@@ -2,9 +2,9 @@
 alias icat="kitty +kitten icat"
 alias vi=nvim
 alias top=htop
-alias tree="git log --graph --oneline"
 
-alias cat="syncat"
+alias tree="git log --graph --abbrev-commit --decorate --format=format:'%C(bold 11)%h%C(reset)%C(bold green)%d%C(reset) %C(white)%s%C(reset) %C(dim 15)%an%C(reset)' --all"
+alias cat="syncat -gnef"
 
 # enable colors in grep by default
 alias grep='grep --color=auto'
