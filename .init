@@ -45,12 +45,15 @@ if ! which asdf ; then
   ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf install nodejs 11.9.0
   asdf global nodejs 11.9.0
-  npm i -g npm fx tldr undollar
+  npm i -g npm fx undollar
 fi
 
 which rustup || (curl https://sh.rustup.rs -sSf | sh)
 which exa || cargo install exa
 which rls || cargo install rls
+which tldr || cargo install tealdeer
+which hexyl || cargo install hexyl
+which hyperfine || cargo install hyperfine
 
 if [ ! -d "$HOME/.config/kitty/.git" ]; then
   rm -r "$HOME/.config/kitty"

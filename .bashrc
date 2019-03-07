@@ -26,7 +26,7 @@ shopt -s histappend
 HISTCONTROL=ignoreboth
 HISTSIZE=10000
 HISTFILESIZE=10000
-export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+export HISTIGNORE="&:[ ]*:exit:ls:la:lt:ll:bg:fg:history:clear"
 
 # enable programmable completion features
 if ! shopt -oq posix; then
