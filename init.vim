@@ -71,6 +71,8 @@ Plug 'vim-airline/vim-airline-themes'                                           
 Plug 'ctrlpvim/ctrlp.vim'                                                            " CtrlP fuzzy finder
 Plug 'junegunn/fzf'                                                                  " idk more fuzzy finder or something
 Plug 'junegunn/vim-easy-align'                                                       " auto align stuff
+Plug 'junegunn/goyo.vim'                                                             " distraction free writing
+Plug 'junegunn/limelight.vim'                                                        " spotlighting
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' } " language server support
 Plug 'jparise/vim-graphql'                                                           " GraphQL syntax highlighting
 Plug 'airblade/vim-gitgutter'                                                        " git addition/deletions in the left bar
@@ -111,6 +113,8 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set autoindent
+nnoremap <Leader><Tab> :set expandtab!<CR>
+
 " auto line wrap
 set textwidth=100
 " allow mouse controls...
@@ -128,6 +132,10 @@ set termguicolors
 syntax on
 set encoding=utf-8
 colorscheme onedark
+
+" goyo
+nnoremap <Leader>r :Goyo<CR>
+nnoremap <Leader>l :Limelight!!<CR>
 
 " spelling
 set spell spelllang=en_ca
