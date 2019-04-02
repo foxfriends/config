@@ -225,6 +225,7 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie', '--lsp'],
     \ 'lhaskell': ['hie', '--lsp'],
     \ 'ruby': ['language_server-ruby'],
+    \ 'dart': ['dart_language_server'],
     \ }
 let g:LanguageClient_autoStart = 1
 
