@@ -42,5 +42,8 @@ for file in $(ls "${HOME}/.config/bash/"); do
   . "$HOME/.config/bash/$file"
 done
 
+export GIT_EDITOR=nvim
+export EDITOR=nvim
+
 # Local stuff can be put in .bashrc2
 [ -f "$HOME/.bashrc2" ] && . "$HOME/.bashrc2"
