@@ -84,6 +84,8 @@ Plug 'tpope/vim-surround'                                                       
 Plug 'kshenoy/vim-signature'                                                         " handles and displays the marks
 Plug 'terryma/vim-multiple-cursors'                                                  " multiple cursor support
 Plug 'projectfluent/fluent.vim'                                                      " fluent syntax highlighting
+Plug 'murarth/ketos', { 'rtp': 'etc/vim' }                                           " ketos syntax highlighting
+Plug 'luochen1990/rainbow'                                                           " rainbow parentheses
 call plug#end()
 
 " fix the bugs?
@@ -115,8 +117,6 @@ set shiftwidth=2
 set autoindent
 nnoremap <Leader><Tab> :set expandtab!<CR>
 
-" auto line wrap
-set textwidth=100
 " allow mouse controls...
 set mouse=a
 " show line numbers
@@ -132,6 +132,10 @@ set termguicolors
 syntax on
 set encoding=utf-8
 colorscheme onedark
+
+" rainbow
+let g:rainbow_active = 0
+nnoremap <Leader>p :RainbowToggle<CR>
 
 " goyo
 nnoremap <Leader>r :Goyo<CR>
