@@ -88,6 +88,7 @@ Plug 'murarth/ketos', { 'rtp': 'etc/vim' }                                      
 Plug 'luochen1990/rainbow'                                                           " rainbow parentheses
 Plug 'arthurxavierx/vim-unicoder'                                                    " unicode input
 Plug 'SidOfc/mkdx'                                                                   " markdown improvements
+Plug 'LukeSmithxyz/vimling'                                                          " some other accents/IPA input
 call plug#end()
 
 " fix the bugs?
@@ -143,12 +144,14 @@ let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
                           \ 'links': { 'external': { 'enable': 1 } },
                           \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 } }
 
+nnoremap <leader><leader>i :call ToggleIPA()<CR>
+
 " rainbow
 let g:rainbow_active = 0
 nnoremap <Leader>p :RainbowToggle<CR>
 
 " goyo
-nnoremap <Leader>r :Goyo 100x100<CR>
+nnoremap <Leader>r :Goyo 100<CR>
 nnoremap <Leader>l :Limelight!!<CR>
 
 " spelling
