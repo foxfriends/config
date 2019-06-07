@@ -9,10 +9,6 @@ if test -f "/usr/share/autojump/autojump.fish"
   . "/usr/share/autojump/autojump.fish"
 end
 
-if test -f "$HOME/.asdf/asdf.fish"
-  . "$HOME/.asdf/asdf.fish"
-end
-
 alias icat="kitty +kitten icat"
 alias vi=nvim
 alias top=htop
