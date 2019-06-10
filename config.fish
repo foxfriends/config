@@ -34,3 +34,7 @@ alias sgit="git"
 if test -f "$HOME/.config.fish" 
   . "$HOME/.config.fish"
 end
+
+if test -x /usr/bin/lesspipe
+  eval (env SHELL=/bin/sh lesspipe)
+end
