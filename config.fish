@@ -10,8 +10,7 @@ if test -f "/usr/share/autojump/autojump.fish"
 end
 
 alias icat="kitty +kitten icat"
-alias vi=nvim
-alias top=htop
+alias vi="nvim"
 alias tree="git log --graph --oneline"
 
 # enable colors in grep by default
