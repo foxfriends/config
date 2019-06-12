@@ -2,24 +2,31 @@ function fish_prompt --description 'Write out the prompt'
   set last_status $status
   if test $last_status != '0'
     printf '%s[%s] ' \
-      (set_color red) \
+      (set_color $fish_color_status) \
       $last_status
   end
 
   printf '%s%s %s%s' \
-    (set_color yellow) \
+    (set_color $fish_color_user) \
     (whoami) \
-    (set_color purple) \
+    (set_color $fish_color_host) \
     (prompt_hostname)
 
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1
     printf ' %s %s' \
-      (set_color bryellow) \
+      (set_color $fish_color_vcs) \
       (git branch | grep \* | cut -d ' ' -f2)
   end
 
-  printf ' %s%s%s> ' \
-    (set_color green) \
-    (prompt_pwd) \
-    (set_color normal)
+  if test (id -u) -eq 0
+    printf ' %s%s%s# ' \
+      (set_color $fish_color_cwd_root) \
+      (prompt_pwd) \
+      (set_color normal)
+  else
+    printf ' %s%s%s> ' \
+      (set_color $fish_color_cwd) \
+      (prompt_pwd) \
+      (set_color normal)
+  end
 end
