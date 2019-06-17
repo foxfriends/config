@@ -29,6 +29,8 @@ alias l='exa'
 alias clearls="clear; ls"
 alias sgit="git"
 
+set -x -U GOPATH $HOME/code/go
+
 # Local stuff can be put in ~/.config,fish
 if test -f "$HOME/.config.fish" 
   . "$HOME/.config.fish"
