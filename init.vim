@@ -101,6 +101,7 @@ noremap <A-h> 10h
 noremap <A-j> 10j
 noremap <A-k> 10k
 noremap <A-l> 10l
+noremap zz :w<CR>
 inoremap <A-a> <C-o><C-w>h
 inoremap <A-s> <C-o><C-w>j
 inoremap <A-d> <C-o><C-w>k
@@ -152,7 +153,6 @@ nnoremap <Leader>p :RainbowToggle<CR>
 
 " goyo
 nnoremap <Leader>r :Goyo 100<CR>
-nnoremap <Leader>l :Limelight!!<CR>
 
 " spelling
 set spell spelllang=en_ca
