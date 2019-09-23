@@ -89,6 +89,8 @@ Plug 'luochen1990/rainbow'                                                      
 Plug 'arthurxavierx/vim-unicoder'                                                    " unicode input
 Plug 'SidOfc/mkdx'                                                                   " markdown improvements
 Plug 'LukeSmithxyz/vimling'                                                          " some other accents/IPA input
+Plug 'iberianpig/ranger-explorer.vim'                                                " integration with ranger
+Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger-explorer
 call plug#end()
 
 " fix the bugs?
@@ -183,7 +185,7 @@ nmap <C-k><down> :bel sp %<CR>
 nmap <C-k>j :bel sp %<CR>
 
 "Open this file (g ,)
-nmap g, :vsp ~/.config/nvim/init.vim<CR>
+nmap g, :n ~/.config/nvim/init.vim<CR>
 
 "Trim whitespace from end of lines
 nnoremap <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
@@ -256,7 +258,7 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 inoremap <C-Space> <C-x><C-o>
 
 "Tree view (Ctrl-\)
-map <C-\> :NERDTreeToggle<CR>
+"map <C-\> :NERDTreeToggle<CR>
 
 "Commenting
 "Toggle comment line/selection (Ctrl-/)
@@ -281,3 +283,10 @@ let g:ctrlp_custom_ignore = {
 "Conque-Shell
 "Open a terminal inside of vim (F9)
 nmap <F9> :ConqueTermVSplit bash<CR>
+
+"Ranger
+nnoremap <silent><Leader><C-\> :RangerOpenCurrentDir<CR>
+nnoremap <silent><C-\> :RangerOpenProjectRootDir<CR>
+
+let g:ranger_explorer_keymap_split   = 'i'
+let g:ranger_explorer_keymap_vsplit  = 's'
