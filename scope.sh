@@ -87,12 +87,16 @@ case "$extension" in
     # ODT Files
     odt|ods|odp|sxw)
         try odt2txt "$path" && { dump | trim; exit 5; } || exit 1;;
+    # Markdown Documents
+    md)
+        try paper -s -w $width -m 1 "$path" && { dump | trim; exit 4; } || exit 1;;
     # HTML Pages:
     htm|html|xhtml)
         try w3m    -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         try lynx   -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         try elinks -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
-        ;; # fall back to highlight/cat if the text browsers fail
+        # fall back to highlight/cat if the text browsers fail
+        ;; 
 esac
 
 case "$mimetype" in
@@ -105,6 +109,7 @@ case "$mimetype" in
             pygmentize_format=terminal
             highlight_format=ansi
         fi
+        try safepipe syncat "$path" -en && { dump | trim; exit 5; }
         try safepipe highlight --out-format=${highlight_format} "$path" && { dump | trim; exit 5; }
         try safepipe pygmentize -f ${pygmentize_format} "$path" && { dump | trim; exit 5; }
         exit 2;;
