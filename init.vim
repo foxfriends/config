@@ -89,8 +89,8 @@ Plug 'luochen1990/rainbow'                                                      
 Plug 'arthurxavierx/vim-unicoder'                                                    " unicode input
 Plug 'SidOfc/mkdx'                                                                   " markdown improvements
 Plug 'LukeSmithxyz/vimling'                                                          " some other accents/IPA input
-Plug 'iberianpig/ranger-explorer.vim'                                                " integration with ranger
-Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger-explorer
+Plug 'francoiscabrol/ranger.vim'                                                     " integration with ranger
+Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger integration
 call plug#end()
 
 " fix the bugs?
@@ -285,8 +285,6 @@ let g:ctrlp_custom_ignore = {
 nmap <F9> :ConqueTermVSplit bash<CR>
 
 "Ranger
-nnoremap <silent><Leader><C-\> :RangerOpenCurrentDir<CR>
-nnoremap <silent><C-\> :RangerOpenProjectRootDir<CR>
-
-let g:ranger_explorer_keymap_split   = 'i'
-let g:ranger_explorer_keymap_vsplit  = 's'
+let g:ranger_replace_netrw = 1
+nnoremap <silent><Leader>\ :Ranger<CR>
+nnoremap <silent><C-\> :RangerWorkingDirectory<CR>
