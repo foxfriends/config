@@ -52,6 +52,8 @@
 " so          | - Open default session
 ""
 
+set shell=bash
+
 "Install the plugin thing if it isn't installed yet
 "note that it only auto-installs the first time. Later modifications must be
 "run manually with :PlugInstall
@@ -94,7 +96,8 @@ Plug 'rbgrouleff/bclose.vim'                                                    
 call plug#end()
 
 " fix the bugs?
-set nocompatible
+set nocompatible      " fixes for weird keybindings
+set backupcopy=yes    " fixes for file watchers
 
 " some ergonomics things
 let mapleader = " "
@@ -142,7 +145,7 @@ colorscheme onedark
 " markdown
 let g:polyglot_disabled = ['markdown']
 let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
-                          \ 'map': { 'prefix': '<leader>', 'enable': 1 }, 
+                          \ 'map': { 'prefix': '<leader>', 'enable': 1 },
                           \ 'tokens': { 'bold': '__', 'italic': '*', 'strike': '~', 'list': '*', 'fence': '`', 'header': '#' },
                           \ 'links': { 'external': { 'enable': 1 } },
                           \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 } }
@@ -183,6 +186,14 @@ nmap <C-k><up> :abo sp %<CR>
 nmap <C-k>k :abo sp %<CR>
 nmap <C-k><down> :bel sp %<CR>
 nmap <C-k>j :bel sp %<CR>
+
+" tabs navigation
+nnoremap <Leader>t :tabnew<CR>
+nnoremap <Leader><Left> :tabp<CR>
+nnoremap <Leader><Right> :tabn<CR>
+
+"Open this file (g ,)
+nmap g, :n ~/.config/nvim/init.vim<CR>
 
 "Open this file (g ,)
 nmap g, :n ~/.config/nvim/init.vim<CR>
@@ -285,6 +296,30 @@ let g:ctrlp_custom_ignore = {
 nmap <F9> :ConqueTermVSplit bash<CR>
 
 "Ranger
+let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
 nnoremap <silent><Leader>\ :Ranger<CR>
 nnoremap <silent><C-\> :RangerWorkingDirectory<CR>
+
+function! InvertMeaning ()
+  normal! "iyiw
+  echom @i
+  let mappings = {
+    \ "true": "false",
+    \ "false": "true",
+    \ "1": "0",
+    \ "0": "1",
+    \ "max": "min",
+    \ "<": ">",
+    \ ">": "<",
+    \ ">=": "<=",
+    \ "<=": ">=",
+    \ "!=": "==",
+    \ "==": "!=",
+    \ }
+  if has_key(mappings, @i)
+    execute "normal! ciw" . mappings[@i]
+  endif
+endfunction
+
+nnoremap <Leader>i :call InvertMeaning()<CR><Esc>
