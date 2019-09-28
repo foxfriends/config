@@ -116,6 +116,18 @@ nnoremap <A-s> <C-w>j
 nnoremap <A-d> <C-w>k
 nnoremap <A-f> <C-w>l
 
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<Leader>n'
+let g:multi_cursor_select_all_word_key = '<Leader>N'
+let g:multi_cursor_start_key           = '<Leader>gn'
+let g:multi_cursor_select_all_key      = '<Leader>gN'
+let g:multi_cursor_next_key            = '<Leader><C-n>'
+let g:multi_cursor_prev_key            = '<Leader><C-N>'
+let g:multi_cursor_skip_key            = '<Leader><A-n>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
 " auto indents
 filetype plugin indent on
 set backspace=2
