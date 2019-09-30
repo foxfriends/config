@@ -95,6 +95,7 @@ Plug 'francoiscabrol/ranger.vim'                                                
 Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger integration
 Plug 'jceb/vim-orgmode'                                                              " emacs org-mode for vim
 Plug 'tpope/vim-speeddating'                                                         " better date support for increment
+Plug 'idanarye/breeze.vim'                                                           " easymotion for HTML
 call plug#end()
 
 " fix the bugs?
