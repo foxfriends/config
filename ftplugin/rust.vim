@@ -1,2 +1,1 @@
-" Open Cargo.toml from .rs files
-nnoremap g' :vsp Cargo.toml<CR>
+nnoremap <buffer> g' :vsp Cargo.toml<CR>
