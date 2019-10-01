@@ -93,6 +93,7 @@ Plug 'SidOfc/mkdx'                                                              
 Plug 'LukeSmithxyz/vimling'                                                          " some other accents/IPA input
 Plug 'francoiscabrol/ranger.vim'                                                     " integration with ranger
 Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger integration
+Plug 'evanleck/vim-svelte'                                                           " svelte syntax highlighting
 call plug#end()
 
 " fix the bugs?
@@ -290,6 +291,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff|target)$',
     \ 'file': '\v\.(exe|so|dll|DS_store|swp)$',
     \ }
+nnoremap <Leader><C-P> :CtrlPClearAllCaches<CR>
 
 "Conque-Shell
 "Open a terminal inside of vim (F9)
