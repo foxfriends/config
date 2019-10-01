@@ -93,6 +93,9 @@ Plug 'SidOfc/mkdx'                                                              
 Plug 'LukeSmithxyz/vimling'                                                          " some other accents/IPA input
 Plug 'francoiscabrol/ranger.vim'                                                     " integration with ranger
 Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger integration
+Plug 'jceb/vim-orgmode'                                                              " emacs org-mode for vim
+Plug 'tpope/vim-speeddating'                                                         " better date support for increment
+Plug 'idanarye/breeze.vim'                                                           " easymotion for HTML
 call plug#end()
 
 " fix the bugs?
@@ -203,6 +206,9 @@ nmap <C-k>j :bel sp %<CR>
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader><Left> :tabp<CR>
 nnoremap <Leader><Right> :tabn<CR>
+
+" buffers navigation
+nnoremap gb :ls<CR>:b<Space>
 
 "Open this file (g ,)
 nmap g, :n ~/.config/nvim/init.vim<CR>
