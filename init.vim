@@ -94,6 +94,9 @@ Plug 'LukeSmithxyz/vimling'                                                     
 Plug 'francoiscabrol/ranger.vim'                                                     " integration with ranger
 Plug 'rbgrouleff/bclose.vim'                                                         " required for ranger integration
 Plug 'evanleck/vim-svelte'                                                           " svelte syntax highlighting
+Plug 'jceb/vim-orgmode'                                                              " emacs org-mode for vim
+Plug 'tpope/vim-speeddating'                                                         " better date support for increment
+Plug 'idanarye/breeze.vim'                                                           " easymotion for HTML
 call plug#end()
 
 " fix the bugs?
@@ -116,6 +119,18 @@ nnoremap <A-a> <C-w>h
 nnoremap <A-s> <C-w>j
 nnoremap <A-d> <C-w>k
 nnoremap <A-f> <C-w>l
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<Leader>n'
+let g:multi_cursor_select_all_word_key = '<Leader>N'
+let g:multi_cursor_start_key           = '<Leader>gn'
+let g:multi_cursor_select_all_key      = '<Leader>gN'
+let g:multi_cursor_next_key            = '<Leader><C-n>'
+let g:multi_cursor_prev_key            = '<Leader><C-N>'
+let g:multi_cursor_skip_key            = '<Leader><A-n>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " auto indents
 filetype plugin indent on
@@ -192,6 +207,9 @@ nmap <C-k>j :bel sp %<CR>
 nnoremap <Leader>t :tabnew<CR>
 nnoremap <Leader><Left> :tabp<CR>
 nnoremap <Leader><Right> :tabn<CR>
+
+" buffers navigation
+nnoremap gb :ls<CR>:b<Space>
 
 "Open this file (g ,)
 nmap g, :n ~/.config/nvim/init.vim<CR>
@@ -312,6 +330,7 @@ function! InvertMeaning ()
     \ "1": "0",
     \ "0": "1",
     \ "max": "min",
+    \ "min": "max",
     \ "<": ">",
     \ ">": "<",
     \ ">=": "<=",
