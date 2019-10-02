@@ -306,7 +306,7 @@ let g:airline_theme = 'bubblegum'
 "CtrlP Fuzzy finder
 "Some directories and stuff to skip. Makes it faster if you skip a lot
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff|target)$',
+    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff|target|dist)$',
     \ 'file': '\v\.(exe|so|dll|DS_store|swp)$',
     \ }
 nnoremap <Leader><C-P> :CtrlPClearAllCaches<CR>
