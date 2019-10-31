@@ -187,6 +187,7 @@ set spell spelllang=en_ca
 nnoremap <Leader>f 1z=
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>g zg
+set nospell
 
 nnoremap zg zz
 
