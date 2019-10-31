@@ -75,7 +75,6 @@ Plug 'junegunn/fzf'                                                             
 Plug 'junegunn/vim-easy-align'                                                       " auto align stuff
 Plug 'junegunn/goyo.vim'                                                             " distraction free writing
 Plug 'junegunn/limelight.vim'                                                        " spotlighting
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' } " language server support
 Plug 'jparise/vim-graphql'                                                           " GraphQL syntax highlighting
 Plug 'airblade/vim-gitgutter'                                                        " git addition/deletions in the left bar
 Plug 'easymotion/vim-easymotion'                                                     " jumping around
@@ -97,11 +96,19 @@ Plug 'evanleck/vim-svelte'                                                      
 Plug 'jceb/vim-orgmode'                                                              " emacs org-mode for vim
 Plug 'tpope/vim-speeddating'                                                         " better date support for increment
 Plug 'idanarye/breeze.vim'                                                           " easymotion for HTML
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                                      " coc language client
 call plug#end()
 
 " fix the bugs?
 set nocompatible      " fixes for weird keybindings
+set nobackup
+set nowritebackup
 set backupcopy=yes    " fixes for file watchers
+
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 " some ergonomics things
 let mapleader = " "
@@ -166,14 +173,14 @@ let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
                           \ 'links': { 'external': { 'enable': 1 } },
                           \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 } }
 
-nnoremap <leader><leader>i :call ToggleIPA()<CR>
+nnoremap <leader>mi :call ToggleIPA()<CR>
 
 " rainbow
 let g:rainbow_active = 0
-nnoremap <Leader>p :RainbowToggle<CR>
+nnoremap <Leader>mp :RainbowToggle<CR>
 
 " goyo
-nnoremap <Leader>r :Goyo 100<CR>
+nnoremap <Leader>mr :Goyo 100<CR>
 
 " spelling
 set spell spelllang=en_ca
@@ -225,13 +232,13 @@ nnoremap <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "Git
 " `git status` (g s)
-nmap gs :Gstatus<CR>
+nmap <Leader>gs :Gstatus<CR>
 " `git commit` (g c)
-nmap gc :Gcommit<CR>
+nmap <Leader>gc :Gcommit<CR>
 " `git push` (g p)
-nmap gp :Gpush<CR>
+nmap <Leader>gp :Gpush<CR>
 " `git add -A` (g a)
-nmap ga :silent !git add -A<CR>
+nmap <Leader>ga :silent !git add -A<CR>
 " `git add` this file (+)
 nmap + :silent !git add %<CR>
 " `git reset` this file (-)
@@ -270,28 +277,9 @@ nmap sl :SessionList<CR>
 
 "Language server integration
 set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ 'javascript': ['flow', 'lsp'],
-    \ 'javascript.jsx': ['flow', 'lsp'],
-    \ 'haskell': ['hie', '--lsp'],
-    \ 'lhaskell': ['hie', '--lsp'],
-    \ 'ruby': ['language_server-ruby'],
-    \ 'dart': ['dart_language_server'],
-    \ }
-let g:LanguageClient_autoStart = 1
-
-" Get information about current symbol (H)
-nnoremap <silent> H :call LanguageClient_textDocument_hover()<CR>
-" Go to definition (g d)
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" Refactor rename (F2)
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-" Suggestions (Ctrl-Space)
-inoremap <C-Space> <C-x><C-o>
 
 "Tree view (Ctrl-\)
-"map <C-\> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
 
 "Commenting
 "Toggle comment line/selection (Ctrl-/)
@@ -300,7 +288,7 @@ vmap <C-_> <leader>ci
 imap <C-_> <C-o><leader>ci
 
 "Airline
-"Make sure you install a Powerline version of a font. I suggest Hack or Fira Code
+"Make sure you install a Powerline version of a font. I suggest Fira Code
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 "Pick a nice colour
@@ -316,7 +304,8 @@ nnoremap <Leader><C-P> :CtrlPClearAllCaches<CR>
 
 "Conque-Shell
 "Open a terminal inside of vim (F9)
-nmap <F9> :ConqueTermVSplit bash<CR>
+" nmap <F9> :ConqueTermVSplit bash<CR>
+nmap <F9> <Plug>(coc-terminal-toggle)
 
 "Ranger
 let g:ranger_map_keys = 0
@@ -347,3 +336,43 @@ function! InvertMeaning ()
 endfunction
 
 nnoremap <Leader>i :call InvertMeaning()<CR><Esc>
+
+"coc
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> <Leader>r <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
