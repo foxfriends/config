@@ -17,7 +17,7 @@
 " ----------- | Spelling
 " <Space>f    | - Fix
 " <Space>s    | - Toggle
-" zg          | - Mark as ok
+" <Space>g    | - Mark as ok
 " ----------- | Intellisense
 " H           | - Hover
 " <C-Space>   | - Autocomplete
@@ -179,6 +179,9 @@ nnoremap <Leader>r :Goyo 100<CR>
 set spell spelllang=en_ca
 nnoremap <Leader>f 1z=
 nnoremap <Leader>s :set spell!<CR>
+nnoremap <Leader>g zg
+
+nnoremap zg zz
 
 "Save with sudo
 cmap w!! w !sudo tee > /dev/null %
@@ -306,7 +309,7 @@ let g:airline_theme = 'bubblegum'
 "CtrlP Fuzzy finder
 "Some directories and stuff to skip. Makes it faster if you skip a lot
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff|target|dist)$',
+    \ 'dir': '\v[\/](\.(git|hg|svn|build)|node_modules|Pods|elm-stuff|target|dist|vendor)$',
     \ 'file': '\v\.(exe|so|dll|DS_store|swp)$',
     \ }
 nnoremap <Leader><C-P> :CtrlPClearAllCaches<CR>
