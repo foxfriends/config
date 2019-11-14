@@ -92,16 +92,17 @@ case "$extension" in
         try paper -s -w $width -m 1 "$path" && { dump | trim; exit 4; } || exit 1;;
     # HTML Pages:
     htm|html|xhtml)
-        try w3m    -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
-        try lynx   -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
-        try elinks -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
+        # I don't like this, so let's change it
+        #try w3m    -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
+        #try lynx   -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
+        #try elinks -dump "$path" && { dump | trim | fmt -s -w $width; exit 4; }
         # fall back to highlight/cat if the text browsers fail
         ;; 
 esac
 
 case "$mimetype" in
     # Syntax highlight for text files:
-    text/* | */xml)
+    text/* | */xml | image/svg)
         if [ "$(tput colors)" -ge 256 ]; then
             pygmentize_format=terminal256
             highlight_format=xterm256
