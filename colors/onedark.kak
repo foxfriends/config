@@ -21,19 +21,22 @@ evaluate-commands %sh{
         face global value ${base09}
         face global type ${base0A}
         face global identifier ${base08}
+        face global field ${base08}
         face global string ${base0B}
         face global keyword ${base0E}
-        face global operator ${base05}
-        face global attribute ${base0C}
+        face global operator ${base0E}
+        face global attribute ${base0E}
         face global comment ${base03}+i
-        face global meta ${base0D}
-        face global builtin ${base0D}
+        face global meta ${base0C}
+        face global builtin ${base0C}
+        face global function ${base0D}
+        face global module ${base08}+i
     "
 
     ## markup
     echo "
-        face global title ${base0D}+b
-        face global header ${base0D}+b
+        face global title ${base08}+b
+        face global header ${base08}+b
         face global bold ${base0A}+b
         face global italic ${base0E}+i
         face global mono ${base0B}
@@ -65,5 +68,11 @@ evaluate-commands %sh{
         face global Prompt ${base0D}
         face global MatchingChar ${base06},${base02}+b
         face global BufferPadding ${base03},${base00}
+    "
+
+    ## LSP
+    echo "
+        face global DiagnosticError ${base08}
+        face global DiagnosticWarning ${base0A}
     "
 }
