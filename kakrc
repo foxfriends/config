@@ -20,12 +20,6 @@ plug 'delapouite/kakoune-buffers' %{
     map global normal B ': enter-user-mode -lock buffers<ret>' -docstring 'buffers (lock)'
 }
 
-plug "andreyorst/smarttab.kak" defer smarttab %{
-    # set-option global softtabstop 4
-} config %{
-    # expandtab
-}
-
 plug "andreyorst/powerline.kak" defer powerline %{
     powerline-theme tomorrow-night
 } config %{
@@ -50,7 +44,9 @@ plug "ul/kak-lsp" do %{
 }
 
 colorscheme onedark
-add-highlighter global/ number-lines
+add-highlighter global/ number-lines -separator ' │ ' -hlcursor
+add-highlighter global/ show-matching
+add-highlighter global/ show-whitespaces -lf '¬' -spc '·' -nbsp '␣' -tab '⇥'
 
 set global tabstop 4
 set global indentwidth 4
