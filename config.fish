@@ -5,7 +5,6 @@ if command -v pazi >/dev/null
 end
 
 alias icat="kitty +kitten icat"
-alias vi="nvim"
 alias tree="git log --graph --oneline"
 
 # enable colors in grep by default
