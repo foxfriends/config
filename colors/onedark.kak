@@ -1,7 +1,7 @@
 evaluate-commands %sh{
     background='rgb:282c34'
     background_hl='rgb:3e4451'
-    gutter='rgb:293133'
+    gutter='rgb:2f383b'
     comment='rgb:545862'
     text='rgb:abb2bf'
     field='rgb:e06c75'
@@ -45,10 +45,10 @@ evaluate-commands %sh{
     ## builtin
     echo "
         face global Default ${text},${background}
-        face global PrimarySelection ${text},${background_hl}
-        face global SecondarySelection ${text},${gutter}+i
+        face global PrimarySelection default,${background_hl}
+        face global SecondarySelection default,${gutter}+i
         face global PrimaryCursor ${background},${text}
-        face global SecondaryCursor ${text},${background_hl}
+        face global SecondaryCursor default,${background_hl}+i
         face global LineNumbers ${background_hl},${background}
         face global LineNumberCursor ${type},${background}
         face global MenuForeground ${background},${function}
@@ -64,7 +64,7 @@ evaluate-commands %sh{
         face global Prompt ${function}
         face global MatchingChar ${text},${background_hl}
         face global BufferPadding ${background_hl},${background}
-        face global Whitespace ${background_hl}+F
+        face global Whitespace ${background_hl}+f
     "
 
     ## LSP
