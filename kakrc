@@ -61,5 +61,6 @@ map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
 map global user z ': w<ret>' -docstring 'save'
 map global user Z ': wq<ret>' -docstring 'save and quit'
 map global user , ': edit ~/.config/kak/kakrc<ret>' -docstring 'open configuration file'
+map global user '\' ': ranger<ret>' -docstring 'use ranger to open a file'
 
 alias global wqa write-all-quit
