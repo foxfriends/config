@@ -28,6 +28,7 @@ map global user z ': w<ret>' -docstring 'save'
 map global user Z ': wq<ret>' -docstring 'save and quit'
 map global user , ': edit ~/.config/kak/kakrc<ret>' -docstring 'open configuration file'
 map global user '\' ': ranger<ret>' -docstring 'use ranger to open a file'
+map global user w '%s +$<ret>d<space>'
 
 # alias for old habits
 alias global wqa write-all-quit
