@@ -47,7 +47,7 @@ evaluate-commands %sh{
         face global Default ${text},${background}
         face global PrimarySelection default,${background_hl}
         face global SecondarySelection default,${gutter}+i
-        face global PrimaryCursor ${background},${text}
+        face global PrimaryCursor default,${background_hl}+u
         face global SecondaryCursor default,${background_hl}+i
         face global LineNumbers ${background_hl},${background}
         face global LineNumberCursor ${type},${background}
@@ -67,9 +67,12 @@ evaluate-commands %sh{
         face global Whitespace ${background_hl}+f
     "
 
+    echo "hook global ModeChange '.*:insert' %{ face global PrimaryCursor ${background},${text} }"
+    echo "hook global ModeChange '.*:normal' %{ face global PrimaryCursor default,${background_hl}+u }"
+
     ## LSP
     echo "
-        face global DiagnosticError ${field}
-        face global DiagnosticWarning ${type}
+        face global DiagnosticError default+u
+        face global DiagnosticWarning default+u
     "
 }
