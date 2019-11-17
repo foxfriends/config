@@ -20,7 +20,7 @@ map global normal <space> ,
 
 # indent/unindent while in insert mode
 map global insert <s-tab> '<a-;><lt>'
-map global insert <tab> '<a-;><gt>'
+map global insert <tab> '<a-;><a-gt>'
 
 # user mode commands
 map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
