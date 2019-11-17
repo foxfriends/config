@@ -1,9 +1,6 @@
 # plugins
 source "%val{config}/plugins.kak"
 
-# custom highlighting files
-source "%val{config}/highlighting/rust.kak"
-
 # visuals
 colorscheme onedark
 add-highlighter global/ number-lines -separator ' │ ' -hlcursor
