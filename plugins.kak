@@ -41,3 +41,5 @@ plug "ul/kak-lsp" do %{
     lsp-enable
     set-option global lsp_diagnostic_line_warning_sign "⚠"
 }
+
+plug 'https://gitlab.com/Screwtapello/kakoune-cargo'
