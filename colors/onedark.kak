@@ -42,17 +42,25 @@ evaluate-commands %sh{
         face global list ${field}
     "
 
+    ## custom
+    echo "
+        face global NormalCursor default,${background_hl}
+        face global InsertCursor ${background},${text}
+    "
+
     ## builtin
     echo "
         face global Default ${text},${background}
-        face global PrimarySelection default,${background_hl}
+        face global PrimarySelection default,${gutter}
         face global SecondarySelection default,${gutter}+i
-        face global PrimaryCursor default,${background_hl}+u
+        face global PrimaryCursor NormalCursor
+        face global PrimaryCursorEol ${background}+f@PrimaryCursor
         face global SecondaryCursor default,${background_hl}+i
+        face global SecondaryCursorEol ${background}+f@SecondaryCursor
         face global LineNumbers ${background_hl},${background}
         face global LineNumberCursor ${type},${background}
-        face global MenuForeground ${background},${function}
-        face global MenuBackground ${background},${builtin}
+        face global MenuForeground ${background},${type}+b
+        face global MenuBackground ${background},${text}
         face global MenuInfo ${background_hl}
         face global Information ${background},${type}
         face global Error ${background},${field}
@@ -62,13 +70,14 @@ evaluate-commands %sh{
         face global StatusLineValue ${builtin}
         face global StatusCursor ${background},${text}
         face global Prompt ${function}
-        face global MatchingChar ${text},${background_hl}
+        face global MatchingChar default,${background_hl}
+        face global Reference default+u
         face global BufferPadding ${background_hl},${background}
         face global Whitespace ${background_hl}+f
     "
 
-    echo "hook global ModeChange '.*:insert' %{ face global PrimaryCursor ${background},${text} }"
-    echo "hook global ModeChange '.*:normal' %{ face global PrimaryCursor default,${background_hl}+u }"
+    echo "hook global ModeChange '.*:insert' %{ face global PrimaryCursor @InsertCursor }"
+    echo "hook global ModeChange '.*:normal' %{ face global PrimaryCursor @NormalCursor }"
 
     ## LSP
     echo "

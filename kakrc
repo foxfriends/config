@@ -19,13 +19,24 @@ map global normal <space> ,
 map global insert <s-tab> '<a-;><lt>'
 map global insert <tab> '<a-;><a-gt>'
 
+# get hover info
+map global insert <c-k> '<a-;>: lsp-hover<ret>'
+map global normal <c-k> '<a-;>: lsp-hover<ret>'
+
+# word movement with arrow keys in insert mode
+map global normal <c-right> 'w'
+map global normal <c-left> 'b'
+map global insert <c-right> '<a-;>w'
+map global insert <c-left> '<a-;>b'
+
 # user mode commands
 map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
 map global user z ': w<ret>' -docstring 'save'
 map global user Z ': wq<ret>' -docstring 'save and quit'
 map global user , ': edit ~/.config/kak/kakrc<ret>' -docstring 'open configuration file'
 map global user '\' ': ranger<ret>' -docstring 'use ranger to open a file'
-map global user w '%s +$<ret>d<space>'
+map global user w '%s +$<ret>d<space>' -docstring 'trim whitespace from end of lines'
+map global user k ': enter-user-mode lsp<ret>' -docstring 'lsp'
 
 # alias for old habits
 alias global wqa write-all-quit

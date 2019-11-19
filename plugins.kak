@@ -38,8 +38,11 @@ plug 'delapouite/kakoune-mirror' %{
 plug "ul/kak-lsp" do %{
     cargo install --locked --force --path .
 } config %{
-    lsp-enable
     set-option global lsp_diagnostic_line_warning_sign "⚠"
+
+    hook global WinSetOption filetype=(rust) %{
+        lsp-enable-window
+    }
 }
 
 plug 'https://gitlab.com/Screwtapello/kakoune-cargo'

@@ -51,13 +51,18 @@ add-highlighter shared/rust/attribute        region "#\[" "\]"                  
 
 add-highlighter shared/rust/code/operator     regex (\[|\]|=|==|!=|\+=|-=|\*=|/=|%=|<|>|<=|>=|=>|->|\+|-|/|\*|%|~|\||\|\||&|&&|!|^|\?|<<|>>|<<=|>>=|:|::|\.) 1:operator
 
-add-highlighter shared/rust/code/number       regex \b(0|([1-9][0-9_]*)(\.[0-9]*)?(e[+-]?[1-9][0-9]*)?|0x[0-9A-Fa-f]+|0b[01]+)?\b 1:value
+add-highlighter shared/rust/code/zero         regex \b(0([ui](8|16|32|64|128|size)|f(32|64|size))?)\b 1:value
+add-highlighter shared/rust/code/decimal-int  regex \b([1-9][0-9_]*([ui](8|16|32|64|128|size))?)\b 1:value
+add-highlighter shared/rust/code/float        regex \b([1-9][0-9_]*(\.[0-9_]*)?(e[+-]?[1-9][0-9_]*)?(f(32|64|size))?)\b 1:value
+add-highlighter shared/rust/code/hex-int      regex \b(0x[0-9A-Fa-f_]+([ui](8|16|32|64|128|size))?)\b 1:value
+add-highlighter shared/rust/code/octal-int    regex \b(0o[0-7_]+([ui](8|16|32|64|128|size))?)\b 1:value
+add-highlighter shared/rust/code/binary-int   regex \b(0b[01_]+)([ui](8|16|32|64|128|size))?\b 1:value
 add-highlighter shared/rust/code/character    regex ('([^'\\]|\\'|\\\\|\\u\{[0-9a-fA-F]{1,4}\})') 1:value
 add-highlighter shared/rust/code/bool         regex \b(true|false)\b 1:value
 
 add-highlighter shared/rust/code/module       regex ^\s*mod\s+((r#)?[a-zA-Z_][a-zA-Z0-9_]*) 1:module
 add-highlighter shared/rust/code/namespace    regex \b((r#)?[a-z][a-zA-Z0-9_]*)(\s*)(?=::[^<]) 1:module
-add-highlighter shared/rust/code/keyword      regex \b(?<!r#)(use|mod|struct|enum|async|fn|trait|impl|return|if|match|where|in|as|else|for|loop|const|static|let|mut|ref|dyn|box|pub|crate|super|extern|move)\b 1:keyword
+add-highlighter shared/rust/code/keyword      regex \b(?<!r#)(use|mod|struct|enum|async|fn|trait|impl|return|if|match|where|in|as|else|for|loop|const|static|let|mut|ref|dyn|box|pub|crate|super|extern|move|break|continue)\b 1:keyword
 
 add-highlighter shared/rust/code/type         regex \b((r#)?[A-Z][a-zA-Z0-9_]*)\b 1:type
 add-highlighter shared/rust/code/constant     regex \b((r#)?[A-Z_]+)\b 1:value
