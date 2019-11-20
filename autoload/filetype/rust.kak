@@ -34,7 +34,6 @@ hook global WinSetOption filetype=rust %{
     set window formatcmd 'rustfmt'
 }
 
-
 provide-module rust %§
 
 # Highlighters
