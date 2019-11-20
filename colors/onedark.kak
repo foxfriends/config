@@ -23,6 +23,7 @@ evaluate-commands %sh{
         face global operator ${keyword}
         face global attribute ${keyword}
         face global comment ${comment}+i
+        face global doc_comment ${comment}+b
         face global meta ${builtin}
         face global builtin ${builtin}
         face global function ${function}
