@@ -9,7 +9,8 @@ define-command -docstring "open ranger to pick a file" ranger %{ evaluate-comman
             # portable shebang
             printf "%s\n" "#!${shell_path}"
         fi
-        printf "%s\n" "cd \"${PWD}\" && ranger --choosefile=${result}"
+        start=$(dirname ${kak_buffile})
+        printf "%s\n" "cd \"${PWD}\" && ranger --choosefile=${result} ${start}"
         printf "%s\n" "rm ${rangercmd}"
     ) >> ${rangercmd}
     chmod 755 ${rangercmd}
