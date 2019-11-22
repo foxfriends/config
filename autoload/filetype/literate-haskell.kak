@@ -20,7 +20,14 @@ hook global WinSetOption filetype=literate-haskell %{
     hook window ModeChange pop:insert:.* -group literate-haskell-trim-indent  literate-haskell-trim-indent
     hook window InsertChar \n -group literate-haskell-indent literate-haskell-indent-on-new-line
 
-    hook -once -always window WinSetOption filetype=.* %{ remove-hooks window literate-haskell-.+ }
+    hook -once -always window WinSetOption filetype=.* %{
+        remove-hooks window literate-haskell-.+
+        unmap window insert <tab>
+        unmap window insert <s-tab>
+    }
+
+    map window insert <tab> '<a-;>: literate-haskell-smart-indent<ret>'
+    map window insert <s-tab> '<a-;>: literate-haskell-smart-unindent<ret>'
 }
 
 hook -group literate-haskell-highlight global WinSetOption filetype=literate-haskell %{
@@ -124,6 +131,29 @@ define-command -hidden literate-haskell-indent-on-new-line %{
         # indent after lines beginning with condition or ending with expression or =(
         # TODO: support indenting with bird markers, and use that here
         # try %{ execute-keys -draft <semicolon> k x <a-k> ^>?\h*(if)|(case\h+[\w']+\h+of|do|let|where|[=(])$ <ret> j <a-gt> }
+    }
+}
+
+define-command -hidden literate-haskell-smart-indent %{
+    try %{ # try and indent as if on normal text
+        execute-keys -draft Gh <a-k> \A\h+\z <ret> <a-gt>
+        execute-keys <esc>gh<a-i><space>li
+    } catch %{
+        try %{ # then try to indent as if bird text
+            execute-keys -draft Gh <a-k> \A>\h*\z <ret> li <space><space><space><space>
+            execute-keys <esc>ghl<a-i><space>li
+        } catch %{ # default to the insert spaces tactic
+            # TODO: this could be smarter and indent to the next tab stop instead of just inserting 4 chars
+            execute-keys <space><space><space><space>
+        }
+    }
+}
+
+define-command -hidden literate-haskell-smart-unindent %{
+    try %{ # try and indent as if on normal text
+        execute-keys -draft ghLLLL <a-k> \A>\h{4}\z <ret> <semicolon>HHHd
+    } catch %{
+        execute-keys -draft <a-lt>
     }
 }
 

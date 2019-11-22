@@ -15,9 +15,9 @@ set global indentwidth 4
 map global normal , <space>
 map global normal <space> ,
 
-# indent/unindent while in insert mode
-map global insert <s-tab> '<a-;><lt>'
-map global insert <tab> '<a-;><a-gt>'
+# better indentation in insert mode
+map global insert <tab> '<a-;>: smart-indent<ret>'
+map global insert <s-tab> '<a-;>: smart-unindent<ret>'
 
 # get hover info
 map global insert <c-k> '<a-;>: lsp-hover<ret>'
