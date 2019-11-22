@@ -21,7 +21,10 @@ map global insert <tab> '<a-;><a-gt>'
 
 # get hover info
 map global insert <c-k> '<a-;>: lsp-hover<ret>'
-map global normal <c-k> '<a-;>: lsp-hover<ret>'
+map global normal <c-k> ': lsp-hover<ret>'
+
+# insert mode word delete
+map global insert <a-backspace> '<a-;>b<a-;><a-d>'
 
 # word movement with arrow keys in insert mode
 map global normal <c-right> 'w'

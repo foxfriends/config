@@ -40,7 +40,7 @@ plug "ul/kak-lsp" do %{
 } config %{
     set-option global lsp_diagnostic_line_warning_sign "⚠"
 
-    hook global WinSetOption filetype=(rust) %{
+    hook global WinSetOption filetype=(rust|haskell) %{
         lsp-enable-window
     }
 }
