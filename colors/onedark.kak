@@ -16,6 +16,7 @@ evaluate-commands %sh{
     echo "
         face global value ${constant}
         face global type ${type}
+        face global variable ${field}
         face global identifier ${field}
         face global field ${field}
         face global string ${string}
