@@ -35,6 +35,7 @@ provide-module literate-haskell %[
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 add-highlighter shared/literate-haskell regions
 add-highlighter shared/literate-haskell/text default-region group
+add-highlighter shared/literate-haskell/text/    fill doc_comment
 add-highlighter shared/literate-haskell/bird     region "^>" "^[^>]"                           ref bird-haskell
 add-highlighter shared/literate-haskell/tex      region "\\begin\{code\}" "\\end\{code\}"      ref tex-haskell
 
