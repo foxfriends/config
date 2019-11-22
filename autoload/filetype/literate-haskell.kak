@@ -17,8 +17,8 @@ hook global WinSetOption filetype=literate-haskell %{
 
     set-option buffer extra_word_chars '_' "'"
     # using the regular haskell commands, as they will be the same
-    hook window ModeChange pop:insert:.* -group haskell-trim-indent  haskell-trim-indent
-    hook window InsertChar \n -group haskell-indent haskell-indent-on-new-line
+    hook window ModeChange pop:insert:.* -group literate-haskell-trim-indent  literate-haskell-trim-indent
+    hook window InsertChar \n -group literate-haskell-indent literate-haskell-indent-on-new-line
 
     hook -once -always window WinSetOption filetype=.* %{ remove-hooks window literate-haskell-.+ }
 }
@@ -111,5 +111,20 @@ add-highlighter shared/bird-haskell/quasiquote region \[\b[\w]['\w]*\| \|\] fill
 
 # matches the bird marker
 add-highlighter shared/bird-haskell/code/ regex ^> 0:comment
+
+define-command -hidden literate-haskell-trim-indent %{
+    # remove trailing white spaces
+    try %{ execute-keys -draft -itersel <a-x> s \h+$ <ret> d }
+}
+
+define-command -hidden literate-haskell-indent-on-new-line %{
+    evaluate-commands -draft -itersel %{
+        # copy -- comments and > bird prefix and following white spaces
+        try %{ execute-keys -draft k <a-x> s ^>?\h*(--\h*)? <ret> y gh j P }
+        # indent after lines beginning with condition or ending with expression or =(
+        # TODO: support indenting with bird markers, and use that here
+        # try %{ execute-keys -draft <semicolon> k x <a-k> ^>?\h*(if)|(case\h+[\w']+\h+of|do|let|where|[=(])$ <ret> j <a-gt> }
+    }
+}
 
 ]
