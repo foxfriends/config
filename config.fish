@@ -54,4 +54,5 @@ if test "$TERM" = "linux"
   clear #for background artifacting
 end
 
-reskin onedark
+set -q skin; or set -Ux skin onedark
+reskin $skin
