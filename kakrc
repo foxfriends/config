@@ -2,7 +2,7 @@
 source "%val{config}/plugins.kak"
 
 # visuals
-colorscheme onedark
+colorscheme %sh{echo ${skin:-"onedark"}}
 add-highlighter global/ number-lines -separator ' │ ' -hlcursor
 add-highlighter global/ show-matching
 add-highlighter global/ show-whitespaces -lf '¬' -spc '·' -nbsp '␣' -tab '⇥'
