@@ -11,6 +11,7 @@ evaluate-commands %sh{
     builtin='rgb:099783'
     function='rgb:248BE0'
     keyword='rgb:C678DD'
+    menu='rgb:FDF6E3'
 
     ## code
     echo "
@@ -61,11 +62,11 @@ evaluate-commands %sh{
         face global SecondaryCursorEol ${background}+f@SecondaryCursor
         face global LineNumbers ${background_hl},${background}
         face global LineNumberCursor ${type},${background}
-        face global MenuForeground ${background},${type}+b
-        face global MenuBackground ${background},${text}
+        face global MenuForeground ${text},${menu}+b
+        face global MenuBackground ${text},${menu}
         face global MenuInfo ${background_hl}
-        face global Information ${background},${type}
-        face global Error ${background},${field}
+        face global Information ${text},${menu}
+        face global Error ${text},${field}
         face global StatusLine ${text},${background_hl}
         face global StatusLineMode ${string}
         face global StatusLineInfo ${function}
