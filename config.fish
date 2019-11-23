@@ -53,3 +53,5 @@ if test "$TERM" = "linux"
   echo -en "\e]PF5C6370" #white
   clear #for background artifacting
 end
+
+reskin onedark
