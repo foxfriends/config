@@ -16,4 +16,4 @@ SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_prompt_pwd_dir_length:0
 SETUVAR fish_user_paths:/home/cam/\x2easdf/shims\x3a/home/cam/\x2easdf/bin\x3a/home/cam/\x2eperl5/bin\x3a/home/cam/\x2ecargo/bin\x3a/home/cam/\x2elocal/bin\x3a/home/cam/\x2elocal/kitty\x2eapp/bin\x3a/usr/local/sbin\x3a/usr/local/bin\x3a/usr/sbin\x3a/usr/bin\x3a/sbin\x3a/bin\x3a/usr/games\x3a/usr/local/games\x3a/snap/bin\x3a/home/cam/code/go/bin
 SETUVAR pisces_pairs:\x28\x2c\x29\x1e\x5b\x2c\x5d\x1e\x7b\x2c\x7d\x1e\x22\x2c\x22\x1e\x27\x2c\x27
-SETUVAR --export skin:onelight
+SETUVAR --export skin:onedark
