@@ -15,7 +15,7 @@ function fish_prompt --description 'Write out the prompt'
   if git rev-parse --is-inside-work-tree > /dev/null 2>&1
     printf ' %s %s' \
       (set_color $fish_color_vcs) \
-      (git branch | grep \* | cut -d ' ' -f2)
+      (git branch | grep \* | cut -d ' ' -f2-)
   end
 
   if test (id -u) -eq 0
