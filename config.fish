@@ -1,13 +1,10 @@
 #!fish
 
-# attach autojump
-if test -f "/usr/local/Cellar/autojump/22.5.3/share/autojump/autojump.fish"
-  . /usr/local/Cellar/autojump/22.5.3/share/autojump/autojump.fish
+if command -v pazi >/dev/null
+  status --is-interactive; and pazi init fish | source
 end
 
-if test -f "/usr/share/autojump/autojump.fish"
-  . "/usr/share/autojump/autojump.fish"
-end
+kitty + complete setup fish | source
 
 alias icat="kitty +kitten icat"
 alias vi="nvim"
