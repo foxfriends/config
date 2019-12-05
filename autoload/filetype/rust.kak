@@ -48,7 +48,8 @@ add-highlighter shared/rust/doc_comment      region "//[/!]" "$"                
 add-highlighter shared/rust/line_comment     region "//" "$"                                fill comment
 add-highlighter shared/rust/attribute        region "#\[" "\]"                              fill meta
 
-add-highlighter shared/rust/code/operator     regex (\[|\]|=|==|!=|\+=|-=|\*=|/=|%=|<|>|<=|>=|=>|->|\+|-|/|\*|%|~|\||\|\||&|&&|!|^|\?|<<|>>|<<=|>>=|:|::|\.|\.\.|\.\.=) 1:operator
+add-highlighter shared/rust/code/operator     regex (\[|\]|=|==|!=|\+=|-=|\*=|/=|%=|<|>|<=|>=|=>|->|\+|-|/|\*|%|~|\||\|\||&|&&|!|^|\?|<<|>>|<<=|>>=|\.|\.\.|\.\.=) 1:operator
+add-highlighter shared/rust/code/scope        regex (:) 1:text+fd
 
 add-highlighter shared/rust/code/zero         regex \b(0([ui](8|16|32|64|128|size)|f(32|64|size))?)\b 1:value
 add-highlighter shared/rust/code/decimal-int  regex \b([1-9][0-9_]*([ui](8|16|32|64|128|size))?)\b 1:value
