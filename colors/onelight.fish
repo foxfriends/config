@@ -1,3 +1,24 @@
+if test "$TERM" = "linux"
+  echo -en "\e]P0383A42" #black
+  echo -en "\e]P8A0A1A7" #darkgrey
+  echo -en "\e]P1E45649" #darkred
+  echo -en "\e]P9B33022" #red
+  echo -en "\e]P250A14F" #darkgreen
+  echo -en "\e]PA50A14F" #green
+  echo -en "\e]P3C18401" #brown
+  echo -en "\e]PBE08026" #yellow
+  echo -en "\e]P4248BE0" #darkblue
+  echo -en "\e]PC375670" #blue
+  echo -en "\e]P5C678DD" #darkmagenta
+  echo -en "\e]PDA626A4" #magenta
+  echo -en "\e]P60997B4" #darkcyan
+  echo -en "\e]PE0997B4" #cyan
+  echo -en "\e]P7D4D4D4" #lightgrey
+  echo -en "\e]PFFAFAFA" #white
+  echo -en '\e[47;1;30m\e[8]'
+  clear #for background artifacting
+end
+
 set -xg fish_color_autosuggestion brblack
 set -xg fish_color_cancel black
 set -xg fish_color_command blue
