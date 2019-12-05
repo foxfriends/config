@@ -1,7 +1,7 @@
 evaluate-commands %sh{
     background='black'
-    background_hl='bright-black'
-    gutter='rgb:31353A'
+    background_hl='rgb:373B41'
+    gutter='bright-black'
     comment='bright-white'
     text='white'
     field='cyan'
