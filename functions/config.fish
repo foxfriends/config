@@ -29,6 +29,7 @@ function config --description 'Manage configs from my config repo'
         exit 1
     end
 
+    set config_location (string trim "$config_location")
     set config_location "$HOME/$config_location"
 
     switch "$cmd"
@@ -38,6 +39,10 @@ function config --description 'Manage configs from my config repo'
         git clone git@github.com:foxfriends/config.git -b "$program" "$config_location" --recursive
     case hinstall
         git clone https://github.com/foxfriends/config.git -b "$program" "$config_location" --recursive
+    case update
+        pushd "$config_location"
+        git pull
+        popd
     case '*'
         echo "Unsupported command $cmd"
         exit 1
