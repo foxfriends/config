@@ -4,13 +4,13 @@ evaluate-commands %sh{
     gutter='bright-black'
     comment='bright-white'
     text='white'
-    field='cyan'
-    constant='red'
-    type='yellow'
+    field='red'
+    constant='yellow'
+    type='bright-yellow'
     string='green'
     builtin='bright-blue'
     function='blue'
-    keyword='magenta'
+    keyword='cyan'
 
     ## code
     echo "
