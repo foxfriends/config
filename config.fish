@@ -5,6 +5,9 @@ if command -v pazi >/dev/null
 end
 
 kitty + complete setup fish | source
+if command -v diesel >/dev/null
+  diesel completions fish | source
+end
 
 alias icat="kitty +kitten icat"
 alias tree="git log --graph --oneline"
