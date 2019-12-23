@@ -32,12 +32,12 @@ add-highlighter shared/graphql/code/ regex \b((extend\s+)?(schema|type|interface
 add-highlighter shared/graphql/code/ regex \b(QUERY|MUTATION|SUBSCRIPTION|FIELD|FRAGMENT_DEFINITION|FRAGMENT_SPREAD|INLINE_FRAGMENT|VARIABLE_DEFINITION)\b 1:value
 add-highlighter shared/graphql/code/ regex \b(SCHEMA|SCALAR|OBJECT|FIELD_DEFINITION|ARGUMENT_DEFINITION|INTERFACE|UNION|ENUM|ENUM_VALUE|INPUT_OBJECT|INPUT_FIELD_DEFINITION)\b 1:value
 
-add-highlighter shared/graphql/code/ regex ([_A-Z][_0-9A-Za-z]*) 1:type
-add-highlighter shared/graphql/code/ regex ([_a-z][_0-9A-Za-z]*)\s*\( 1:function
+add-highlighter shared/graphql/code/ regex \b([_A-Z][_0-9A-Za-z]*)\b 1:type
+add-highlighter shared/graphql/code/ regex \b([_a-z][_0-9A-Za-z]*)\s*\( 1:function
 
 add-highlighter shared/graphql/code/ regex \b(true|false)\b 1:value
 add-highlighter shared/graphql/code/ regex \b(null)\b 1:value
-add-highlighter shared/graphql/code/ regex -?(0|[1-9]\d*)(\.\d+)?([eE][+-]?\d+)? 0:value
+add-highlighter shared/graphql/code/ regex -?\b(0|[1-9]\d*)(\.\d+)?([eE][+-]?\d+)? 0:value
 
 add-highlighter shared/graphql/code/ regex \$[_A-Za-z][_0-9A-Za-z]* 0:field
 add-highlighter shared/graphql/code/ regex @[_A-Za-z][_0-9A-Za-z]*(\(\))? 0:meta
