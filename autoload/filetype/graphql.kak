@@ -26,7 +26,7 @@ add-highlighter shared/graphql/comment region "^\s*#" "$" fill comment
 add-highlighter shared/graphql/string region %{(?<!')"} (?<!\\)(\\\\)*" fill string
 add-highlighter shared/graphql/multistring region %{"""} %{"""} fill string
 
-add-highlighter shared/graphql/code/ regex \b(query|mutation|subscription|scalar|directive|on|fragment)\b 1:keyword
+add-highlighter shared/graphql/code/ regex \b(query|mutation|subscription|scalar|directive|on|implements|fragment)\b 1:keyword
 add-highlighter shared/graphql/code/ regex \b((extend\s+)?(schema|type|interface|enum|input|union))\b 1:keyword
 
 add-highlighter shared/graphql/code/ regex \b(QUERY|MUTATION|SUBSCRIPTION|FIELD|FRAGMENT_DEFINITION|FRAGMENT_SPREAD|INLINE_FRAGMENT|VARIABLE_DEFINITION)\b 1:value
