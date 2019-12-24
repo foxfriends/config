@@ -60,9 +60,8 @@ add-highlighter shared/rust/code/binary-int   regex \b(0b[01_]+)([ui](8|16|32|64
 add-highlighter shared/rust/code/character    regex ('([^'\\]|\\'|\\\\|\\u\{[0-9a-fA-F]{1,4}\})') 1:value
 add-highlighter shared/rust/code/bool         regex \b(true|false)\b 1:value
 
-add-highlighter shared/rust/code/module       regex ^\s*mod\s+((r#)?[a-zA-Z_][a-zA-Z0-9_]*) 1:module
+add-highlighter shared/rust/code/module       regex ^\s*(?:pub\s+)?mod\s+((r#)?[a-zA-Z_][a-zA-Z0-9_]*) 1:module
 add-highlighter shared/rust/code/namespace    regex \b((r#)?[a-z][a-zA-Z0-9_]*)(\s*)(?=::[^<]) 1:module
-add-highlighter shared/rust/code/keyword      regex \b(?<!r#)(use|mod|struct|enum|async|fn|trait|impl|return|if|match|where|in|as|else|for|loop|const|static|let|mut|ref|dyn|box|pub|crate|super|extern|move|break|continue)\b 1:keyword
 
 add-highlighter shared/rust/code/type         regex \b((r#)?[A-Z][a-zA-Z0-9_]*)\b 1:type
 add-highlighter shared/rust/code/constant     regex \b((r#)?[A-Z_]+)\b 1:value
@@ -74,6 +73,8 @@ add-highlighter shared/rust/code/macro        regex \b((r#)?[a-z_][a-zA-Z_0-9]*!
 add-highlighter shared/rust/code/lifetime     regex ('[A-Za-z_][A-Za-z_0-9]*)[^'] 1:meta
 add-highlighter shared/rust/code/primitive    regex \b(i8|i16|i32|i64|i128|isize|u8|u16|u32|u64|u128|usize|f32|f64|fsize|str|char|bool)\b 1:keyword
 add-highlighter shared/rust/code/identifier   regex \bself\b 0:identifier
+
+add-highlighter shared/rust/code/keyword      regex \b(?<!r#)(use|mod|struct|enum|async|(?:async\s+)?fn|trait|impl|return|if|match|where|in|as|else|for|while|loop|const|static|let|mut|ref|dyn|box?:|pub|crate|super|extern|move|break|continue)\b 1:keyword
 
 # Commands
 # ‾‾‾‾‾‾‾‾
