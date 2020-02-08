@@ -44,3 +44,4 @@ map global user k ': enter-user-mode lsp<ret>' -docstring 'lsp'
 
 # alias for old habits
 alias global wqa write-all-quit
+alias global W write
