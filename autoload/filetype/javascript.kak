@@ -87,12 +87,12 @@ define-command -hidden init-javascript-filetype -params 1 %~
     # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 
     add-highlighter "shared/%arg{1}/literal/"       fill string
-    add-highlighter "shared/%arg{1}/literal/"       regex \$\{.*?\} 0:field
+    add-highlighter "shared/%arg{1}/literal/"       regex \$\{.*\} 0:field
 
     add-highlighter "shared/%arg{1}/code/" regex \b(document|this|window|global|module)\b 1:field
     add-highlighter "shared/%arg{1}/code/" regex \b(false|null|true|undefined)\b 1:value
-    add-highlighter "shared/%arg{1}/code/" regex "-?\b[0-9]+([eE][+-]?[0-9]+)?" 0:value
-    add-highlighter "shared/%arg{1}/code/" regex "-?\b[0-9]*\.[0-9]+([eE][+-]?[0-9]+)?" 0:value
+    add-highlighter "shared/%arg{1}/code/" regex "-?\b[0-9]+([eE][+-]?[0-9]+)?\b" 0:value
+    add-highlighter "shared/%arg{1}/code/" regex "-?\b[0-9]*\.[0-9]+([eE][+-]?[0-9]+)?\b" 0:value
 
     # jsx: In well-formed xml the number of opening and closing tags match up regardless of tag name.
     #
@@ -119,11 +119,11 @@ define-command -hidden init-javascript-filetype -params 1 %~
     # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
     add-highlighter "shared/%arg{1}/code/" regex \b(async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|get|if|import|in|instanceof|let|new|of|return|set|static|super|switch|throw|try|typeof|var|void|while|with|yield)\b 0:keyword
 
-    add-highlighter "shared/%arg{1}/code/" regex \b([$a-z_][$a-zA-Z0-9_]*)(?:\s*\() 1:function
+    add-highlighter "shared/%arg{1}/code/" regex \b([$a-z_][$a-zA-Z0-9_]*)\b(?:\s*\() 1:function
     add-highlighter "shared/%arg{1}/code/" regex \b([A-Z][$a-zA-Z0-9_]*)\b 1:type
     add-highlighter "shared/%arg{1}/code/" regex \b(Array|Boolean|Date|Function|Number|Object|RegExp|String|Symbol)\b 0:meta
-    add-highlighter "shared/%arg{1}/code/" regex [<>*/+-=%^!~~|&?:]+ 0:keyword
-    add-highlighter "shared/%arg{1}/code/" regex ([$a-zA-Z_][$a-zA-Z0-9_]*): 1:field
+    add-highlighter "shared/%arg{1}/code/" regex [<>*/+\-=%^!~~|&?:]+ 0:keyword
+    add-highlighter "shared/%arg{1}/code/" regex ([$a-zA-Z_][$a-zA-Z0-9_]*)\b: 1:field
     # add-highlighter "shared/%arg{1}/code/" regex ([$a-zA-Z_][$a-zA-Z0-9_]*)\. 1:variable
     # add-highlighter "shared/%arg{1}/code/" regex \.([$a-zA-Z_][$a-zA-Z0-9_]*) 1:variable
 ~
