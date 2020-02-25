@@ -46,12 +46,13 @@ evaluate-commands %sh{
     gas go haml haskell html ini java javascript json julia kak kickstart
     latex lisp lua makefile markdown moon objc perl pug python ragel
     ruby rust sass scala scss sh swift toml tupfile typescript yaml sql
+    sml scm
   "
   for lang in ${languages}; do
-    printf 'add-highlighter shared/markdown/%s region -match-capture ^(\h*)```\h*%s\\b   ^(\h*)``` regions\n' "${lang}" "${lang}"
+    printf 'add-highlighter shared/markdown/%s region -match-capture ^(\\h*)```\\h*%s\\b   ^(\\h*)``` regions\n' "${lang}" "${lang}"
     printf 'add-highlighter shared/markdown/%s/ default-region fill meta\n' "${lang}"
-    [ "${lang}" = kak ] && ref=kakrc || ref="${lang}"
-    printf 'add-highlighter shared/markdown/%s/inner region \A```[^\\n]*\K (?=```) ref %s\n' "${lang}" "${ref}"
+    [ "${lang}" = kak ] && ref=kakrc || ref="${lang}" # seems like kakrc file should be kak even though it's not .kak
+    printf 'add-highlighter shared/markdown/%s/inner region ^\\h*```[^\\n]*\\K (?=```) ref %s\n' "${lang}" "${ref}"
   done
 }
 

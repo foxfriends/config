@@ -28,8 +28,8 @@ add-highlighter shared/sml/code default-region group
 add-highlighter shared/sml/string region (?<!')" (?<!\\)(\\\\)*" fill string
 add-highlighter shared/sml/comment region \Q(* \Q*) fill comment
 add-highlighter shared/sml/code/char regex %{\B'([^'\\]|(\\[\\"'nrtb])|(\\\d{3})|(\\x[a-fA-F0-9]{2})|(\\o[0-7]{3}))'\B} 0:value
-add-highlighter shared/sml/code/ regex "datatype\s+(\w+)" 1:builtin
-add-highlighter shared/sml/code/ regex "\b(string|int|char)\b" 1:builtin
+add-highlighter shared/sml/code/ regex "(datatype|abstype)\s+(\w+)" 1:meta
+add-highlighter shared/sml/code/ regex "\b(string|int|char)\b" 1:meta
 add-highlighter shared/sml/code/ regex "fun\s+(\w+)" 1:function
 add-highlighter shared/sml/code/ regex "val\s+(\w+)" 1:field
 add-highlighter shared/sml/code/ regex "\b[A-Z][a-zA-Z_]*\b" 0:type
@@ -47,7 +47,7 @@ evaluate-commands %sh{
   keywords="${keywords}|for|fun|function|functor|if|in|include|inherit|initializer|land|lazy|let|lor"
   keywords="${keywords}|lsl|lsr|lxor|match|method|mod|module|mutable|new|nonrec|object|of|open|or"
   keywords="${keywords}|private|rec|sig|struct|then|to|true|try|type|val|virtual|when|while|with"
-  keywords="${keywords}|before|after|orelse|andalso|raise|handle|fn"
+  keywords="${keywords}|before|after|orelse|andalso|raise|handle|fn|abstype|local|structure|signature|eqtype"
 
   printf %s\\n "declare-option str-list sml_static_words ${keywords}" | tr '|' ' '
 
