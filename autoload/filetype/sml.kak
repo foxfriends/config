@@ -35,7 +35,7 @@ add-highlighter shared/sml/code/ regex "val\s+(\w+)" 1:field
 add-highlighter shared/sml/code/ regex "\b[A-Z][a-zA-Z_]*\b" 0:type
 add-highlighter shared/sml/code/ regex "(\*|of)\s*([a-zA-Z_]+)" 1:keyword 2:builtin
 add-highlighter shared/sml/code/ regex "\|" 0:keyword
-add-highlighter shared/sml/code/ regex "!|:=|=|=>" 0:keyword
+add-highlighter shared/sml/code/ regex "!|:=|=|=>|>|<|\+|-|\^|:>|:" 0:keyword
 add-highlighter shared/sml/code/ regex "\b[0-9]+(\.[0-9]+)?\b" 0:value
 add-highlighter shared/sml/code/ regex "\(\)" 0:value
 
@@ -47,7 +47,7 @@ evaluate-commands %sh{
   keywords="${keywords}|for|fun|function|functor|if|in|include|inherit|initializer|land|lazy|let|lor"
   keywords="${keywords}|lsl|lsr|lxor|match|method|mod|module|mutable|new|nonrec|object|of|open|or"
   keywords="${keywords}|private|rec|sig|struct|then|to|true|try|type|val|virtual|when|while|with"
-  keywords="${keywords}|before|after|orelse|andalso|raise|handle|fn|abstype|local|structure|signature|eqtype"
+  keywords="${keywords}|before|after|orelse|andalso|raise|handle|fn|abstype|local|structure|signature|eqtype|sharing"
 
   printf %s\\n "declare-option str-list sml_static_words ${keywords}" | tr '|' ' '
 
