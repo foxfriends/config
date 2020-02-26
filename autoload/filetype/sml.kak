@@ -29,11 +29,11 @@ add-highlighter shared/sml/string region (?<!')" (?<!\\)(\\\\)*" fill string
 add-highlighter shared/sml/comment region \Q(* \Q*) fill comment
 add-highlighter shared/sml/code/char regex %{\B'([^'\\]|(\\[\\"'nrtb])|(\\\d{3})|(\\x[a-fA-F0-9]{2})|(\\o[0-7]{3}))'\B} 0:value
 add-highlighter shared/sml/code/ regex "(datatype|abstype)\s+(\w+)" 1:meta
-add-highlighter shared/sml/code/ regex "\b(string|int|char)\b" 1:meta
+add-highlighter shared/sml/code/ regex "\b(string|int|char|bool|list)\b" 1:meta
 add-highlighter shared/sml/code/ regex "fun\s+(\w+)" 1:function
 add-highlighter shared/sml/code/ regex "val\s+(\w+)" 1:field
-add-highlighter shared/sml/code/ regex "\b[A-Z][a-zA-Z_]*\b" 0:type
-add-highlighter shared/sml/code/ regex "(\*|of)\s*([a-zA-Z_]+)" 1:keyword 2:builtin
+add-highlighter shared/sml/code/ regex "\b[A-Z][a-zA-Z0-9_]*\b" 0:type
+add-highlighter shared/sml/code/ regex "(\*|of)\s*([a-zA-Z0-9_]+)" 1:keyword 2:builtin
 add-highlighter shared/sml/code/ regex "\|" 0:keyword
 add-highlighter shared/sml/code/ regex "!|:=|=|=>|>|<|\+|-|\^|:>|:" 0:keyword
 add-highlighter shared/sml/code/ regex "\b[0-9]+(\.[0-9]+)?\b" 0:value
