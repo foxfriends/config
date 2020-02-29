@@ -13,7 +13,7 @@ function config --description 'Manage configs from my config repo'
 
     if test -z "$config_line"
         echo "Unknown program $program"
-        exit 1
+        return 1
     end
 
     switch "$platform"
@@ -26,7 +26,7 @@ function config --description 'Manage configs from my config repo'
         set config_location (echo $config_line | cut -d : -f 2)
     case '*'
         echo "Unsupported platform $platform"
-        exit 1
+        return 1
     end
 
     set config_location (string trim "$config_location")
@@ -45,6 +45,6 @@ function config --description 'Manage configs from my config repo'
         popd
     case '*'
         echo "Unsupported command $cmd"
-        exit 1
+        return 1
     end
 end
