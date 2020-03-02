@@ -46,7 +46,7 @@ evaluate-commands %sh{
     gas go haml haskell html ini java javascript json julia kak kickstart
     latex lisp lua makefile markdown moon objc perl pug python ragel
     ruby rust sass scala scss sh swift toml tupfile typescript yaml sql
-    sml scm
+    sml scheme
   "
   for lang in ${languages}; do
     printf 'add-highlighter shared/markdown/%s region -match-capture ^(\\h*)```\\h*%s\\b   ^(\\h*)``` regions\n' "${lang}" "${lang}"
@@ -65,14 +65,14 @@ add-highlighter shared/markdown/listblock region ^\h*[-*]\s ^\h*((?=[-*])|$) reg
 add-highlighter shared/markdown/listblock/marker region \A [-*]\s fill bullet
 add-highlighter shared/markdown/listblock/content default-region ref markdown/inline
 
-add-highlighter shared/markdown/inline/code region -match-capture (`+) (`+) fill mono
+add-highlighter shared/markdown/inline/code region -match-capture (`) (`) fill mono
 
 # Setext-style header
 add-highlighter shared/markdown/inline/text/ regex (\A|\n\n)[^\n]+\n={2,}\h*\n\h*$ 0:title
 add-highlighter shared/markdown/inline/text/ regex (\A|\n\n)[^\n]+\n-{2,}\h*\n\h*$ 0:header
 
 # Atx-style header
-add-highlighter shared/markdown/inline/text/ regex ^#[^\n]* 0:header
+add-highlighter shared/markdown/inline/text/ regex "^#{1,6}(\n| [^\n]*)" 0:header
 
 add-highlighter shared/markdown/inline/text/ regex (?<!\*)(\*([^\s*]|([^\s*](\n?[^\n*])*[^\s*]))\*)(?!\*) 1:italic
 add-highlighter shared/markdown/inline/text/ regex (?<!_)(_([^\s_]|([^\s_](\n?[^\n_])*[^\s_]))_)(?!_) 1:italic
