@@ -41,6 +41,8 @@ map global user , ': edit ~/.config/kak/kakrc<ret>' -docstring 'open configurati
 map global user '\' ': ranger<ret>' -docstring 'use ranger to open a file'
 map global user w '%s +$<ret>d<space>' -docstring 'trim whitespace from end of lines'
 map global user k ': enter-user-mode lsp<ret>' -docstring 'lsp'
+map global user f ': format<ret>' -docstring 'format'
+map global user g ': enter-user-mode git<ret>' -docstring 'git'
 
 # alias for old habits
 alias global wqa write-all-quit
@@ -50,3 +52,14 @@ alias global WQ write-quit
 alias global Wqa write-all-quit
 alias global WQa write-all-quit
 alias global WQA write-all-quit
+
+declare-user-mode git
+map global git a ': git add<ret>' -docstring 'add current file'
+map global git A ': git add --all<ret>' -docstring 'add all files'
+map global git c ': git commit<ret>' -docstring 'commit'
+map global git s ': git status<ret>' -docstring 'status'
+map global git j ': git next-hunk<ret>' -docstring 'goto next hunk'
+map global git k ': git prev-hunk<ret>' -docstring 'goto previous hunk'
+
+hook global BufWritePost .* "git show-diff"
+hook global BufCreate .* "git show-diff"
