@@ -25,6 +25,14 @@ plug "andreyorst/powerline.kak" defer powerline %{
     powerline-start
 }
 
+plug "andreyorst/smarttab.kak" defer smarttab %{
+    # when `backspace' is pressed, 4 spaces are deleted at once
+    set-option global softtabstop 4
+} config %{
+    hook global WinSetOption filetype=(.*) expandtab
+    hook global WinSetOption filetype=(makefile|gas) noexpandtab
+}
+
 plug 'occivink/kakoune-vertical-selection'
 
 plug 'delapouite/kakoune-text-objects' %{

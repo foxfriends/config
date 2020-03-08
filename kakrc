@@ -10,14 +10,11 @@ add-highlighter global/ show-whitespaces -lf '¬' -spc '·' -nbsp '␣' -tab '�
 # tabulation
 set global tabstop 4
 set global indentwidth 4
+map global insert <s-tab> '<esc><i'
 
 # swap leader to <space>
 map global normal , <space>
 map global normal <space> ,
-
-# better indentation in insert mode
-map global insert <tab> '<a-;>: smart-indent<ret>'
-map global insert <s-tab> '<a-;>: smart-unindent<ret>'
 
 # get hover info
 map global insert <c-k> '<a-;>: lsp-hover<ret>'
