@@ -27,11 +27,10 @@ hook -group rust-highlight global WinSetOption filetype=rust %{
     hook -once -always window WinSetOption filetype=.* %{ remove-highlighter window/rust }
 }
 
-# Configuration
-# ‾‾‾‾‾‾‾‾‾‾‾‾‾
-
-hook global WinSetOption filetype=rust %{
-    set window formatcmd 'rustfmt'
+hook global BufSetOption filetype=rust %{
+    set-command buffer formatcmd 'cargo fmt'
+    set-command buffer buildcmd 'cargo build'
+    set-command buffer lintcmd 'cargo clippy'
 }
 
 provide-module rust %§

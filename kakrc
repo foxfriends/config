@@ -31,7 +31,6 @@ map global insert <a-right> '<a-;>w'
 map global insert <a-left> '<a-;>b'
 
 # user mode commands
-map global user r ': toggle-ranger<ret>' -docstring 'select files in ranger'
 map global user z ': w<ret>' -docstring 'save'
 map global user Z ': wq<ret>' -docstring 'save and quit'
 map global user , ': edit ~/.config/kak/kakrc<ret>' -docstring 'open configuration file'
@@ -40,6 +39,7 @@ map global user w '%s +$<ret>d<space>' -docstring 'trim whitespace from end of l
 map global user k ': enter-user-mode lsp<ret>' -docstring 'lsp'
 map global user f ': format<ret>' -docstring 'format'
 map global user g ': enter-user-mode git<ret>' -docstring 'git'
+map global user b ': build<ret>' -docstring 'build'
 
 # alias for old habits
 alias global wqa write-all-quit
