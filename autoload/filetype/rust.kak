@@ -28,7 +28,7 @@ hook -group rust-highlight global WinSetOption filetype=rust %{
 }
 
 hook global BufSetOption filetype=rust %{
-    set-option buffer formatcmd 'cargo fmt'
+    set-option buffer formatcmd 'rustfmt'
     set-option buffer buildcmd 'cargo build'
     set-option buffer lintcmd 'cargo clippy'
 }

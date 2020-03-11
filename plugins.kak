@@ -41,6 +41,10 @@ plug 'delapouite/kakoune-text-objects' %{
 
 plug 'delapouite/kakoune-mirror' %{
     map global normal "'" ': enter-user-mode -lock mirror<ret>'
+    hook global BufSetOption filetype=markdown %{
+        map buffer mirror * 'a*<esc>i*<esc>H<a-;>' -docstring '*surround*'
+        map buffer mirror _ 'a_<esc>i_<esc>H<a-;>' -docstring '_surround_'
+    }
 }
 
 plug "ul/kak-lsp" do %{
