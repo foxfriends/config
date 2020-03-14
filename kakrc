@@ -21,8 +21,8 @@ map global insert <c-k> '<a-;>: lsp-hover<ret>'
 map global normal <c-k> ': lsp-hover<ret>'
 
 # insert mode word delete
-map global insert <a-backspace> '<a-;>b<a-;><a-d>'
-map global insert <a-del> '<a-;>w<a-;><a-d>'
+map global insert <a-backspace> '<esc>hb<a-d>i'
+map global insert <a-del> '<esc>w<a-d>i'
 
 # word movement with arrow keys in insert mode
 map global normal <a-right> 'w'
