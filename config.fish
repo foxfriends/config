@@ -1,5 +1,7 @@
 #!fish
 
+echo $PATH
+
 if command -v pazi >/dev/null
   status --is-interactive; and pazi init fish | source
 end
@@ -27,8 +29,6 @@ alias l='exa'
 # Some typos I often make
 alias clearls="clear; ls"
 alias sgit="git"
-
-set -x -U GOPATH $HOME/code/go
 
 # Local stuff can be put in ~/.config,fish
 if test -f "$HOME/.config.fish" 
