@@ -34,7 +34,8 @@ add-highlighter shared/prolog/rule/ regex \b[0-9]+          0:value
 add-highlighter shared/prolog/rule/ regex \b[0-9]+\.[0-9]+  0:value
 add-highlighter shared/prolog/rule/ regex [\[\|\-\]]  0:operator
 
-add-highlighter shared/prolog/code/ regex (:-|is|\.) 0:operator
+add-highlighter shared/prolog/code/ regex (:-|\.) 0:operator
+add-highlighter shared/prolog/code/ regex \bis\b 0:operator
 add-highlighter shared/prolog/code/ regex \b([a-z][a-zA-Z0-9_]*)\w*(?=\() 1:function
 add-highlighter shared/prolog/code/ regex \b[0-9]+ 0:value
 add-highlighter shared/prolog/code/ regex \b[0-9]+\.[0-9]+ 0:value

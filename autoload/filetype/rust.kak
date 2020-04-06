@@ -75,7 +75,7 @@ add-highlighter shared/rust/code/lifetime     regex ('[A-Za-z_][A-Za-z_0-9]*)[^'
 add-highlighter shared/rust/code/primitive    regex \b(i8|i16|i32|i64|i128|isize|u8|u16|u32|u64|u128|usize|f32|f64|fsize|str|char|bool)\b 1:keyword
 add-highlighter shared/rust/code/identifier   regex \bself\b 0:identifier
 
-add-highlighter shared/rust/code/keyword      regex \b(?<!r#)(use|mod|struct|enum|type|async|(?:async\s+)?fn|trait|impl|return|if|match|where|in|as|else|for|while|loop|const|static|let|mut|ref|dyn|box?:|pub|crate|super|extern|move|break|continue)\b 1:keyword
+add-highlighter shared/rust/code/keyword      regex \b(?<!r#)(use|mod|struct|enum|union|type|async|(?:async\s+)?fn|trait|impl|return|if|match|where|in|as|else|for|while|loop|const|static|let|mut|ref|dyn|box?:|pub|crate|super|extern|move|break|continue)\b 1:keyword
 add-highlighter shared/rust/code/unsafe       regex \bunsafe\b 0:field
 
 # Commands
