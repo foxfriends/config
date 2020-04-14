@@ -87,7 +87,7 @@ define-command -hidden init-javascript-filetype -params 1 %~
     # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp
 
     add-highlighter "shared/%arg{1}/literal/"       fill string
-    add-highlighter "shared/%arg{1}/literal/"       regex \$\{.*\} 0:field
+    add-highlighter "shared/%arg{1}/literal/"       regex \$\{[^}]*\} 0:field
 
     add-highlighter "shared/%arg{1}/code/" regex \b(document|this|window|global|module)\b 1:field
     add-highlighter "shared/%arg{1}/code/" regex \b(false|null|true|undefined)\b 1:value
@@ -125,7 +125,7 @@ define-command -hidden init-javascript-filetype -params 1 %~
     # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords
     # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
     # https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set
-    add-highlighter "shared/%arg{1}/code/" regex \b(async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|from|function|get|if|import|in|instanceof|let|new|of|return|set|static|super|switch|throw|try|typeof|var|void|while|with|yield)\b 0:keyword
+    add-highlighter "shared/%arg{1}/code/" regex (^|[^.])\b(async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|from|function|get|if|import|in|instanceof|let|new|of|return|set|static|super|switch|throw|try|typeof|var|void|while|with|yield)\b 2:keyword
 ~
 
 init-javascript-filetype javascript

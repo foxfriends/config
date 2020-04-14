@@ -17,11 +17,16 @@ filetypes = ["crystal"]
 roots = ["shard.yml"]
 command = "scry"
 
-[language.javascript]
-filetypes = ["javascript"]
-roots = ["package.json"]
-command = "flow"
-args = ["lsp"]
+# [language.javascript]
+# filetypes = ["javascript"]
+# roots = ["package.json"]
+# command = "flow"
+# args = ["lsp"]
+
+[language.typescript]
+filetypes = ["typescript", "javascript"]
+roots = ["package.json", "tsconfig.json"]
+command = "javascript-typescript-stdio"
 
 [language.json]
 filetypes = ["json"]
