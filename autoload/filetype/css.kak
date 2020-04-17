@@ -81,7 +81,7 @@ add-highlighter shared/css/media/comment       region /[*] [*]/           fill c
 
 add-highlighter shared/css/media/base/ regex      "@media"  0:keyword
 add-highlighter shared/css/media/base/ regex      "and"  0:keyword
-add-highlighter shared/css/media/base/ regex (#[0-9A-Fa-f]+)|((\d*\.)?\d+(ch|cm|em|ex|mm|pc|pt|px|rem|vh|vmax|vmin|vw|%|s|ms)?) 0:value
+add-highlighter shared/css/media/base/ regex (#[0-9A-Fa-f]+)|((\d*\.)?\d+(ch|cm|em|ex|mm|pc|pt|px|rem|vh|vmax|vmin|vw|%|s|ms|fr|deg)?) 0:value
 
 add-highlighter shared/css/selector/ regex         [*+>~&\[\]=$]       0:keyword
 add-highlighter shared/css/selector/ regex         [A-Za-z0-9_-]+      0:variable
