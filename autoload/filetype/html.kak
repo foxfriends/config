@@ -55,9 +55,9 @@ add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)  ref css
 add-highlighter shared/html/script  region <script\b.*?>\K (?=</script>) ref javascript
 
 add-highlighter shared/html/svelte/base default-region group
-add-highlighter shared/html/svelte/base/  regex "(\{[#/](if|each|await)).*(\})"          1:keyword 3:keyword
-add-highlighter shared/html/svelte/base/  regex "(\{@(html|debug)).*(\})"                1:keyword 3:keyword
-add-highlighter shared/html/svelte/base/  regex "(\{:(else(\s+if)|then|catch)).*(\})"    1:keyword 3:keyword
+add-highlighter shared/html/svelte/base/  regex "(\{[#/](if|each|await))(\s+.*)?(\})"           1:keyword 4:keyword
+add-highlighter shared/html/svelte/base/  regex "(\{@(html|debug))(\s+.*)?(\})"                 1:keyword 4:keyword
+add-highlighter shared/html/svelte/base/  regex "(\{:(else(\s+if)?|then|catch))(\s+.*)?(\})"    1:keyword 5:keyword
 
 add-highlighter shared/html/tag/base          default-region group
 add-highlighter shared/html/tag/interpolation region [{]\K (?=[}])            ref javascript
