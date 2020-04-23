@@ -13,6 +13,10 @@ if command -v diesel >/dev/null
   diesel completions fish | source
 end
 
+if command -v gh > /dev/null
+  gh completion -s fish | source
+end
+
 alias tree="git log --graph --oneline"
 
 # enable colors in grep by default
