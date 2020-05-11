@@ -1,13 +1,5 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
-plug "andreyorst/fzf.kak" defer fzf %{
-    set-option global fzf_terminal_command "terminal-tab kak -c %val{session} -e '%arg{@}'"
-    set-option global fzf_file_command "fd --hidden -E .git -E target -E node_modules"
-    set-option global fzf_highlight_command "syncat -en {}"
-} config %{
-    map global normal <c-p> ': fzf-mode<ret>'
-}
-
 plug 'delapouite/kakoune-buffers' %{
     map global normal ^ q
     map global normal <a-^> Q

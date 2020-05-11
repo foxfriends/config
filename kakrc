@@ -35,7 +35,8 @@ map global user z ': w<ret>' -docstring 'save'
 map global user , ': edit ~/.config/kak/kakrc<ret>' -docstring 'open configuration file'
 map global user '\' ': ranger<ret>' -docstring 'use ranger to open a file'
 map global user w '%s +$<ret>d<space>' -docstring 'trim whitespace from end of lines'
-map global user k ': enter-user-mode lsp<ret>' -docstring 'lsp'
+map global user l ': enter-user-mode lsp<ret>' -docstring 'lsp'
+map global user k ': enter-user-mode split<ret>' -docstring 'split'
 map global user f ': format<ret>' -docstring 'format'
 map global user g ': enter-user-mode git<ret>' -docstring 'git'
 map global user b ': build<ret>' -docstring 'build'
@@ -48,6 +49,12 @@ alias global WQ write-quit
 alias global Wqa write-all-quit
 alias global WQa write-all-quit
 alias global WQA write-all-quit
+
+declare-user-mode split
+map global split h ': split-left<ret>' -docstring 'split left'
+map global split l ': split-left<ret>' -docstring 'split right'
+map global split k ': split-left<ret>' -docstring 'split above'
+map global split k ': split-left<ret>' -docstring 'split below'
 
 declare-user-mode git
 map global git a ': git add<ret>' -docstring 'add current file'
