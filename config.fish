@@ -1,5 +1,8 @@
 #!fish
 
+fundle plugin 'edc/bass'
+fundle init
+
 if command -v pazi >/dev/null
   status --is-interactive; and pazi init fish | source
 end
@@ -15,6 +18,10 @@ end
 
 if command -v gh > /dev/null
   gh completion -s fish | source
+end
+
+if test -f ~/.nvm/nvm.sh
+  bass source ~/.nvm/nvm.sh
 end
 
 alias tree="git log --graph --oneline"
@@ -48,3 +55,4 @@ end
 
 set -q skin; or set -Ux skin onedark
 reskin $skin
+
