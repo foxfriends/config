@@ -1,5 +1,8 @@
 use_nerdfont = true
 
+[keybindings]
+"q" = "share current"
+
 [theme]
 background = "black"
 primary = "white"
