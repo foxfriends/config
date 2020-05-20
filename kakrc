@@ -66,3 +66,5 @@ map global git k ': git prev-hunk<ret>' -docstring 'goto previous hunk'
 
 hook global BufWritePost .* "git show-diff"
 hook global BufCreate .* "git show-diff"
+
+def find -params 1 -shell-script-candidates %{ find -type f } %{ edit %arg{1} }
