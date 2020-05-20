@@ -41,6 +41,7 @@ map global user g ': enter-user-mode git<ret>' -docstring 'git'
 map global user b ': build<ret>' -docstring 'build'
 map global user p ': fzf<ret>' -docstring 'fzf'
 map global user '\' ': joshuto<ret>' -docstring 'joshuto'
+map global user '|' ': ranger<ret>' -docstring 'ranger'
 
 # alias for old habits
 alias global wqa write-all-quit
