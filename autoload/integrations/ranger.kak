@@ -3,7 +3,7 @@ define-command -docstring "use ranger to find and open a file" ranger %{
     outdir=$(mktemp -d -t kak-temp-XXXXXXXX)
     output="${outdir}/ranger-fifo"
     mkfifo ${output}
-    kitty @ new-window --new-tab --no-response --cwd $PWD ranger --choosefile="${output}" --selectfile="${kak_buffile}"
+    kitty @ new-window --new-tab --no-response --cwd $PWD bash -cl "ranger --choosefile=\"${output}\" --selectfile=\"${kak_buffile}\""
     result=$(cat ${output})
     if test -f "${result}"; then
       echo "edit! -existing %{${result}}"
