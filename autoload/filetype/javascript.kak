@@ -3,10 +3,14 @@
 
 hook global BufCreate .*[.](js)x? %{
     set-option buffer filetype javascript
+    set buffer tabstop 2
+    set buffer indentwidth 2
 }
 
 hook global BufCreate .*[.](ts)x? %{
     set-option buffer filetype typescript
+    set buffer tabstop 2
+    set buffer indentwidth 2
 }
 
 # Initialization
@@ -22,6 +26,9 @@ hook global WinSetOption filetype=(javascript|typescript) %{
     hook -once -always window WinSetOption filetype=.* "
         remove-hooks window %val{hook_param_capture_1}-.+
     "
+
+    set buffer lintcmd 'run() { cat "$1" | npx eslint -f "$(npm root -g)/eslint-formatter-kakoune/index.js" --stdin --stdin-filename "$kak_buffile"; } && run'
+    lint-enable
 }
 
 hook -group javascript-highlight global WinSetOption filetype=javascript %{
