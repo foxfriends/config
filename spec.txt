@@ -11,3 +11,4 @@ syncat:.config/syncat:Library/Preferences/com.cameldridge.syncat/
 tig:.config/tig 
 xcode:.config/xcode:Library/Developer/Xcode/UserData/
 ncspot:.config/ncspot
+joshuto:.config/joshuto
