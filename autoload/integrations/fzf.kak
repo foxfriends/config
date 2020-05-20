@@ -3,7 +3,11 @@ define-command -docstring "use fzf to find and open a file" fzf %{
     outdir=$(mktemp -d -t kak-temp-XXXXXXXX)
     output="$outdir/fzf-fifo"
     mkfifo ${output}
-    kitty @ launch --location hsplit --no-response --cwd $PWD bash -c "fzf > ${output}"
+    cmd="fzf --preview \"syncat {} -en\" > ${output}"
+    if command -v fd > /dev/null; then
+      cmd="fd -t f -L -E .git -E node_modules -E target -E dist -E build -E .cache | ${cmd}"
+    fi
+    kitty @ new-window --new-tab --no-response --cwd $PWD bash -c "${cmd}"
     result=$(cat ${output})
     if test -f "${result}"; then
       echo "edit! -existing %{${result}}"
