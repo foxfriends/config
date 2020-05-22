@@ -4,7 +4,7 @@
 # Detection
 # ‾‾‾‾‾‾‾‾‾
 
-hook global BufCreate .*[.](markdown|md|mkd) %{
+hook global BufCreate .*[.](markdown|md|mkd|svexy|svx) %{
     set-option buffer filetype markdown
 }
 
