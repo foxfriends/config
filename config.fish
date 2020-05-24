@@ -1,4 +1,7 @@
-#!fish
+#! /usr/bin/env fish
+
+set -q skin; or set -Ux skin onedark
+reskin $skin
 
 fundle plugin 'edc/bass'
 fundle init
@@ -44,7 +47,7 @@ end
 alias clearls="clear; ls"
 alias sgit="git"
 
-# Local stuff can be put in ~/.config,fish
+# Local stuff can be put in ~/.config.fish
 if test -f "$HOME/.config.fish" 
   . "$HOME/.config.fish"
 end
@@ -52,7 +55,4 @@ end
 if test -x /usr/bin/lesspipe
   eval (env SHELL=/bin/sh lesspipe)
 end
-
-set -q skin; or set -Ux skin onedark
-reskin $skin
 
