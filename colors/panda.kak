@@ -1,6 +1,6 @@
 evaluate-commands %sh{
     background='black'
-    background_hl='rgb:373B41'
+    background_hl='rgb:444950'
     gutter='bright-black'
     comment='bright-white'
     text='white'
@@ -68,9 +68,9 @@ evaluate-commands %sh{
         face global Information ${background},${type}
         face global Error ${background},${field}
         face global StatusLine ${text},${background_hl}
-        face global StatusLineMode ${string}
-        face global StatusLineInfo ${function}
-        face global StatusLineValue ${builtin}
+        face global StatusLineMode ${text}
+        face global StatusLineInfo ${text}
+        face global StatusLineValue ${text}
         face global StatusCursor ${background},${text}
         face global Prompt ${function}
         face global MatchingChar default,${background_hl}
@@ -86,5 +86,32 @@ evaluate-commands %sh{
     echo "
         face global DiagnosticError default+u
         face global DiagnosticWarning default+u
+    "
+
+    ## powerline
+    echo "
+    define-command -hidden powerline-theme-custom %{
+        set-option global powerline_color00 '$background'    # fg: bufname
+        set-option global powerline_color03 '$type'          # bg: bufname
+        set-option global powerline_color02 '$background'    # fg: git
+        set-option global powerline_color04 '$string'        # bg: git
+        set-option global powerline_color05 '$background'    # fg: position
+        set-option global powerline_color01 '$field'         # bg: position
+        set-option global powerline_color06 '$background'    # fg: line-column
+        set-option global powerline_color09 '$constant'      # bg: line-column
+        set-option global powerline_color07 '$text'          # fg: mode-info
+        set-option global powerline_color08 '$background_hl' # bg: mode-info
+        set-option global powerline_color10 '$background'    # fg: filetype
+        set-option global powerline_color11 '$function'      # bg: filetype
+        set-option global powerline_color13 '$background'    # fg: client
+        set-option global powerline_color12 '$keyword'       # bg: client
+        set-option global powerline_color15 '$background'    # fg: session
+        set-option global powerline_color14 '$keyword'       # bg: session
+        set-option global powerline_color19 '$background'    # fg: unicode
+        set-option global powerline_color18 '$field'         # bg: unicode
+
+        declare-option -hidden str powerline_next_bg ${background_hl}
+        declare-option -hidden str powerline_base_bg ${background_hl}
+    }
     "
 }

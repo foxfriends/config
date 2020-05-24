@@ -12,7 +12,14 @@ plug 'delapouite/kakoune-buffers' %{
 }
 
 plug "andreyorst/powerline.kak" defer powerline %{
-    powerline-theme tomorrow-night
+    set-option global powerline_format 'mode_info buffername filetype line_column unicode bettergit client session'
+    set-option -add global powerline_themes 'custom'
+    powerline-separator curve
+    powerline-theme custom
+    hook global WinCreate (.*) %{
+        powerline-theme custom
+        powerline-separator curve
+    }
 } config %{
     powerline-start
 }
