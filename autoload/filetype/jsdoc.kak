@@ -28,12 +28,24 @@ add-highlighter shared/jsdoc/block/         regex  (@borrows)\b\h+(\S+)\h+(as)\h
 add-highlighter shared/jsdoc/block/         regex  (@callback)\b\h+(\S+) 1:keyword 2:type
 add-highlighter shared/jsdoc/block/         regex  (@class|@constructor)\b(\h+\{([^}]+)\})?(\h+(\S+))? 1:keyword 3:type 5:type
 add-highlighter shared/jsdoc/block/         regex  (@classdesc)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@const(ant)?)\b(\h+\{([^}]+)\})?(\h+(\S+))? 1:keyword 4:type 6:variable
+add-highlighter shared/jsdoc/block/         regex  (@const|@constant)\b(\h+\{([^}]+)\})?(\h+(\S+))? 1:keyword 3:type 5:variable
 add-highlighter shared/jsdoc/block/         regex  (@constructs)\b(\h+(\S+))? 1:keyword 3:type
 add-highlighter shared/jsdoc/block/         regex  (@copyright)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@default(value)?)\b(\h+(\S+)) 1:keyword 3:value
+add-highlighter shared/jsdoc/block/         regex  (@default|@defaultvalue)\b(\h+(\S+)) 1:keyword 2:value
 add-highlighter shared/jsdoc/block/         regex  (@deprecated)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@desc(ription)?)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@desc|@description)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@enum)\b(\h+\{([^}]+)\})? 1:keyword 3:type
+add-highlighter shared/jsdoc/block/         regex  (@event)\b\h+([^\s#]+)#(([^\s:]+):)(\S+) 1:keyword 2:type 4:variable 5:string
+add-highlighter shared/jsdoc/block/         regex  (@example)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@example)\b(\h+(\S+))? 1:keyword 3:string
+add-highlighter shared/jsdoc/block/         regex  (@external|@host)\b\h+(\S+) 1:keyword 2:variable
+add-highlighter shared/jsdoc/block/         regex  (@file|@overview|@fileoverview)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@emits|@fires)\b\h+([^\s#]+)#(([^\s:]+):)(\S+) 1:keyword 2:type 4:variable 5:string
+add-highlighter shared/jsdoc/block/         regex  (@func|@function|@method)\b(\h+(\S+))? 1:keyword 3:function
+add-highlighter shared/jsdoc/block/         regex  (@generator)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@global)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@hideconstructor)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@ignore)\b 1:keyword
+add-highlighter shared/jsdoc/block/         regex  (@implements)\b(\h+\{([^}]+)\})? 1:keyword
 
 §
