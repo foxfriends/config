@@ -84,6 +84,7 @@ define-command -hidden init-javascript-filetype -params 1 %~
     add-highlighter "shared/%arg{1}/single_string" region "'"  (?<!\\)(\\\\)*'         fill string
     add-highlighter "shared/%arg{1}/literal"       region "`"  (?<!\\)(\\\\)*`         group
     add-highlighter "shared/%arg{1}/comment_line"  region //   '$'                     fill comment
+    add-highlighter "shared/%arg{1}/jsdoc_comment" region /\*\*  \*/                   ref jsdoc
     add-highlighter "shared/%arg{1}/comment"       region /\*  \*/                     fill comment
     add-highlighter "shared/%arg{1}/shebang"       region ^#!  $                       fill meta
     add-highlighter "shared/%arg{1}/regex"         region /    (?<!\\)(\\\\)*/[gimuy]* fill meta
