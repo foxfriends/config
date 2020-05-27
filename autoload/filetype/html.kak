@@ -48,7 +48,7 @@ try %{
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 
 add-highlighter shared/html regions
-add-highlighter shared/html/comment region <!--     -->                  fill comment
+add-highlighter shared/html/comment region <!--     -->                  ref comment
 add-highlighter shared/html/tag     region <          >                  regions
 add-highlighter shared/html/svelte  region '\{'     '\}'                 regions
 add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)  ref css

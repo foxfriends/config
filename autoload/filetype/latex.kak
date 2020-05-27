@@ -36,7 +36,7 @@ provide-module latex %~
 
 add-highlighter shared/latex regions
 add-highlighter shared/latex/content default-region group
-add-highlighter shared/latex/comment region '(?<!\\)%' '\n' fill comment
+add-highlighter shared/latex/comment region '(?<!\\)%' '\n' ref comment
 
 # Scopes, starting with a backslash
 add-highlighter shared/latex/content/ regex '\\(?!_)\w+\b' 0:keyword

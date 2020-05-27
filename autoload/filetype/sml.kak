@@ -26,7 +26,7 @@ provide-module sml %{
 add-highlighter shared/sml regions
 add-highlighter shared/sml/code default-region group
 add-highlighter shared/sml/string region (?<!')" (?<!\\)(\\\\)*" fill string
-add-highlighter shared/sml/comment region \Q(* \Q*) fill comment
+add-highlighter shared/sml/comment region \Q(* \Q*) ref comment
 add-highlighter shared/sml/code/char regex %{\B'([^'\\]|(\\[\\"'nrtb])|(\\\d{3})|(\\x[a-fA-F0-9]{2})|(\\o[0-7]{3}))'\B} 0:value
 add-highlighter shared/sml/code/ regex "(datatype|abstype)\s+(\w+)" 1:meta
 add-highlighter shared/sml/code/ regex "\b(string|int|char|bool|list)\b" 1:meta

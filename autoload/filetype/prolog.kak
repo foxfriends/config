@@ -24,8 +24,8 @@ add-highlighter shared/prolog regions
 add-highlighter shared/prolog/code          default-region group
 add-highlighter shared/prolog/double_string region %{(?<!\\)(?:\\\\)*\K"} %{(?<!\\)(?:\\\\)*"} fill string
 add-highlighter shared/prolog/single_string region %{(?<!\\)(?:\\\\)*\K'} %{(?<!\\)(?:\\\\)*'} fill string
-add-highlighter shared/prolog/comment       region '(?<!\$)%' '$' fill comment
-add-highlighter shared/prolog/block_comment region '/\*' '\*/' fill comment
+add-highlighter shared/prolog/comment       region '(?<!\$)%' '$' ref comment
+add-highlighter shared/prolog/block_comment region '/\*' '\*/'    ref comment
 
 add-highlighter shared/prolog/rule  region -recurse '\(' '\(' '\)' group
 add-highlighter shared/prolog/rule/ regex \b([A-Z][a-zA-Z0-9_]*)\b        1:variable

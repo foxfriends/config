@@ -53,10 +53,10 @@ add-highlighter shared/tex-haskell/ regex "\\(begin|end)\{code\}"  0:meta
 add-highlighter shared/bird-haskell regions
 add-highlighter shared/bird-haskell/code default-region group
 add-highlighter shared/bird-haskell/string       region (?<!'\\)(?<!')"                 (?<!\\)(\\\\)*"  fill string
-add-highlighter shared/bird-haskell/macro        region ^>\h*?\K#                        (?<!\\)\n        fill meta
+add-highlighter shared/bird-haskell/macro        region ^>\h*?\K#                        (?<!\\)\n       fill meta
 add-highlighter shared/bird-haskell/pragma       region -recurse \{- \{-#               '#-\}'           fill meta
-add-highlighter shared/bird-haskell/comment      region -recurse \{- \{-                  -\}            fill comment
-add-highlighter shared/bird-haskell/line_comment region --(?:[^!#$%&*+./<>?@\\\^|~=]|$) $                fill comment
+add-highlighter shared/bird-haskell/comment      region -recurse \{- \{-                  -\}            ref comment
+add-highlighter shared/bird-haskell/line_comment region --(?:[^!#$%&*+./<>?@\\\^|~=]|$) $                ref comment
 
 add-highlighter shared/bird-haskell/code/ regex (?<!')\b0x+[A-Fa-f0-9]+ 0:value
 add-highlighter shared/bird-haskell/code/ regex (?<!')\b\d+([.]\d+)? 0:value

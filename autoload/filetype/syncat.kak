@@ -25,7 +25,7 @@ add-highlighter shared/syncat/items             default-region group
 add-highlighter shared/syncat/styles            region "\{"    "\}"      group
 add-highlighter shared/syncat/values            region ":"    ";"        group
 
-add-highlighter shared/syncat/comment           region "//" "$"    fill comment
+add-highlighter shared/syncat/comment           region "//" "$"    ref comment
 add-highlighter shared/syncat/string            region %{(?<!')"} (?<!\\)(\\\\)*"  fill string
 add-highlighter shared/syncat/regex             region /    (?<!\\)(\\\\)*/i?      fill meta
 

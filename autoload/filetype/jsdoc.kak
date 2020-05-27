@@ -17,7 +17,7 @@ provide-module jsdoc %§
 add-highlighter shared/jsdoc regions
 add-highlighter shared/jsdoc/block          default-region group
 
-add-highlighter shared/jsdoc/block/         fill comment
+add-highlighter shared/jsdoc/block/         ref comment
 add-highlighter shared/jsdoc/block/         regex  (@abstract|@virtual)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@access)\b\h+(package|private|protected|public) 1:keyword 2:keyword
 add-highlighter shared/jsdoc/block/         regex  (@package|@private|@protected|@public)\b 1:keyword

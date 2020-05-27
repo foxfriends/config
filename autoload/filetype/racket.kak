@@ -31,9 +31,9 @@ add-highlighter shared/racket regions
 add-highlighter shared/racket/code default-region group
 
 add-highlighter shared/racket/string region '"' (?<!\\)(\\\\)*" fill string
-add-highlighter shared/racket/comment region ';' '$' fill comment
-add-highlighter shared/racket/comment-form region -recurse "\(" "#;\(" "\)" fill comment
-add-highlighter shared/racket/comment-block region "#\|" "\|#" fill comment
+add-highlighter shared/racket/comment region ';' '$' ref comment
+add-highlighter shared/racket/comment-form region -recurse "\(" "#;\(" "\)" ref comment
+add-highlighter shared/racket/comment-block region "#\|" "\|#" ref comment
 add-highlighter shared/racket/quoted-form region -recurse "\(" "'\(" "\)" fill variable
 
 add-highlighter shared/racket/code/ regex (#t|#f)\b 0:value

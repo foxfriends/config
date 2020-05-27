@@ -42,9 +42,9 @@ add-highlighter shared/rust/code default-region group
 
 add-highlighter shared/rust/string           region %{(?<!')"} (?<!\\)(\\\\)*"              fill string
 add-highlighter shared/rust/raw_string       region -match-capture %{(?<!')r(#*)"} %{"(#*)} fill string
-add-highlighter shared/rust/comment          region -recurse "/\*" "/\*" "\*/"              fill comment
-add-highlighter shared/rust/doc_comment      region "//[/!]" "$"                            fill doc_comment
-add-highlighter shared/rust/line_comment     region "//" "$"                                fill comment
+add-highlighter shared/rust/comment          region -recurse "/\*" "/\*" "\*/"              ref comment
+add-highlighter shared/rust/doc_comment      region "//[/!]" "$"                            ref doc_comment
+add-highlighter shared/rust/line_comment     region "//" "$"                                ref comment
 add-highlighter shared/rust/attribute        region "#!?\[" "\]"                            fill meta
 
 add-highlighter shared/rust/code/operator     regex (\[|\]|=|==|!=|\+=|-=|\*=|/=|%=|<|>|<=|>=|=>|->|\+|-|/|\*|%|~|\||\|\||&|&&|!|^|\?|<<|>>|<<=|>>=|\.|\.\.|\.\.=) 1:operator

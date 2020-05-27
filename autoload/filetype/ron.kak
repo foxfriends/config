@@ -26,8 +26,8 @@ provide-module ron %§
 
 add-highlighter shared/ron                  regions
 add-highlighter shared/ron/code             default-region group
-add-highlighter shared/ron/comment_l        region "//" "$"    fill comment
-add-highlighter shared/ron/comment_b        region -recurse "/\*" "/\*" "\*/"              fill comment
+add-highlighter shared/ron/comment_l        region "//" "$"                                ref comment
+add-highlighter shared/ron/comment_b        region -recurse "/\*" "/\*" "\*/"              ref comment
 add-highlighter shared/ron/string           region %{(?<!')"} (?<!\\)(\\\\)*"              fill string
 add-highlighter shared/ron/raw_string       region -match-capture %{(?<!')r(#*)"} %{"(#*)} fill string
 add-highlighter shared/ron/attribute        region "#!?\[" "\]"                            fill keyword

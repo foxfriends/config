@@ -22,7 +22,7 @@ provide-module conf %§
 
 add-highlighter shared/conf                   regions
 add-highlighter shared/conf/props             default-region group
-add-highlighter shared/conf/comment           region "^\s*#" "$"    fill comment
+add-highlighter shared/conf/comment           region "^\s*#" "$"    ref comment
 
 add-highlighter shared/conf/props/property    regex (?S)^\s*([a-zA-Z_\-0-9]+)\s+(.*)$       1:identifier 2:string
 add-highlighter shared/conf/props/number      regex \b([0-9]+(\.[0-9]+)?)\b                 1:value

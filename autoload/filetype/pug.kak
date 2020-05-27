@@ -51,7 +51,7 @@ add-highlighter shared/pug/text/interpolation   region -recurse '#\{' '#\{' '\}'
 add-highlighter shared/pug/text/r               default-region group
 add-highlighter shared/pug/text/r/              regex ^\h*(\|) 1:meta
 
-add-highlighter shared/pug/comment       region //           $                      fill comment
+add-highlighter shared/pug/comment       region //           $                      ref comment
 
 add-highlighter shared/pug/puglang          region ^\h*\b(\block|extends|include|append|prepend|if|unless|else|case|when|default|each|while|mixin)\b $ group
 add-highlighter shared/pug/puglang/         regex   \b(\block|extends|include|append|prepend|if|unless|else|case|when|default|each|while|mixin|of|in)\b 0:keyword

@@ -22,7 +22,7 @@ provide-module graphql %§
 
 add-highlighter shared/graphql regions
 add-highlighter shared/graphql/code default-region group
-add-highlighter shared/graphql/comment region "^\s*#" "$" fill comment
+add-highlighter shared/graphql/comment region "^\s*#" "$" ref comment
 add-highlighter shared/graphql/string region %{(?<!')"} (?<!\\)(\\\\)*" fill string
 add-highlighter shared/graphql/multistring region %{"""} %{"""} fill string
 

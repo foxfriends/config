@@ -25,10 +25,10 @@ add-highlighter shared/swift/multiline_string       region \
     %{"""} \
     %{"""} \
     fill string
-add-highlighter shared/swift/comment                region -recurse "/\*" "/\*" "\*/"    fill comment
-add-highlighter shared/swift/doc_comment            region "///" "$"                     fill doc_comment
-add-highlighter shared/swift/mark                   region "//\s*MARK:"  "$"             fill doc_comment
-add-highlighter shared/swift/line_comment           region "//"  "$"                     fill comment
+add-highlighter shared/swift/comment                region -recurse "/\*" "/\*" "\*/"    ref comment
+add-highlighter shared/swift/doc_comment            region "///" "$"                     ref doc_comment
+add-highlighter shared/swift/mark                   region "//\s*MARK:"  "$"             ref doc_comment
+add-highlighter shared/swift/line_comment           region "//"  "$"                     ref comment
 
 add-highlighter shared/swift/code/keyword group
 add-highlighter shared/swift/code/keyword/declaration     regex \b(associatedtype|class|deinit|enum|extension|func|init|inout|let|operator|protocol|rethrows|static|struct|subscript|typealias|var)\b 1:keyword

@@ -36,14 +36,14 @@ provide-module css %[
 add-highlighter shared/css regions
 add-highlighter shared/css/selector    default-region group
 add-highlighter shared/css/declaration region [{]        [}]  regions
-add-highlighter shared/css/comment     region /[*]       [*]/ fill comment
+add-highlighter shared/css/comment     region /[*]       [*]/ ref comment
 add-highlighter shared/css/import      region (@import)  ";"  regions
 add-highlighter shared/css/media       region (@media)   [{]  regions
 
 add-highlighter shared/css/import/base          default-region group
 add-highlighter shared/css/import/double_string region '"' (?<!\\)(\\\\)*" fill string
 add-highlighter shared/css/import/single_string region "'" "'"             fill string
-add-highlighter shared/css/import/comment       region /[*] [*]/           fill comment
+add-highlighter shared/css/import/comment       region /[*] [*]/           ref comment
 
 add-highlighter shared/css/import/base/ regex      "@import"        0:keyword
 add-highlighter shared/css/import/base/ regex ([A-Za-z0-9_-]+)\h*\( 1:builtin
@@ -52,7 +52,7 @@ add-highlighter shared/css/import/base/ regex [a-zA-Z0-9_-]+        0:constant
 add-highlighter shared/css/declaration/base          default-region group
 add-highlighter shared/css/declaration/double_string region '"' (?<!\\)(\\\\)*" fill string
 add-highlighter shared/css/declaration/single_string region "'" "'"             fill string
-add-highlighter shared/css/declaration/comment       region /[*] [*]/           fill comment
+add-highlighter shared/css/declaration/comment       region /[*] [*]/           ref comment
 
 add-highlighter shared/css/declaration/base/ regex \b(inherit|initial|unset)\b 1:keyword
 add-highlighter shared/css/declaration/base/ regex \b(none|auto)\b 1:keyword
@@ -77,7 +77,7 @@ add-highlighter shared/css/declaration/base/ regex ([A-Za-z0-9_-]+)\h*:  1:built
 add-highlighter shared/css/media/base          default-region group
 add-highlighter shared/css/media/double_string region '"' (?<!\\)(\\\\)*" fill string
 add-highlighter shared/css/media/single_string region "'" "'"             fill string
-add-highlighter shared/css/media/comment       region /[*] [*]/           fill comment
+add-highlighter shared/css/media/comment       region /[*] [*]/           ref comment
 
 add-highlighter shared/css/media/base/ regex      "@media"  0:keyword
 add-highlighter shared/css/media/base/ regex      "and"  0:keyword

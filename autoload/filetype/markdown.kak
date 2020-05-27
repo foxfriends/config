@@ -36,7 +36,7 @@ provide-module markdown %{
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 
 add-highlighter shared/markdown regions
-add-highlighter shared/markdown/comment region "<!--" "-->" fill comment
+add-highlighter shared/markdown/comment region "<!--" "-->" ref comment
 add-highlighter shared/markdown/inline default-region regions
 add-highlighter shared/markdown/inline/text default-region group
 
