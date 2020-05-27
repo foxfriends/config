@@ -56,13 +56,14 @@ add-highlighter shared/jsdoc/block/         regex  (@lends)\b(\h+(\S+)) 1:keywor
 add-highlighter shared/jsdoc/block/         regex  (@license)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@listens)\b\h+([^\s#]+)#(([^\s:]+):)(\S+) 1:keyword 2:type 4:variable 5:string
 add-highlighter shared/jsdoc/block/         regex  (@member|@var)\b(\h+\{([^}]+)\})?(\h+([A-Za-z_$][A-Za-z_$0-9]*))? 1:keyword 3:type 5:variable
+add-highlighter shared/jsdoc/block/         regex  (@memberof!?)\b(\h+\S+)? 1:keyword 2:variable
 add-highlighter shared/jsdoc/block/         regex  (@namespace)\b(\h+\{([^}]+)\})?(\h+([A-Za-z_$][A-Za-z_$0-9]*))? 1:keyword 3:type 5:type
 add-highlighter shared/jsdoc/block/         regex  (@override)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@param|@arg|@argument)\b(\h+\{([^}]+)\})?\h+(([A-Za-z_$][A-Za-z_$0-9]*)|\[([A-Za-z_$][A-Za-z_$0-9.\[\]]*)(\b\h*=\h*([^\]]*))?\]) 1:keyword 2:type 5:variable 6:variable 8:value
-add-highlighter shared/jsdoc/block/         regex  (@prop|@property)\b(\h+\{([^}]+)\})?\h+([A-Za-z_$][A-Za-z_$0-9]*) 1:keyword 2:type 4:variable
+add-highlighter shared/jsdoc/block/         regex  (@prop|@property)\b(\h+\{[^}]+\})?\h+([A-Za-z_$][A-Za-z_$0-9]*) 1:keyword 2:type 3:variable
 add-highlighter shared/jsdoc/block/         regex  (@readonly)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@requires)\b\h+(\S+) 1:keyword 2:string
-add-highlighter shared/jsdoc/block/         regex  (@return|@returns)\b(\h+\{([^}]+)\})? 1:keyword 3:type
+add-highlighter shared/jsdoc/block/         regex  (@return|@returns)\b(\h+\{[^}]+\})? 1:keyword 2:type
 add-highlighter shared/jsdoc/block/         regex  (@see)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@since)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@static)\b 1:keyword
@@ -71,11 +72,11 @@ add-highlighter shared/jsdoc/block/         regex  (@this)\b\h+(\S+) 1:keyword 2
 add-highlighter shared/jsdoc/block/         regex  (@throws)\b\h+\{([^}]+)\} 1:keyword 3:type
 add-highlighter shared/jsdoc/block/         regex  (@todo)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@tutorial)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@type)\b\h+(\h+\{([^}]+)\}) 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@typedef)\b(\h+\{([^}]+)\})?\h+([A-Za-z_$][A-Za-z_$0-9]*) 1:keyword 2:type 4:type
+add-highlighter shared/jsdoc/block/         regex  (@type)\b\h+(\{([^}]+)\}) 1:keyword 2:type
+add-highlighter shared/jsdoc/block/         regex  (@typedef)\b(\h+\{[^}]+\})?\h+([A-Za-z_$][A-Za-z_$0-9]*) 1:keyword 2:type 3:type
 add-highlighter shared/jsdoc/block/         regex  (@variation)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@version)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@yield|@yields)\b(\h+\{([^}]+)\})? 1:keyword 3:type
+add-highlighter shared/jsdoc/block/         regex  (@yield|@yields)\b(\h+\{[^}]+\})? 1:keyword 2:type
 
 add-highlighter shared/jsdoc/block/         regex  \{(@link)\b\h+([^}]+)\} 1:keyword 3:meta
 add-highlighter shared/jsdoc/block/         regex  \{(@tutorial)\b\h+([^}]+)\} 1:keyword 3:meta
