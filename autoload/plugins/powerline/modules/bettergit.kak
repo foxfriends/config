@@ -23,7 +23,7 @@ define-command -hidden powerline-bettergit %{ evaluate-commands %sh{
     fi
 }}
 
-define-command powerline-bettergit-setup-hooks %{
+define-command -hidden powerline-bettergit-setup-hooks %{
     remove-hooks global powerline-bettergit
     evaluate-commands %sh{
         if [ "$kak_opt_powerline_module_bettergit" = "true" ]; then
