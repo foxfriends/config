@@ -13,6 +13,7 @@ hook global BufCreate .*[.](markdown|md|mkd|svexy|svx) %{
 
 hook global WinSetOption filetype=markdown %{
     require-module markdown
+    require-module yaml
 
     hook window InsertChar \n -group markdown-indent markdown-indent-on-new-line
     hook -once -always window WinSetOption filetype=.* %{ remove-hooks window markdown-.+ }
@@ -60,6 +61,11 @@ add-highlighter shared/markdown/codeblock region -match-capture \
     ^(\h*)```\h* \
     ^(\h*)```\h*$ \
     fill meta
+
+add-highlighter shared/markdown/frontmatter region -match-capture \
+    ^---\h*$ \
+    ^---\h*$ \
+    ref yaml
 
 add-highlighter shared/markdown/listblock region ^\h*[-*]\s ^\h*((?=[-*])|$) regions
 add-highlighter shared/markdown/listblock/marker region \A [-*]\s fill bullet
