@@ -108,6 +108,10 @@ command = "delete_files"
 keys = [ "delete" ]
 
 [[mapcommand]]
+command = "console touch "
+keys = [ "insert" ]
+
+[[mapcommand]]
 command = "rename_append"
 keys = [ "a" ]
 [[mapcommand]]
