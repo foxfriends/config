@@ -1,6 +1,14 @@
 # plugins
 source "%val{config}/plugins.kak"
 
+evaluate-commands %sh{
+    if command -v rg >/dev/null; then
+        echo "set-option global grepcmd 'rg --vimgrep'"
+    else
+        echo "nop"
+    fi
+}
+
 # visuals
 colorscheme %sh{echo ${skin:-"onedark"}}
 add-highlighter global/ number-lines -separator ' │ ' -hlcursor
@@ -70,3 +78,8 @@ hook global BufWritePost .* "git show-diff"
 hook global BufCreate .* "git show-diff"
 
 def find -params 1 -shell-script-candidates %{ find -type f } %{ edit %arg{1} }
+
+hook global BufCreate .*[.]ya?ml %{
+    set buffer tabstop 2
+    set buffer indentwidth 2
+}

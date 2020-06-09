@@ -59,7 +59,7 @@ add-highlighter shared/jsdoc/block/         regex  (@member|@var)\b(\h+\{([^}]+)
 add-highlighter shared/jsdoc/block/         regex  (@memberof!?)\b(\h+\S+)? 1:keyword 2:variable
 add-highlighter shared/jsdoc/block/         regex  (@namespace)\b(\h+\{([^}]+)\})?(\h+([A-Za-z_$][A-Za-z_$0-9]*))? 1:keyword 3:type 5:type
 add-highlighter shared/jsdoc/block/         regex  (@override)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@param|@arg|@argument)\b(\h+\{([^}]+)\})?\h+(([A-Za-z_$][A-Za-z_$0-9]*)|\[([A-Za-z_$][A-Za-z_$0-9.\[\]]*)(\b\h*=\h*([^\]]*))?\]) 1:keyword 2:type 5:variable 6:variable 8:value
+add-highlighter shared/jsdoc/block/         regex  (@param|@arg|@argument)\b(\h+\{([^}]+)\})?\h+(([A-Za-z_$][A-Za-z_$0-9.]*)|\[([A-Za-z_$][A-Za-z_$0-9.\[\]]*)(\b\h*=\h*([^\]]*))?\]) 1:keyword 2:type 5:variable 6:variable 8:value
 add-highlighter shared/jsdoc/block/         regex  (@prop|@property)\b(\h+\{[^}]+\})?\h+([A-Za-z_$][A-Za-z_$0-9]*) 1:keyword 2:type 3:variable
 add-highlighter shared/jsdoc/block/         regex  (@readonly)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@requires)\b\h+(\S+) 1:keyword 2:string
