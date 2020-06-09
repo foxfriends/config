@@ -37,7 +37,6 @@ add-highlighter shared/jsdoc/block/         regex  (@desc|@description)\b 1:keyw
 add-highlighter shared/jsdoc/block/         regex  (@enum)\b(\h+\{([^}]+)\})? 1:keyword 3:type
 add-highlighter shared/jsdoc/block/         regex  (@event)\b\h+([^\s#]+)#(([^\s:]+):)(\S+) 1:keyword 2:type 4:variable 5:string
 add-highlighter shared/jsdoc/block/         regex  (@example)\b 1:keyword
-add-highlighter shared/jsdoc/block/         regex  (@example)\b(\h+(\S+))? 1:keyword 3:string
 add-highlighter shared/jsdoc/block/         regex  (@external|@host)\b\h+(\S+) 1:keyword 2:variable
 add-highlighter shared/jsdoc/block/         regex  (@file|@overview|@fileoverview)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@emits|@fires)\b\h+([^\s#]+)#(([^\s:]+):)(\S+) 1:keyword 2:type 4:variable 5:string
