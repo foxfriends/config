@@ -85,8 +85,8 @@ define-command -hidden init-javascript-filetype -params 1 %~
     add-highlighter "shared/%arg{1}/comment"       region /\*  \*/                     ref comment
     add-highlighter "shared/%arg{1}/shebang"       region ^#!  $                       fill meta
     add-highlighter "shared/%arg{1}/regex"         region /    (?<!\\)(\\\\)*/[gimuy]* fill meta
-    add-highlighter "shared/%arg{1}/double_string" region '"'  (?<!\\)(\\\\)*"         fill string
-    add-highlighter "shared/%arg{1}/single_string" region "'"  (?<!\\)(\\\\)*'         fill string
+    add-highlighter "shared/%arg{1}/double_string" region '"'  ((?<!\\)(\\\\)*"|((?<!\\)(\\\\)*\n$))     fill string
+    add-highlighter "shared/%arg{1}/single_string" region "'"  ((?<!\\)(\\\\)*'|((?<!\\)(\\\\)*\n$))     fill string
     add-highlighter "shared/%arg{1}/literal"       region "`"  (?<!\\)(\\\\)*`         regions
     add-highlighter "shared/%arg{1}/jsx"           region -recurse (?<![\w<])<[a-zA-Z][\w:.-]* (?<![\w<])<[a-zA-Z][\w:.-]*(?!\hextends)(?=[\s/>])(?!>\()) (</.*?>|/>) regions
     add-highlighter "shared/%arg{1}/division"      region '[\w\)\]]\K(/|(\h+/\h+))' '(?=\w)' group # Help Kakoune to better detect /…/ literals
