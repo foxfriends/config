@@ -68,7 +68,7 @@ add-highlighter shared/jsdoc/block/         regex  (@since)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@static)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@summary)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@this)\b\h+(\S+) 1:keyword 2:variable
-add-highlighter shared/jsdoc/block/         regex  (@throws)\b\h+\{([^}]+)\} 1:keyword 3:type
+add-highlighter shared/jsdoc/block/         regex  (@throws)\b(\h+\{[^}]+\})? 1:keyword 2:type
 add-highlighter shared/jsdoc/block/         regex  (@todo)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@tutorial)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@type)\b\h+(\{([^}]+)\}) 1:keyword 2:type
