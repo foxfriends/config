@@ -136,6 +136,12 @@ name = "php"
 library = "tree-sitter-php"
 extensions = ["php"]
 
+[prolog]
+source = "https://github.com/jamesnvc/tree-sitter-prolog"
+name = "prolog"
+library = "tree-sitter-prolog"
+extensions = ["pl"]
+
 [python]
 source = "https://github.com/tree-sitter/tree-sitter-python"
 name = "python"
