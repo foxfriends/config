@@ -19,6 +19,10 @@ if command -v diesel >/dev/null
   diesel completions fish | source
 end
 
+if command -v deno >/dev/null
+  deno completions fish | source
+end
+
 if command -v gh > /dev/null
   gh completion -s fish | source
 end
@@ -55,4 +59,3 @@ end
 if test -x /usr/bin/lesspipe
   eval (env SHELL=/bin/sh lesspipe)
 end
-
