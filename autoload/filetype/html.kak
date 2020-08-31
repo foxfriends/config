@@ -48,19 +48,30 @@ try %{
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 
 add-highlighter shared/html regions
-add-highlighter shared/html/comment region <!--     -->                  ref comment
-add-highlighter shared/html/tag     region <          >                  regions
-add-highlighter shared/html/svelte  region -recurse '\{'  '\{'     '\}'  regions
-add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)  ref css
-add-highlighter shared/html/script  region <script\b.*?>\K (?=</script>) ref javascript
+add-highlighter shared/html/comment region <!--     -->                   ref comment
+add-highlighter shared/html/tag     region <          >                   regions
+add-highlighter shared/html/svelte  region \
+    -recurse '\{' \
+    '\{(@debug|@html|#each|#if|#await|:else(\s+if)?|:catch|:then|/if|/each|/await)' \
+    '\}' \
+    regions
+add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)   ref css
+add-highlighter shared/html/script  region <script\b.*?>\K (?=</script>)  ref javascript
 
 add-highlighter shared/html/svelte/base default-region group
-add-highlighter shared/html/svelte/base/  regex "(\{[#/](if|each|await))(\s+.*)?(\})"           1:keyword 4:keyword
-add-highlighter shared/html/svelte/base/  regex "(\{@(html|debug))(\s+.*)?(\})"                 1:keyword 4:keyword
-add-highlighter shared/html/svelte/base/  regex "(\{:(else(\s+if)?|then|catch))(\s+.*)?(\})"    1:keyword 5:keyword
+add-highlighter shared/html/svelte/base/  regex '[#/](if|each|await)'        0:keyword
+add-highlighter shared/html/svelte/base/  regex ':(then|else(\s+if)?|catch)' 0:keyword
+add-highlighter shared/html/svelte/base/  regex "@(html|debug)"              0:keyword
+add-highlighter shared/html/svelte/base/  regex "as|then"                    0:keyword
+add-highlighter shared/html/svelte/base/  regex "^\{"                        0:keyword
+add-highlighter shared/html/svelte/base/  regex "\}$"                        0:keyword
+add-highlighter shared/html/svelte/ region '#each\s+\K' '(?=as)' ref javascript
+add-highlighter shared/html/svelte/ region 'as\K' '(?=\})'  ref javascript
+add-highlighter shared/html/svelte/ region '#await\s+\K' '(?=then)|(?=\})' ref javascript
+add-highlighter shared/html/svelte/ region ':?then\K' '(?=\})'         ref javascript
 
 add-highlighter shared/html/tag/base          default-region group
-add-highlighter shared/html/tag/interpolation region -recurse '\{' '\{\K' (?='\}')            ref javascript
+add-highlighter shared/html/tag/interpolation region -recurse '\{' '\{\K' '(?=\})'            ref javascript
 add-highlighter shared/html/tag/              region '"' (?<!\\)(\\\\)*"      fill string
 add-highlighter shared/html/tag/              region "'" "'"                  fill string
 
