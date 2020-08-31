@@ -35,7 +35,7 @@ provide-module css %[
 
 add-highlighter shared/css regions
 add-highlighter shared/css/selector    default-region group
-add-highlighter shared/css/declaration region [{]        [}]  regions
+add-highlighter shared/css/declaration region -recurse [{] [{]        [}]  regions
 add-highlighter shared/css/comment     region /[*]       [*]/ ref comment
 add-highlighter shared/css/import      region (@import)  ";"  regions
 add-highlighter shared/css/media       region (@media)   [{]  regions
@@ -53,6 +53,7 @@ add-highlighter shared/css/declaration/base          default-region group
 add-highlighter shared/css/declaration/double_string region '"' (?<!\\)(\\\\)*" fill string
 add-highlighter shared/css/declaration/single_string region "'" "'"             fill string
 add-highlighter shared/css/declaration/comment       region /[*] [*]/           ref comment
+add-highlighter shared/css/declaration/nested        region \s*&\s* (?=\{) ref css/selector
 
 add-highlighter shared/css/declaration/base/ regex \b(inherit|initial|unset)\b 1:keyword
 add-highlighter shared/css/declaration/base/ regex \b(none|auto)\b 1:keyword
