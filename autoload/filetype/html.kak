@@ -56,7 +56,8 @@ add-highlighter shared/html/svelte  region \
     '\}' \
     regions
 add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)   ref css
-add-highlighter shared/html/script  region <script\b.*?>\K (?=</script>)  ref javascript
+add-highlighter shared/html/typescript region %{<script\b.*lang=['"]?typescript['"].*>\K} (?=</script>) ref typescript
+add-highlighter shared/html/javascript region <script\b.*>\K (?=</script>)  ref javascript
 
 add-highlighter shared/html/svelte/base default-region group
 add-highlighter shared/html/svelte/base/  regex '[#/](if|each|await)'        0:keyword
