@@ -50,7 +50,7 @@ try %{
 add-highlighter shared/html regions
 add-highlighter shared/html/comment region <!--     -->                  ref comment
 add-highlighter shared/html/tag     region <          >                  regions
-add-highlighter shared/html/svelte  region '\{'     '\}'                 regions
+add-highlighter shared/html/svelte  region -recurse '\{'  '\{'     '\}'  regions
 add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)  ref css
 add-highlighter shared/html/script  region <script\b.*?>\K (?=</script>) ref javascript
 
@@ -60,7 +60,7 @@ add-highlighter shared/html/svelte/base/  regex "(\{@(html|debug))(\s+.*)?(\})" 
 add-highlighter shared/html/svelte/base/  regex "(\{:(else(\s+if)?|then|catch))(\s+.*)?(\})"    1:keyword 5:keyword
 
 add-highlighter shared/html/tag/base          default-region group
-add-highlighter shared/html/tag/interpolation region [{]\K (?=[}])            ref javascript
+add-highlighter shared/html/tag/interpolation region -recurse '\{' '\{\K' (?='\}')            ref javascript
 add-highlighter shared/html/tag/              region '"' (?<!\\)(\\\\)*"      fill string
 add-highlighter shared/html/tag/              region "'" "'"                  fill string
 
