@@ -60,6 +60,10 @@ alias global Wqa write-all-quit
 alias global WQa write-all-quit
 alias global WQA write-all-quit
 
+define-command -docstring 'set buffer filetype <type>' -params 1 sf %{
+    set buffer filetype %arg{1}
+}
+
 declare-user-mode split
 map global split h ': split-left<ret>' -docstring 'split left'
 map global split l ': split-left<ret>' -docstring 'split right'
