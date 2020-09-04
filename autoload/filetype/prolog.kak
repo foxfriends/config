@@ -27,16 +27,10 @@ add-highlighter shared/prolog/single_string region %{(?<!\\)(?:\\\\)*\K'} %{(?<!
 add-highlighter shared/prolog/comment       region '(?<!\$)%' '$' ref comment
 add-highlighter shared/prolog/block_comment region '/\*' '\*/'    ref comment
 
-add-highlighter shared/prolog/rule  region -recurse '\(' '\(' '\)' group
-add-highlighter shared/prolog/rule/ regex \b([A-Z][a-zA-Z0-9_]*)\b        1:variable
-add-highlighter shared/prolog/rule/ regex \b([a-z][a-zA-Z0-9_]*)\w*(?=\() 1:type
-add-highlighter shared/prolog/rule/ regex \b[0-9]+          0:value
-add-highlighter shared/prolog/rule/ regex \b[0-9]+\.[0-9]+  0:value
-add-highlighter shared/prolog/rule/ regex [\[\|\-\]><=+/!]  0:operator
-
 add-highlighter shared/prolog/code/ regex (:-|\.) 0:operator
 add-highlighter shared/prolog/code/ regex \bis\b 0:operator
-add-highlighter shared/prolog/code/ regex \b([a-z][a-zA-Z0-9_]*)\w*(?=\() 1:function
+add-highlighter shared/prolog/code/ regex \b(([a-z][a-zA-Z0-9_]*):)?([a-z][a-zA-Z0-9_]*)\s*(?=\() 2:module 3:function
+add-highlighter shared/prolog/code/ regex \b([A-Z][a-zA-Z0-9_]*)\b 1:variable
 add-highlighter shared/prolog/code/ regex \b[0-9]+ 0:value
 add-highlighter shared/prolog/code/ regex \b[0-9]+\.[0-9]+ 0:value
 
@@ -52,8 +46,6 @@ define-command -hidden prolog-indent-on-new-line %~
         try %{ execute-keys -draft -itersel k <a-x> s \h+$ <ret> d }
         # indent after lines ending with ':-'
         try %{ execute-keys -draft k <a-x> <a-k> :-\h*$ <ret> j <a-gt> }
-        # align to opening paren of previous line
-        try %{ execute-keys -draft [( <a-k> \A\([^\n]+\n[^\n]*\n?\z <ret> s \A\(\h*.|.\z <ret> & }
     >
 ~
 }
