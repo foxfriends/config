@@ -1,7 +1,7 @@
 # Extremely basic prolog highlighting for kakoune
 # Updated 2018-05-14
 
-hook global BufCreate .*\.(pro|pl)? %{
+hook global BufCreate .*\.(pl|plt) %{
     set-option buffer filetype prolog
 }
 
