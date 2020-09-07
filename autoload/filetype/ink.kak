@@ -42,7 +42,7 @@ add-highlighter shared/ink/knot/       regex \b([a-zA-Z_]+)\b          1:functio
 add-highlighter shared/ink/script      default-region group
 add-highlighter shared/ink/script/stitch        regex ^(=)\h+([a-zA-Z_]+)(\h+=+)?           1:keyword 2:variable 3:keyword
 add-highlighter shared/ink/script/choice        regex ^((\h*[*+])+)(\h+\(([a-zA-Z_]+)\))?   1:keyword 3:keyword 4:variable
-add-highlighter shared/ink/script/choicetext    regex ([^\n\[)]*)(\[([^\]]*)\]) 1:string 2:keyword 3:string
+add-highlighter shared/ink/script/choicetext    regex ([^\n\[)*+]*)(\[([^\]]*)\]) 1:string 2:keyword 3:string
 add-highlighter shared/ink/script/gather        regex ^((\h*[-])+)(\h+\(([a-zA-Z_]+)\))?    1:keyword 3:keyword 4:variable
 add-highlighter shared/ink/script/tag           regex (?S)[#].+$                     0:meta
 add-highlighter shared/ink/script/divert        regex (->)              1:keyword
