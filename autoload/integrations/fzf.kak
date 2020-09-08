@@ -5,7 +5,7 @@ define-command -docstring "use fzf to find and open a file" fzf %{
     mkfifo ${output}
     cmd="fzf --preview \"syncat {} -en\" > ${output}"
     if command -v fd > /dev/null; then
-      cmd="fd -t f -L -E .git -E node_modules -E target -E dist -E build -E .cache | ${cmd}"
+      cmd="fd -t f -L -E .git -E node_modules -E target -E dist -E build -E .cache -E vendor | ${cmd}"
     fi
     kitty @ new-window --new-tab --no-response --cwd $PWD bash -cl "${cmd}"
     result=$(cat ${output})

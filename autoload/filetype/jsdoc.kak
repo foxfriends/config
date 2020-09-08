@@ -6,7 +6,7 @@
 # Initialization
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-hook global WinSetOption filetype=(javascript|typescript) %{
+hook global WinSetOption filetype=(javascript|typescript|html) %{
     require-module jsdoc
 }
 
