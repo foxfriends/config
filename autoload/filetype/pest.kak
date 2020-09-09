@@ -25,7 +25,7 @@ add-highlighter shared/pest/rule           region [{]\K   (?=[}])   regions
 
 add-highlighter shared/pest/rules/   regex \b(\w+)\b  1:variable
 add-highlighter shared/pest/rules/   regex \b(WHITESPACE|COMMENT)\b  1:type
-add-highlighter shared/pest/rules/   regex [@$_]?[{]  0:keyword
+add-highlighter shared/pest/rules/   regex [@$_!]?[{]  0:keyword
 add-highlighter shared/pest/rules/   regex [}]        0:keyword
 
 add-highlighter shared/pest/rule/base      default-region                       group
