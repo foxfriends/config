@@ -65,7 +65,6 @@ add-highlighter shared/html/svelte/base/  regex ':(then|else(\s+if)?|catch)' 0:k
 add-highlighter shared/html/svelte/base/  regex "@(html|debug)"              0:keyword
 add-highlighter shared/html/svelte/base/  regex "as|then"                    0:keyword
 add-highlighter shared/html/svelte/ region '#each\s+\K' '(?=as)' ref javascript
-add-highlighter shared/html/svelte/ region 'as\K' '(?=\})'  ref javascript
 add-highlighter shared/html/svelte/ region '#await\s+\K' '(?=then)|(?=\})' ref javascript
 add-highlighter shared/html/svelte/ region ':?then\K' '(?=\})'         ref javascript
 

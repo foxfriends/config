@@ -24,9 +24,10 @@ add-highlighter shared/jsdoc/block/         regex  (@package|@private|@protected
 add-highlighter shared/jsdoc/block/         regex  (@alias)\b\h+(\S+) 1:keyword 2:variable
 add-highlighter shared/jsdoc/block/         regex  (@async)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@author)\b\h+(.+)\h+(<(.*)>)?$ 1:keyword 2:string 4:meta
+add-highlighter shared/jsdoc/block/         regex  (@augments|@extends)\b\h+(\S+)$ 1:keyword 2:type
 add-highlighter shared/jsdoc/block/         regex  (@borrows)\b\h+(\S+)\h+(as)\h+(\S+) 1:keyword 2:variable 3:keyword 4:variable
 add-highlighter shared/jsdoc/block/         regex  (@callback)\b\h+(\S+) 1:keyword 2:type
-add-highlighter shared/jsdoc/block/         regex  (@class|@constructor)\b(\h+\{([^}]+)\})?(\h+(\S+))? 1:keyword 3:type 5:type
+add-highlighter shared/jsdoc/block/         regex  (@class|@constructor)\b(\h+(\S+))? 1:keyword 3:type
 add-highlighter shared/jsdoc/block/         regex  (@classdesc)\b 1:keyword
 add-highlighter shared/jsdoc/block/         regex  (@const|@constant)\b(\h+\{([^}]+)\})?(\h+(\S+))? 1:keyword 3:type 5:variable
 add-highlighter shared/jsdoc/block/         regex  (@constructs)\b(\h+(\S+))? 1:keyword 3:type
