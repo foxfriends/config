@@ -52,7 +52,7 @@ add-highlighter shared/html/comment region <!--     -->                   ref co
 add-highlighter shared/html/tag     region <          >                   regions
 add-highlighter shared/html/svelte  region \
     -recurse '\{\K' \
-    '\{\K(@debug|@html|#each|#if|#await|:else(\s+if)?|:catch|:then|/if|/each|/await)' \
+    '\{\K(@debug|@html|#key|#each|#if|#await|:else(\s+if)?|:catch|:then|/if|/each|/await|/key)' \
     (?=\}) \
     regions
 add-highlighter shared/html/style   region <style\b.*?>\K  (?=</style>)   ref css
@@ -60,13 +60,14 @@ add-highlighter shared/html/typescript region %{<script\b.*lang=['"]?typescript[
 add-highlighter shared/html/javascript region <script\b[^>]*>\K (?=</script>)  ref javascript
 
 add-highlighter shared/html/svelte/base default-region group
-add-highlighter shared/html/svelte/base/  regex '[#/](if|each|await)\b'        0:keyword
+add-highlighter shared/html/svelte/base/  regex '[#/](if|each|await|key)\b'        0:keyword
 add-highlighter shared/html/svelte/base/  regex ':(then|else(\s+if)?|catch)\b' 0:keyword
 add-highlighter shared/html/svelte/base/  regex "@(html|debug)\b"              0:keyword
 add-highlighter shared/html/svelte/base/  regex "\b(as|then)\b"                0:keyword
 add-highlighter shared/html/svelte/ region '#each\b\K' '\b(?=as)' ref javascript
+add-highlighter shared/html/svelte/ region '#(key|if)\b\K' '(?=\})' ref javascript
 add-highlighter shared/html/svelte/ region '#await\b\K' '\b(?=then)|(?=\})' ref javascript
-add-highlighter shared/html/svelte/ region ':?then\b\K' '(?=\})'         ref javascript
+add-highlighter shared/html/svelte/ region ':?(then|else\s+if)\b\K' '(?=\})'         ref javascript
 
 add-highlighter shared/html/tag/base          default-region group
 add-highlighter shared/html/tag/interpolation region -recurse '\{' '\{\K' '(?=\})'            ref javascript
