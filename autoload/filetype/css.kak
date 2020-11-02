@@ -37,8 +37,8 @@ add-highlighter shared/css regions
 add-highlighter shared/css/selector    default-region group
 add-highlighter shared/css/declaration region -recurse [{] [{]        [}]  regions
 add-highlighter shared/css/comment     region /[*]       [*]/ ref comment
-add-highlighter shared/css/import      region (@import)  ";"  regions
-add-highlighter shared/css/media       region (@media)   [{]  regions
+add-highlighter shared/css/import      region (@import\b)  ";"  regions
+add-highlighter shared/css/media       region (@media\b)   [{]  regions
 
 add-highlighter shared/css/import/base          default-region group
 add-highlighter shared/css/import/double_string region '"' (?<!\\)(\\\\)*" fill string
@@ -89,6 +89,7 @@ add-highlighter shared/css/selector/ regex         [A-Za-z0-9_-]+      0:variabl
 add-highlighter shared/css/selector/ regex      [#][A-Za-z0-9_-]+      0:function
 add-highlighter shared/css/selector/ regex      [.][A-Za-z0-9_-]+      0:type
 add-highlighter shared/css/selector/ regex      [:]{1,2}[a-zA-Z0-9_-]+ 0:value
+add-highlighter shared/css/selector/ regex         '@keyframes\b'      0:keyword
 
 # Commands
 # ‾‾‾‾‾‾‾‾
