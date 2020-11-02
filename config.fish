@@ -31,6 +31,10 @@ if test -f ~/.nvm/nvm.sh
   bass source ~/.nvm/nvm.sh
 end
 
+if command -v aws aws-mfa-secure > /dev/null
+  alias aws="aws-mfa-secure session"
+end
+
 alias tree="git log --graph --oneline"
 
 # enable colors in grep by default
