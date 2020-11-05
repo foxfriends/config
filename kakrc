@@ -83,6 +83,7 @@ map global git k ': git prev-hunk<ret>' -docstring 'goto previous hunk'
 map global git h ': merge-take-ours<ret>' -docstring 'take first merge conflict option'
 map global git l ': merge-take-theirs<ret>' -docstring 'take second merge conflict option'
 map global git m ': merge-next-conflict<ret>' -docstring 'next merge conflict'
+map global git i ': gh issue list -a foxfriends<ret>' -docstring 'list issues'
 
 hook global BufWritePost .* "git show-diff"
 hook global BufCreate .* "git show-diff"

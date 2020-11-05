@@ -1,4 +1,4 @@
-define-command -docstring "use fzf to find and open a file" fzf %{
+define-command fzf -docstring "use fzf to find and open a file" %{
   evaluate-commands %sh{
     outdir=$(mktemp -d -t kak-temp-XXXXXXXX)
     output="$outdir/fzf-fifo"
