@@ -153,7 +153,13 @@ execution = ":line_up"
 key = "ctrl-d"
 execution = ":page_down"
 [[verbs]]
+key = "pagedown"
+execution = ":page_down"
+[[verbs]]
 key = "ctrl-u"
+execution = ":page_up"
+[[verbs]]
+key = "pageup"
 execution = ":page_up"
 [[verbs]]
 key = "home"

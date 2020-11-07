@@ -168,6 +168,12 @@ execution = ":page_down"
 key = "ctrl-u"
 execution = ":page_up"
 [[verbs]]
+key = "pagedown"
+execution = ":page_down"
+[[verbs]]
+key = "pageup"
+execution = ":page_up"
+[[verbs]]
 key = "home"
 execution = ":select_first"
 [[verbs]]
