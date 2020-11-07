@@ -4,6 +4,7 @@
 [core]
 	editor = kak
 	pager = delta
+	attributesFile = ~/.config/git/.gitattributes
 [diff]
 	colorMoved = default
 [interactive]
@@ -16,3 +17,6 @@
 	minus-emph-style = "syntax #634249"
 	line-numbers-minus-style = red
 	line-numbers-plus-style = green
+[pull]
+	rebase = false
+	ff = only
