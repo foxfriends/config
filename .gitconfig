@@ -20,3 +20,8 @@
 [pull]
 	rebase = false
 	ff = only
+[alias]
+	graph = "log --graph --oneline"
+[fetch]
+	prune = true
+	pruneTags = true
