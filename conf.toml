@@ -1,0 +1,264 @@
+
+###############################################################
+# This configuration file lets you
+# - define new commands
+# - change the shortcut or triggering keys of built-in verbs
+# - change the colors
+# - set default values for flags
+# - set special behaviors on specific paths
+#
+# Configuration documentation is available at
+#     https://dystroy.org/broot
+###############################################################
+
+###############################################################
+# Default flags
+# You can set up flags you want broot to start with by
+# default, for example `default_flags="ihp"` if you usually want
+# to see hidden and gitignored files and the permissions (then
+# if you don't want the hidden files you can launch `br -H`)
+# A popular flag is the `g` one which displays git related info.
+#
+default_flags = "g"
+
+###############################################################
+# Special paths
+# If some paths must be handled specially, uncomment (and change
+# this section as per the examples
+#
+# [special-paths]
+# "/media/slow-backup-disk" = "no-enter"
+# "/home/dys/useless" = "hide"
+# "/home/dys/my-link-I-want-to-explore" = "enter"
+
+###############################################################
+# Date/Time format
+# If you want to change the format for date/time, uncomment the
+# following line and change it according to
+# https://docs.rs/chrono/0.4.11/chrono/format/strftime/index.html
+#
+# date_time_format = "%Y/%m/%d %R"
+
+###############################################################
+# Whether to mark the selected line with a triangle
+#
+# show_selection_mark = true
+
+###############################################################
+# Column order
+# cols_order, if specified, must be a permutation of the following
+# array. You should keep the name at the end as it has a variable
+# length.
+#
+# cols_order = [
+# 	"mark",
+# 	"git",
+# 	"branch",
+# 	"permission",
+# 	"date",
+# 	"size",
+# 	"count",
+# 	"name",
+# ]
+
+###############################################################
+# True Colors
+# If this parameter isn't set, broot tries to automatically
+# determine whether true colors (24 bits) are available.
+# As this process is unreliable, you may uncomment this setting
+# and set it to false or true if you notice the colors in
+# previewed images are too off.
+true_colors = true
+
+###############################################################
+# Verbs and shortcuts
+# You can define your own commands which would be applied to
+# the selection.
+#
+# Exemple 1: launching `tail -n` on the selected file (leaving broot)
+# [[verbs]]
+# name = "tail_lines"
+# invocation = "tl {lines_count}"
+# execution = "tail -f -n {lines_count} {file}"
+#
+# Exemple 2: creating a new file without leaving broot
+[[verbs]]
+name = "touch"
+invocation = "touch {new_file}"
+execution = "touch {directory}/{new_file}"
+leave_broot = false
+
+# If $EDITOR isn't set on your computer, you should either set it using
+#  something similar to
+#   export EDITOR=nvim #  or just replace it with your editor of choice in the 'execution'
+#  pattern.
+#  If your editor is able to open a file on a specific line, use {line}
+#   so that you may jump directly at the right line from a preview.
+# Example:
+#  execution = "nvim +{line} {file}"
+
+[[verbs]]
+invocation = "edit"
+shortcut = "e"
+key = "F2"
+execution = "/home/cam/.local/bin/kak {file} +{line}"
+leave_broot = false
+
+[[verbs]]
+invocation = "create {subpath}"
+execution = "/home/cam/.local/bin/kak {directory}/{subpath}"
+leave_broot = false
+
+[[verbs]]
+invocation = "git_diff"
+shortcut = "gd"
+leave_broot = false
+execution = "git difftool -y {file}"
+
+# If $PAGER isn't set on your computer, you should either set it
+#  or just replace it with your viewer of choice in the 'execution'
+#  pattern.
+# Example:
+#  execution = "less {file}"
+[[verbs]]
+name = "view"
+invocation = "view"
+execution = "$PAGER {file}"
+leave_broot = false
+
+# uncomment if you want to launch a terminal on ctrl-T
+# (on exit you'll be back in broot)
+# [[verbs]]
+# invocation = "terminal"
+# key = "ctrl-t"
+# execution = "$SHELL"
+# set_working_dir = true
+# leave_broot = false
+
+# Here's an example of a shorctut bringing you to your home directory
+[[verbs]]
+invocation = "home"
+key = "~"
+execution = ":focus ~"
+
+# A popular set of shorctuts for going up and down:
+#
+[[verbs]]
+key = "ctrl-j"
+execution = ":line_down"
+[[verbs]]
+key = "ctrl-k"
+execution = ":line_up"
+[[verbs]]
+key = "ctrl-d"
+execution = ":page_down"
+[[verbs]]
+key = "ctrl-u"
+execution = ":page_up"
+[[verbs]]
+key = "home"
+execution = ":select_first"
+[[verbs]]
+key = "end"
+execution = ":select_last"
+
+# If you develop using git, you might like to often switch
+# to the "git status" filter:
+[[verbs]]
+key = "ctrl-g"
+execution = ":toggle_git_status"
+
+# You can reproduce the bindings of Norton Commander
+# on copying or moving to the other panel:
+#
+# [[verbs]]
+# key = "F5"
+# execution = ":copy_to_panel"
+#
+# [[verbs]]
+# key = "F6"
+# execution = ":move_to_panel"
+
+
+###############################################################
+# Skin
+# If you want to change the colors of broot,
+# uncomment the following bloc and start messing
+# with the various values.
+
+[skin]
+default = "Black none / Black none"
+tree = "White None / White None"
+file = "Grey None / White None"
+directory = "DarkBlue None Bold / DarkBlue None bold"
+exe = "Green None"
+link = "Cyan None"
+pruning = "gray(12) None Italic"
+perm__ = "White None Bold"
+perm_r = "Yellow None Bold"
+perm_w = "DarkRed None Bold"
+perm_x = "DarkGreen None Bold"
+owner = "DarkYellow None Bold"
+group = "DarkYellow None Bold"
+count = "Yellow None"
+dates = "DarkCyan None"
+sparse = "ansi(214) None"
+content_extract = "ansi(29) None"
+content_match = "ansi(34) None"
+git_branch = "Yellow None"
+git_insertions = "Green None"
+git_deletions = "DarkRed None"
+git_status_current = "White None"
+git_status_modified = "Yellow None"
+git_status_new = "Green None Bold"
+git_status_ignored = "White None"
+git_status_conflicted = "Red None"
+git_status_other = "White None"
+selected_line = "None gray(5) / None gray(4)"
+char_match = "Magenta None"
+file_error = "Red None"
+flag_label = "White None"
+flag_value = "Grey None"
+input = "White None / gray(15) gray(2)"
+status_error = "Black DarkRed"
+status_job = "ansi(220) gray(5)"
+status_normal = "Grey gray(3)"
+status_italic = "Grey gray(3) Italic"
+status_bold = "Grey gray(3) Bold"
+status_code = "White gray(3)"
+status_ellipsis = "Grey grey(3)"
+purpose_normal = "White gray(2)"
+purpose_italic = "White gray(2) Italic"
+purpose_bold = "White gray(2) Bold"
+purpose_ellipsis = "White gray(2)"
+scrollbar_track = "Grey None / gray(4) None"
+scrollbar_thumb = "White None / gray(14) None"
+help_paragraph = "Grey None"
+help_bold = "Grey None Bold"
+help_italic = "Grey None Italic"
+help_code = "Grey gray(3)"
+help_headers = "DarkMagenta None"
+help_table_border = "White None"
+preview = "White gray(2)"
+preview_line_number = "White gray(2)"
+preview_match = "Magenta None"
+hex_null = "White None"
+hex_ascii_graphic = "Grey None"
+hex_ascii_whitespace = "White None"
+hex_ascii_other = "Grey None"
+hex_non_ascii = "White None"
+
+# You may find explanations and other skins on
+#  https://dystroy.org/broot/skins
+# for example a skin suitable for white backgrounds
+
+
+###############################################################
+# File Extension Colors
+#
+# uncomment and modify the next section if you want to color
+# file name depending on their extension
+#
+# [ext-colors]
+# png = "rgb(255, 128, 75)"
+# rs = "yellow"
