@@ -101,6 +101,7 @@ leave_broot = false
 invocation = "edit"
 shortcut = "e"
 key = "enter"
+apply_to = "file"
 execution = "edit! -existing {file} {line}"
 leave_broot = true
 from_shell = true
