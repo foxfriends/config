@@ -25,7 +25,7 @@ add-highlighter shared/lumber/comment       region '//' '$' ref comment
 add-highlighter shared/lumber/block_comment region -recurse '/\*' '/\*' '\*/'    ref comment
 
 add-highlighter shared/lumber/code/operator   regex '(:-|\.|!|,|;|->|::)' 0:operator
-add-highlighter shared/lumber/code/module     regex ([a-z][a-zA-Z0-9_]*)(?=::) 1:module
+add-highlighter shared/lumber/code/module     regex ([@~]?[a-z][a-zA-Z0-9_]*)(?=::) 1:module
 add-highlighter shared/lumber/code/function   regex \b([a-z][a-zA-Z0-9_]*)\s*(?=\() 1:function
 add-highlighter shared/lumber/code/variable   regex \b([A-Z][a-zA-Z0-9_]*)\b 1:variable
 add-highlighter shared/lumber/code/integer    regex \b[0-9]+\b 0:value
@@ -35,15 +35,15 @@ add-highlighter shared/lumber/code/handle     regex \b([a-z][a-zA-Z0-9_]*/\d+)(:
 add-highlighter shared/lumber/code/module-def regex \bmod\(\s*([a-z][a-zA-Z0-9_]*)\s*\) 1:module
 
 define-command -hidden lumber-indent-on-new-line %~
-    evaluate-commands -draft -itersel %<
+    evaluate-commands -draft -itersel %[
         # copy // comments prefix and following white spaces
-        try %{ execute-keys -draft k <a-x> s ^\h*\K//[!/]?\h* <ret> y gh j P }
+        try %{ execute-keys -draft k <a-x> s ^\h*\K\/\/\h* <ret> y gh j P }
         # preserve previous line indent
         try %{ execute-keys -draft \; K <a-&> }
         # filter previous line
         try %{ execute-keys -draft -itersel k <a-x> s \h+$ <ret> d }
         # indent after lines ending with ':-' or '<-'
-        try %{ execute-keys -draft k <a-x> <a-k> (:-|<-)\h*$ <ret> j <a-gt> }
-    >
+        try %{ execute-keys -draft k <a-x> <a-k> (:-|\<-)\h*$ <ret> j <a-gt> }
+    ]
 ~
 }
