@@ -48,7 +48,7 @@ map global user g ': enter-user-mode git<ret>' -docstring 'git'
 map global user b ': build<ret>' -docstring 'build'
 map global user p ': fzf<ret>' -docstring 'fzf'
 map global user t ': enter-user-mode todo<ret>' -docstring 'todo'
-map global user '\' ': joshuto<ret>' -docstring 'joshuto'
+map global user '\' ': broot<ret>' -docstring 'broot'
 map global user '|' ': ranger<ret>' -docstring 'ranger'
 
 map global buffers z ': notes<ret>'            -docstring 'notes'
