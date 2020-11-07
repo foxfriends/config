@@ -100,8 +100,6 @@ leave_broot = false
 [[verbs]]
 invocation = "edit"
 shortcut = "e"
-key = "enter"
-apply_to = "file"
 execution = "edit! -existing {file} {line}"
 leave_broot = true
 from_shell = true
@@ -126,6 +124,25 @@ execution = ":parent"
 [[verbs]]
 key = "ctrl-l"
 execution = ":focus"
+[[verbs]]
+key = "left"
+execution = ":parent"
+[[verbs]]
+key = "right"
+execution = ":focus"
+apply_to = "dir"
+[[verbs]]
+key = "right"
+execution = "edit! -existing {file}"
+apply_to = "file"
+leave_broot = true
+from_shell = true
+[[verbs]]
+key = "enter"
+execution = "edit! -existing {file}"
+apply_to = "file"
+leave_broot = true
+from_shell = true
 [[verbs]]
 key = "ctrl-j"
 execution = ":line_down"
