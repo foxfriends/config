@@ -22,6 +22,7 @@ provide-module pest %§
 add-highlighter shared/pest         regions
 add-highlighter shared/pest/rules          default-region           group
 add-highlighter shared/pest/rule           region [{]\K   (?=[}])   regions
+add-highlighter shared/pest/comment        region '//'    '$'       ref comment
 
 
 add-highlighter shared/pest/rules/   regex \b(\w+)\b  1:variable
