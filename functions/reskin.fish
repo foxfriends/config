@@ -7,4 +7,9 @@ function reskin --description 'Change the colour schemes of all the things that 
 
     source ~/.config/fish/colors/$skin.fish
     set -gx syncat_active_style $skin
+
+    if test -L "$HOME/.gitconfig"
+        unlink "$HOME/.gitconfig"
+        ln -s "$HOME/.config/git/.gitconfig.$skin" "$HOME/.gitconfig"
+    end
 end
