@@ -35,8 +35,6 @@ if command -v aws aws-mfa-secure > /dev/null
   alias aws="aws-mfa-secure session"
 end
 
-alias tree="git log --graph --oneline"
-
 # enable colors in grep by default
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
