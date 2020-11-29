@@ -3,12 +3,21 @@ function fish_prompt --description 'Write out the prompt'
   if test $last_status != '0'
     printf '%s[%s] ' \
       (set_color $fish_color_status) \
-      $last_status
+      "$last_status"
   end
 
-  printf '%s%s %s%s' \
+
+  printf '%s%s ' \
     (set_color $fish_color_user) \
-    (whoami) \
+    (whoami)
+
+  if test -n "$TAB"
+    printf '%s%s' \
+      (set_color $fish_color_tab) \
+      "$TAB"
+  end
+  
+  printf '%s%s' \
     (set_color $fish_color_host) \
     (prompt_hostname)
 

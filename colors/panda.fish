@@ -42,3 +42,4 @@ set -xg fish_color_status red
 set -xg fish_color_user yellow
 set -xg fish_color_valid_path --underline
 set -xg fish_color_vcs cyan
+set -xg fish_color_tab bryellow
