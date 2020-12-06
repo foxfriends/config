@@ -24,9 +24,10 @@ add-highlighter shared/lumber/single_string region %{(?<!\\)(?:\\\\)*\K'} %{(?<!
 add-highlighter shared/lumber/comment       region '//' '$' ref comment
 add-highlighter shared/lumber/block_comment region -recurse '/\*' '/\*' '\*/'    ref comment
 
-add-highlighter shared/lumber/code/operator   regex '(:?:-|\.|!|,|;|->>?|<-|::)' 0:operator
-add-highlighter shared/lumber/code/module     regex ([@~]?[a-z][a-zA-Z0-9_]*)(?=::) 1:module
+add-highlighter shared/lumber/code/operator   regex '(:?:-|\.|!|\?|,|;|->>?|<-|::)' 0:operator
 add-highlighter shared/lumber/code/function   regex \b([a-z][a-zA-Z0-9_]*)\s*(?=\() 1:function
+add-highlighter shared/lumber/code/module     regex ([@~]?[a-z][a-zA-Z0-9_]*)(?=::) 1:module
+add-highlighter shared/lumber/code/module_    regex ([@~][a-z][a-zA-Z0-9_]*) 1:module
 add-highlighter shared/lumber/code/variable   regex \b([A-Z][a-zA-Z0-9_]*)\b 1:variable
 add-highlighter shared/lumber/code/integer    regex \b[0-9]+\b 0:value
 add-highlighter shared/lumber/code/decimal    regex \b[0-9]+\.[0-9]+ 0:value
