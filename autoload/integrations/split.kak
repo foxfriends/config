@@ -24,52 +24,48 @@ define-command -hidden kitty-split-right %{
 
 define-command -docstring 'Split a pane to the right' split-right %{
     evaluate-commands %sh{
-        case "$TERM" in
-            'xterm-kitty')
-                printf 'kitty-split-right'
-                ;;
-            *)
-                printf 'nop'
-                ;;
-        esac
+        if [ "$TERM" = 'xterm-kitty' ]; then
+            printf 'kitty-split-right'
+        elif [ -n "$TMUX" ]; then
+            printf "tmux-terminal-horizontal '%s' -c '%s'" "$(which kak)" "$kak_client_pid"
+        else
+            printf "nop"
+        fi
     }
 }
 
 define-command -docstring 'Split a pane to the left' split-left %{
     evaluate-commands %sh{
-        case "$TERM" in
-            'xterm-kitty')
-                printf 'kitty-split-left'
-                ;;
-            *)
-                printf 'nop'
-                ;;
-        esac
+        if [ "$TERM" = 'xterm-kitty' ]; then
+            printf 'kitty-split-left'
+        elif [ -n "$TMUX" ]; then
+            printf "tmux-terminal-horizontal '%s' -c '%s'" "$(which kak)" "$kak_client_pid"
+        else
+            printf "nop"
+        fi
     }
 }
 
 define-command -docstring 'Split a pane below' split-below %{
     evaluate-commands %sh{
-        case "$TERM" in
-            'xterm-kitty')
-                printf 'kitty-split-below'
-                ;;
-            *)
-                printf 'nop'
-                ;;
-        esac
+        if [ "$TERM" = 'xterm-kitty' ]; then
+            printf 'kitty-split-below'
+        elif [ -n "$TMUX" ]; then
+            printf "tmux-terminal-vertical '%s' -c '%s'" "$(which kak)" "$kak_client_pid"
+        else
+            printf "nop"
+        fi
     }
 }
 
 define-command -docstring 'Split a pane above' split-above %{
     evaluate-commands %sh{
-        case "$TERM" in
-            'xterm-kitty')
-                printf 'kitty-split-above'
-                ;;
-            *)
-                printf 'nop'
-                ;;
-        esac
+        if [ "$TERM" = 'xterm-kitty' ]; then
+            printf 'kitty-split-above'
+        elif [ -n "$TMUX" ]; then
+            printf "tmux-terminal-vertical '%s' -c '%s'" "$(which kak)" "$kak_client_pid"
+        else
+            printf "nop"
+        fi
     }
 }

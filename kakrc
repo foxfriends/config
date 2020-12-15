@@ -69,9 +69,9 @@ define-command -docstring 'set buffer filetype <type>' -params 1 sf %{
 
 declare-user-mode split
 map global split h ': split-left<ret>' -docstring 'split left'
-map global split l ': split-left<ret>' -docstring 'split right'
-map global split k ': split-left<ret>' -docstring 'split above'
-map global split k ': split-left<ret>' -docstring 'split below'
+map global split l ': split-right<ret>' -docstring 'split right'
+map global split k ': split-above<ret>' -docstring 'split above'
+map global split j ': split-below<ret>' -docstring 'split below'
 
 declare-user-mode git
 map global git a ': git add<ret>' -docstring 'add current file'
