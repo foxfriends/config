@@ -40,7 +40,7 @@ map global insert <a-left> '<a-;>b'
 
 # user mode commands
 map global user z ': w<ret>' -docstring 'save'
-map global user w '%s +$<ret>d<space>' -docstring 'trim whitespace from end of lines'
+map global user w '%s +$<ret><a-d><space>' -docstring 'trim whitespace from end of lines'
 map global user l ': enter-user-mode lsp<ret>' -docstring 'lsp'
 map global user k ': enter-user-mode split<ret>' -docstring 'split'
 map global user f ': format<ret>' -docstring 'format'
