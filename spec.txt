@@ -12,3 +12,6 @@ tig:.config/tig
 xcode:.config/xcode:Library/Developer/Xcode/UserData/
 ncspot:.config/ncspot:Library/Preferences/org.affekt.ncspot/
 joshuto:.config/joshuto
+broot:.config/broot
+git:.config/git
+tmux:.config/tmux
