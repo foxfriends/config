@@ -1,15 +1,5 @@
 #! /usr/bin/env fish
 
-if command -v pip3 >/dev/null
-    set pipcmd pip3
-else if command -v pip >/dev/null
-    set pipcmd pip
-end
-
-if command -v powerline >/dev/null
-    set -x powerline_root ($pipcmd show powerline-status | grep 'Location' | cut -d' ' -f2)
-end
-
 if command -v tmux >/dev/null && test -z "$TMUX"
     tmux attach -t default || tmux new -s default
 end
