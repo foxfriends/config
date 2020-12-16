@@ -1,5 +1,19 @@
 #! /usr/bin/env fish
 
+if command -v pip3 >/dev/null
+    set pipcmd pip3
+else if command -v pip >/dev/null
+    set pipcmd pip
+end
+
+if command -v powerline >/dev/null
+    set -x powerline_root ($pipcmd show powerline-status | grep 'Location' | cut -d' ' -f2)
+end
+
+if command -v tmux >/dev/null && test -z "$TMUX"
+    tmux attach -t default || tmux new -s default
+end
+
 set -q skin; or set -Ux skin onedark
 reskin $skin
 
@@ -21,6 +35,10 @@ end
 
 if command -v deno >/dev/null
   deno completions fish | source
+end
+
+if command -v rustup >/dev/null
+  rustup completions fish | source
 end
 
 if command -v gh > /dev/null
@@ -48,10 +66,6 @@ if command -v exa >/dev/null
   alias llt='exa -lT'
   alias l='exa'
 end
-
-# Some typos I often make
-alias clearls="clear; ls"
-alias sgit="git"
 
 # Local stuff can be put in ~/.config.fish
 if test -f "$HOME/.config.fish" 
