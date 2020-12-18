@@ -1,0 +1,10 @@
+[Unit]
+Description=Hologram
+
+[Service]
+Type=simple
+ExecStart=/home/cam/.cargo/bin/hologram start
+User=cam
+
+[Install]
+WantedBy=multi-user.target
