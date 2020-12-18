@@ -10,8 +10,7 @@ function reskin --description 'Change the colour schemes of all the things that 
     set -gx syncat_active_style $skin
 
     if test -L "$HOME/.gitconfig" -a ! -p "$HOME/.gitconfig"
-        unlink "$HOME/.gitconfig" 2> /dev/null
-        ln -s "$HOME/.config/git/.gitconfig.$skin" "$HOME/.gitconfig"
+        cat "$HOME/.config/git/.gitconfig" "$HOME/.config/git/.gitconfig.$skin" > "$HOME/.config/git/.gitconfig.current"
     end
 
     if test -d "$HOME/.config/broot/" -a ! -p "$HOME/.config/broot/conf.toml"
