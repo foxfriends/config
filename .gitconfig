@@ -1,1 +1,18 @@
-.gitconfig.onedark
+[user]
+	email = cameldridge@gmail.com
+	name = Cameron Eldridge
+[core]
+	editor = kak
+	pager = delta
+	attributesFile = ~/.config/git/.gitattributes
+[diff]
+	colorMoved = default
+[interactive]
+	diffFilter = delta --color-only
+[pull]
+	rebase = false
+[alias]
+	graph = "log --graph --oneline"
+[fetch]
+	prune = true
+	pruneTags = true
