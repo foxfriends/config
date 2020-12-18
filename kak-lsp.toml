@@ -17,16 +17,17 @@ filetypes = ["crystal"]
 roots = ["shard.yml"]
 command = "scry"
 
-# [language.javascript]
-# filetypes = ["javascript"]
-# roots = ["package.json"]
-# command = "flow"
-# args = ["lsp"]
+[language.javascript]
+filetypes = ["javascript"]
+roots = ["package.json"]
+command = "flow"
+args = ["lsp"]
 
 [language.typescript]
-filetypes = ["typescript", "javascript"]
+filetypes = ["typescript"]
 roots = ["package.json", "tsconfig.json"]
-command = "javascript-typescript-stdio"
+command = "typescript-language-server"
+args = ["--stdio"]
 
 [language.json]
 filetypes = ["json"]
@@ -73,7 +74,7 @@ args = ["--init={\"cacheDirectory\":\"/tmp/cquery\",\"highlight\":{\"enabled\":t
 [language.haskell]
 filetypes = ["haskell", "literate-haskell"]
 roots = ["Setup.hs", "stack.yaml", "*.cabal"]
-command = "hie"
+command = "haskell-language-server-8.10.2"
 args = ["--lsp"]
 
 [language.go]
