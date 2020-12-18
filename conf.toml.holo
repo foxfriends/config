@@ -1,0 +1,3 @@
+#! /bin/bash
+s=$(cat "$HOME/.config/fish/skin" || true)
+cat ./conf.base.toml ./colors.${s:-onedark}.toml
