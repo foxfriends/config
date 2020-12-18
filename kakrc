@@ -25,8 +25,8 @@ map global normal , <space>
 map global normal <space> ,
 
 # get hover info
-map global insert <c-k> '<a-;>: lsp-hover<ret>'
-map global normal <c-k> ': lsp-hover<ret>'
+map global insert <c-a> '<a-;>: lsp-hover<ret>'
+map global normal <c-a> ': lsp-hover<ret>'
 
 # insert mode word delete
 map global insert <a-backspace> '<esc>b<a-d>i'
