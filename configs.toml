@@ -1,0 +1,50 @@
+[app.atom]
+path = ".atom"
+
+[app.bash]
+path = ".config/bash"
+
+[app.fish]
+path = ".config/fish"
+
+[app.kak]
+path = ".config/kak"
+
+[app.kitty]
+path = ".config/kitty"
+
+[app.meta]
+path = ".config/meta"
+
+[app.nvim]
+path = ".config/nvim"
+
+[app.ranger]
+path = ".config/ranger"
+
+[app.sway]
+path = ".config/sway"
+
+[app.syncat]
+path = { ubuntu = ".config/syncat", mac = "Library/Preferences/com.cameldridge.syncat" }
+
+[app.tig]
+path = ".config/tig"
+
+[app.xcode]
+path = { mac = "Library/Developer/Xcode/UserData" }
+
+[app.ncspot]
+path = { ubuntu = ".config/ncspot", mac = "Library/Preferences/org.affekt.ncspot" }
+
+[app.joshuto]
+path = ".config/joshuto"
+
+[app.broot]
+path = ".config/broot"
+
+[app.git]
+path = ".config/git"
+
+[app.tmux]
+path = ".config/tmux"
