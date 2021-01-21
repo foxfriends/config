@@ -1,8 +1,8 @@
 #! /usr/bin/env fish
 
-if command -v tmux >/dev/null && test -z "$TMUX"
-    tmux attach -t default || tmux new -s default
-end
+# if command -v tmux >/dev/null && test -z "$TMUX"
+#     tmux attach -t default || tmux new -s default
+# end
 
 set -q skin; or set -Ux skin onedark
 reskin $skin
