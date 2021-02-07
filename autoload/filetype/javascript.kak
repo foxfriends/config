@@ -32,6 +32,16 @@ hook global WinSetOption filetype=(javascript|typescript) %{
     lint-enable
 }
 
+hook -group javascript-load-languages global WinSetOption filetype=javascript %{
+    hook -group javascript-load-languages window NormalIdle .* javascript-load-languages
+    hook -group javascript-load-languages window InsertIdle .* javascript-load-languages
+}
+
+hook -group typescript-load-languages global WinSetOption filetype=typescript %{
+    hook -group javascript-load-languages window NormalIdle .* javascript-load-languages
+    hook -group javascript-load-languages window InsertIdle .* javascript-load-languages
+}
+
 hook -group javascript-highlight global WinSetOption filetype=javascript %{
     add-highlighter window/javascript ref javascript
     hook -once -always window WinSetOption filetype=.* %{ remove-highlighter window/javascript }
@@ -86,6 +96,24 @@ define-command -hidden init-javascript-filetype -params 1 %~
     add-highlighter "shared/%arg{1}/regex"         region /    (?<!\\)(\\\\)*/[gimuy]* fill meta
     add-highlighter "shared/%arg{1}/double_string" region '"'  ((?<!\\)(\\\\)*"|((?<!\\)(\\\\)*\n$))     fill string
     add-highlighter "shared/%arg{1}/single_string" region "'"  ((?<!\\)(\\\\)*'|((?<!\\)(\\\\)*\n$))     fill string
+
+    # Literals tagged with a language name are likely to be written in that language
+    evaluate-commands %sh{
+      languages="
+        awk c cabal clojure coffee cpp css cucumber d diff dockerfile fish
+        gas go haml haskell html ini java javascript json julia kak kickstart
+        latex lisp lua makefile markdown moon objc perl pug python ragel
+        ruby rust sass scala scss sh swift toml tupfile typescript yaml sql
+        sml scheme
+      "
+      for lang in ${languages}; do
+        printf 'add-highlighter shared/%s/%s region -match-capture \\b%s` [^\\\\]` regions\n' "$1" "${lang}" "${lang}"
+        printf 'add-highlighter shared/%s/%s/ default-region fill string\n' "$1" "${lang}"
+        [ "${lang}" = kak ] && ref=kakrc || ref="${lang}" # seems like kakrc file should be kak even though it's not .kak
+        printf 'add-highlighter shared/%s/%s/inner region \\b%s`\\K [^\\\\](?=`) ref %s\n' "$1" "${lang}" "${lang}" "${ref}"
+      done
+    }
+
     add-highlighter "shared/%arg{1}/literal"       region "`"  (?<!\\)(\\\\)*`         regions
     add-highlighter "shared/%arg{1}/jsx"           region -recurse (?<![\w<])<[a-zA-Z][\w:.-]* (?<![\w<])<[a-zA-Z][\w:.-]*(?!\hextends)(?=[\s/>])(?!>\()) (</.*?>|/>) regions
     add-highlighter "shared/%arg{1}/division"      region '[\w\)\]]\K(/|(\h+/\h+))' '(?=\w)' group # Help Kakoune to better detect /…/ literals
@@ -146,6 +174,13 @@ add-highlighter shared/typescript/code/ regex \b(array|boolean|date|number|objec
 
 # Keywords grabbed from https://github.com/Microsoft/TypeScript/issues/2536
 add-highlighter shared/typescript/code/ regex \b(as|constructor|declare|enum|from|implements|interface|module|namespace|package|private|protected|public|readonly|static|type)\b 0:keyword
+
+define-command -hidden javascript-load-languages %{
+    evaluate-commands -draft %{ try %{
+        execute-keys 'gtGbGls\b\K\w+(?=`)<ret>'
+        evaluate-commands -itersel %{ require-module %val{selection} }
+    }}
+}
 
 §
 
