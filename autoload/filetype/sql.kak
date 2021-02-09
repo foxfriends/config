@@ -29,7 +29,7 @@ provide-module sql %{
 add-highlighter shared/sql regions
 add-highlighter shared/sql/code default-region group
 
-add-highlighter shared/sql/double_string region '"' (?<!\\)(\\\\)*" fill string
+add-highlighter shared/sql/double_string region '"' (?<!\\)(\\\\)*" fill field
 add-highlighter shared/sql/single_string region "'" (?<!\\)(\\\\)*' fill string
 
 add-highlighter shared/sql/comment1 region '--' '$'    ref comment
