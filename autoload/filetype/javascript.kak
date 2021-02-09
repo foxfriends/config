@@ -104,13 +104,13 @@ define-command -hidden init-javascript-filetype -params 1 %~
         gas go haml haskell html ini java javascript json julia kak kickstart
         latex lisp lua makefile markdown moon objc perl pug python ragel
         ruby rust sass scala scss sh swift toml tupfile typescript yaml sql
-        sml scheme
+        sml scheme graphql
       "
       for lang in ${languages}; do
-        printf 'add-highlighter shared/%s/%s region -match-capture \\b%s` [^\\\\]` regions\n' "$1" "${lang}" "${lang}"
+        printf 'add-highlighter shared/%s/%s region -match-capture \\b%s` (?<!\\\\)(\\\\\\\\)*` regions\n' "$1" "${lang}" "${lang}"
         printf 'add-highlighter shared/%s/%s/ default-region fill string\n' "$1" "${lang}"
         [ "${lang}" = kak ] && ref=kakrc || ref="${lang}" # seems like kakrc file should be kak even though it's not .kak
-        printf 'add-highlighter shared/%s/%s/inner region \\b%s`\\K [^\\\\](?=`) ref %s\n' "$1" "${lang}" "${lang}" "${ref}"
+        printf 'add-highlighter shared/%s/%s/inner region \\b%s`\\K (?<!\\\\)(\\\\\\\\)*(?=`) ref %s\n' "$1" "${lang}" "${lang}" "${ref}"
       done
     }
 
