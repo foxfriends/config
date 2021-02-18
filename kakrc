@@ -94,3 +94,29 @@ hook global BufCreate .*[.]ya?ml %{
     set buffer tabstop 2
     set buffer indentwidth 2
 }
+
+
+declare-option str copycmd
+evaluate-commands %sh{
+    if command -v rg >/dev/null; then
+        echo "set-option global grepcmd 'rg --vimgrep'"
+    else
+        echo "nop"
+    fi
+}
+
+evaluate-commands %sh{
+    case $(uname) in
+    Darwin)
+        echo "set global copycmd 'pbcopy'"
+        ;;
+    Linux)
+        echo "set global copycmd 'xclip -sel c'"
+        ;;
+    *)
+        echo "nop"
+        ;;
+    esac
+}
+
+map global user y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}}<ret>' -docstring 'copy to system clipboard'
