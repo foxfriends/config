@@ -1,0 +1,13 @@
+#!/bin/sh
+opts="logout\nshutdown\nrestart"
+case $(echo $opts | rofi -dmenu -p 'quit') in
+    logout)
+        swaymsg exit
+        ;;
+    shutdown)
+        shutdown now
+        ;;
+    restart)
+        reboot
+        ;;
+esac
