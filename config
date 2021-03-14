@@ -85,6 +85,7 @@ exec_always ~/.config/sway/scripts/background
 
     # Start your launcher
     bindsym $mod+p exec $menu
+    bindsym $mod+Escape exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
