@@ -12,3 +12,5 @@ case $dow in
 esac
 
 swaybg -i ~/.config/sway/desktop/$col.jpg -m fill &
+new=$!
+ps -x | grep [s]waybg | awk '{$1=$1};1' | cut -d' ' -f1 | grep -v $new | xargs kill -1
