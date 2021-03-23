@@ -1,14 +1,6 @@
 # plugins
 source "%val{config}/plugins.kak"
 
-evaluate-commands %sh{
-    if command -v rg >/dev/null; then
-        echo "set-option global grepcmd 'rg --vimgrep'"
-    else
-        echo "nop"
-    fi
-}
-
 # visuals
 colorscheme %sh{echo ${skin:-"onedark"}}
 add-highlighter global/ number-lines -separator ' │ ' -hlcursor
@@ -87,14 +79,6 @@ define-command find -params 1 -shell-script-candidates %{ find -type f } %{ edit
 hook global BufCreate .*[.]ya?ml %{
     set buffer tabstop 2
     set buffer indentwidth 2
-}
-
-evaluate-commands %sh{
-    if command -v rg >/dev/null; then
-        echo "set-option global grepcmd 'rg --vimgrep'"
-    else
-        echo "nop"
-    fi
 }
 
 set-option global termcmd 'kitty'
