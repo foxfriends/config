@@ -42,7 +42,7 @@ map global insert <a-left> '<a-;>b'
 map global user z ': w<ret>' -docstring 'save'
 map global user w '%s +$<ret><a-d><space>' -docstring 'trim whitespace from end of lines'
 map global user l ': enter-user-mode lsp<ret>' -docstring 'lsp'
-map global user k ': enter-user-mode split<ret>' -docstring 'split'
+map global user k ': enter-user-mode windowing<ret>' -docstring 'windowing'
 map global user f ': format<ret>' -docstring 'format'
 map global user g ': enter-user-mode git<ret>' -docstring 'git'
 map global user b ': build<ret>' -docstring 'build'
@@ -67,12 +67,6 @@ define-command -docstring 'set buffer filetype <type>' -params 1 sf %{
     set buffer filetype %arg{1}
 }
 
-declare-user-mode split
-map global split h ': split-left<ret>' -docstring 'split left'
-map global split l ': split-right<ret>' -docstring 'split right'
-map global split k ': split-above<ret>' -docstring 'split above'
-map global split j ': split-below<ret>' -docstring 'split below'
-
 declare-user-mode git
 map global git a ': git add<ret>' -docstring 'add current file'
 map global git A ': git add --all<ret>' -docstring 'add all files'
@@ -88,15 +82,13 @@ map global git i ': gh issue list -a foxfriends<ret>' -docstring 'list issues'
 hook global BufWritePost .* "git show-diff"
 hook global BufCreate .* "git show-diff"
 
-def find -params 1 -shell-script-candidates %{ find -type f } %{ edit %arg{1} }
+define-command find -params 1 -shell-script-candidates %{ find -type f } %{ edit %arg{1} }
 
 hook global BufCreate .*[.]ya?ml %{
     set buffer tabstop 2
     set buffer indentwidth 2
 }
 
-
-declare-option str copycmd
 evaluate-commands %sh{
     if command -v rg >/dev/null; then
         echo "set-option global grepcmd 'rg --vimgrep'"
@@ -105,6 +97,9 @@ evaluate-commands %sh{
     fi
 }
 
+set-option global termcmd 'kitty'
+
+declare-option str copycmd
 evaluate-commands %sh{
     case $(uname) in
     Darwin)

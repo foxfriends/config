@@ -1,5 +1,7 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
+plug 'kakounedotcom/prelude.kak'
+
 plug 'delapouite/kakoune-buffers' %{
     map global normal ^ q
     map global normal <a-^> Q

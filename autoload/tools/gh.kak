@@ -1,4 +1,4 @@
-define-command gh -docstring 'passthrough to gh cli' -params .. %{
+define-command gh -docstring 'gh' -params .. %{
     info %sh{ gh $@ }
 }
 
