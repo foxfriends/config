@@ -120,3 +120,9 @@ evaluate-commands %sh{
 }
 
 map global user y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}}<ret>' -docstring 'copy to system clipboard'
+
+evaluate-commands %sh{
+    if command -v kcr >/dev/null; then
+        krc init kakoune
+    fi
+}
