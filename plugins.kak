@@ -1,6 +1,8 @@
 source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
-plug 'kakounedotcom/prelude.kak'
+plug 'kakounedotcom/prelude.kak' %{
+    require-module prelude
+}
 
 plug 'delapouite/kakoune-buffers' %{
     map global normal ^ q
