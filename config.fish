@@ -64,5 +64,10 @@ end
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
 
-status --is-interactive; and source (rbenv init -|psub)
-status --is-interactive; and source (pyenv init -|psub)
+if command -v rbenv >/dev/null
+  status --is-interactive; and source (rbenv init -|psub)
+end
+
+if command -v pyenv >/dev/null
+  status --is-interactive; and source (pyenv init -|psub)
+end
