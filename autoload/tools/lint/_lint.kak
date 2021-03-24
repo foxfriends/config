@@ -9,8 +9,14 @@
 #     output lines in the following format:
 #     {filename}:{line}:{column}: {kind}: {message}
 
+declare-option -docstring "modules that provide linters" str-list lint_providers "lint-eslint"
 declare-option -docstring "command to perform linting" str lintcmd
 declare-option -docstring "name of the lint buffer" str lintbuf '*lint*'
+
+hook -group lint global KakBegin .* %{
+    require-module detection
+    load-all %opt{lint_providers}
+}
 
 declare-option -hidden line-specs lint_flags
 declare-option -hidden range-specs lint_errors

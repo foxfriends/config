@@ -8,5 +8,6 @@ map global user y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}
 map global normal Y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}}<ret>' -docstring 'copy to system clipboard'
 
 hook -group copy global KakBegin .* %{
+    require-module detection
     load-first %opt{copy_providers}
 }

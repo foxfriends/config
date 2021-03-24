@@ -85,5 +85,6 @@ define-command grep-previous-match -docstring 'Jump to the previous grep match' 
 }
 
 hook -group grep global KakBegin .* %{
+    require-module detection
     load-first %opt{grep_providers}
 }

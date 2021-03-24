@@ -26,10 +26,6 @@ hook global WinSetOption filetype=(javascript|typescript) %{
     hook -once -always window WinSetOption filetype=.* "
         remove-hooks window %val{hook_param_capture_1}-.+
     "
-
-    set buffer lintcmd 'run() { cat "$1" | eslint -f "$(npm root -g)/eslint-formatter-kakoune/index.js" --stdin --stdin-filename "$kak_buffile"; } && run'
-    set buffer formatcmd 'eslint -f "$(npm root -g)/eslint-formatter-kakoune/index.js" --stdin --stdin-filename "$kak_buffile" --fix-to-stdout'
-    lint-enable
 }
 
 hook -group javascript-load-languages global WinSetOption filetype=javascript %{

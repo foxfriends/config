@@ -2,6 +2,8 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 provide-module tool-grep-grep %{
+    require-module detection
     check-cmd grep
+
     set-option global grepcmd 'grep -RHn'
 }

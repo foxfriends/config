@@ -2,6 +2,8 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 provide-module term-kitty %{
+    require-module detection
+
     check-cmd kitty
 
     define-command kitty -params .. -shell-completion -docstring 'kitty' %{

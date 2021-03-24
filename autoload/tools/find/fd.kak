@@ -2,6 +2,8 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 provide-module tool-find-fd %{
+    require-module detection
     check-cmd fd
+
     set-option global findcmd 'fd -t f'
 }

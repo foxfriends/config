@@ -2,6 +2,8 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 provide-module tool-find-find %{
+    require-module detection
     check-cmd find
+
     set-option global findcmd 'find -type f'
 }
