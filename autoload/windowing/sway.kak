@@ -12,7 +12,11 @@ provide-module windowing-sway-init %{
     is-sway
 
     define-command -params 1.. swaymsg -docstring "swaymsg" %{
-        nop %sh{ swaymsg "$@" }
+        nop %sh{ swaymsg "$@" & }
+    }
+
+    define-command -params 1.. sway-float -docstring "sway-float" %{
+        nop %sh{ sway-float "$@" & }
     }
 
     define-command sway-new -params 1.. -shell-completion -docstring "Create a new window" %{
@@ -39,6 +43,10 @@ provide-module windowing-sway-init %{
         sway-new %opt{termcmd} "%arg{@}"
     }
 
+    define-command sway-terminal-float -params .. -shell-completion -docstring "Create a new terminal in a floating window" %{
+        sway-float %opt{termcmd} "%arg{@}"
+    }
+
     declare-user-mode sway
     map global sway n :sway-new<ret> -docstring "new window in the current container"
     map global sway h :sway-new-horizontal<ret> -docstring "← new window on the left"
@@ -51,6 +59,7 @@ provide-module windowing-sway-bind %{
     is-sway
 
     alias global terminal       sway-terminal
+    alias global terminal-popup sway-terminal-float
     alias global terminal-left  sway-terminal-horizontal
     alias global terminal-right sway-terminal-horizontal
     alias global terminal-above sway-terminal-vertical
