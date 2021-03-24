@@ -32,13 +32,12 @@ map global insert <a-left> '<a-;>b'
 
 # user mode commands
 map global user z ': w<ret>' -docstring 'save'
-map global user w '%s +$<ret><a-d><space>' -docstring 'trim whitespace from end of lines'
+map global user w ': trim-eol<ret>' -docstring 'trim-eol'
 map global user l ': enter-user-mode lsp<ret>' -docstring 'lsp'
 map global user k ': enter-user-mode windowing<ret>' -docstring 'windowing'
 map global user f ': format<ret>' -docstring 'format'
 map global user g ': enter-user-mode git<ret>' -docstring 'git'
 map global user p ': broot<ret>' -docstring 'broot'
-map global user t ': enter-user-mode todo<ret>' -docstring 'todo'
 map global user '\' ': joshuto<ret>' -docstring 'joshuto'
 map global user '|' ': ranger<ret>' -docstring 'ranger'
 
@@ -50,7 +49,3 @@ alias global WQ write-quit
 alias global Wqa write-all-quit
 alias global WQa write-all-quit
 alias global WQA write-all-quit
-
-define-command -docstring 'set buffer filetype <type>' -params 1 sf %{
-    set buffer filetype %arg{1}
-}
