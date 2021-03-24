@@ -1,9 +1,5 @@
 #! /usr/bin/env fish
 
-# if command -v tmux >/dev/null && test -z "$TMUX"
-#     tmux attach -t default || tmux new -s default
-# end
-
 set -q skin; or set -Ux skin onedark
 reskin $skin
 
@@ -67,3 +63,6 @@ if test -x /usr/bin/lesspipe
 end
 
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+
+status --is-interactive; and source (rbenv init -|psub)
+status --is-interactive; and source (pyenv init -|psub)
