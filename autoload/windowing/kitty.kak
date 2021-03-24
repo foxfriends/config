@@ -11,7 +11,7 @@ define-command -hidden is-kitty %{
 provide-module windowing-kitty-init %{
     is-kitty
 
-    define-command kitty -params 1.. -shell-completion -docstring 'kitty @' %{
+    define-command at-kitty -params 1.. -shell-completion -docstring 'kitty @' %{
         nop %sh{
             if [ -z "$kak_client_env_KITTY_LISTEN_ON" ]; then
                 kitty @ $@ > /dev/null 2>&1
@@ -24,14 +24,14 @@ provide-module windowing-kitty-init %{
     define-command kitty-new -params 1.. -shell-completion -docstring '
     kitty-terminal <program> [<arguments>]: create a new terminal as a kitty window
     The program passed as argument will be executed in the new terminal' %{
-        kitty new-window --no-response --window-type kitty --cwd "%sh{pwd}" "%arg{@}"
+        at-kitty new-window --no-response --window-type kitty --cwd "%sh{pwd}" "%arg{@}"
     }
 
     define-command kitty-new-tab -params 1.. -shell-completion -docstring '
     kitty-terminal-tab <program> [<arguments>]: create a new terminal as kitty tab
     The program passed as argument will be executed in the new terminal' \
     %{
-        kitty new-window --no-response --new-tab --cwd "%sh{pwd}" "$@"
+        at-kitty new-window --no-response --new-tab --cwd "%sh{pwd}" "$@"
     }
 
     define-command kitty-focus -params ..1 -client-completion -docstring '
@@ -54,11 +54,11 @@ provide-module windowing-kitty-init %{
     }
 
     define-command kitty-new-horizontal -params 1.. -shell-completion %{
-        kitty launch --no-response --location vsplit --cwd "%sh{pwd}" "%arg{@}"
+        at-kitty launch --no-response --location vsplit --cwd "%sh{pwd}" "%arg{@}"
     }
 
     define-command kitty-new-vertical -params 1.. -shell-completion %{
-        kitty launch --no-response --location hsplit --cwd "%sh{pwd}" "%arg{@}"
+        at-kitty launch --no-response --location hsplit --cwd "%sh{pwd}" "%arg{@}"
     }
 }
 

@@ -37,14 +37,10 @@ map global user l ': enter-user-mode lsp<ret>' -docstring 'lsp'
 map global user k ': enter-user-mode windowing<ret>' -docstring 'windowing'
 map global user f ': format<ret>' -docstring 'format'
 map global user g ': enter-user-mode git<ret>' -docstring 'git'
-map global user b ': build<ret>' -docstring 'build'
 map global user p ': broot<ret>' -docstring 'broot'
 map global user t ': enter-user-mode todo<ret>' -docstring 'todo'
 map global user '\' ': joshuto<ret>' -docstring 'joshuto'
 map global user '|' ': ranger<ret>' -docstring 'ranger'
-
-map global buffers z ': notes<ret>'            -docstring 'notes'
-map global buffers t ': todos<ret>'            -docstring 'notes'
 
 # alias for old habits
 alias global wqa write-all-quit
@@ -58,5 +54,3 @@ alias global WQA write-all-quit
 define-command -docstring 'set buffer filetype <type>' -params 1 sf %{
     set buffer filetype %arg{1}
 }
-
-set-option global termcmd 'kitty'

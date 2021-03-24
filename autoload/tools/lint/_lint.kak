@@ -16,7 +16,6 @@ declare-option -hidden line-specs lint_flags
 declare-option -hidden range-specs lint_errors
 declare-option -hidden int lint_error_count
 declare-option -hidden int lint_warning_count
-declare-option -hidden int lint-current-line
 
 define-command lint -docstring 'lint the current buffer' %{
     evaluate-commands %sh{
@@ -34,7 +33,6 @@ define-command lint -docstring 'lint the current buffer' %{
         printf '%s\n' "evaluate-commands -draft %{
             edit! -fifo $dir/fifo -debug %opt{lintbuf}
             set-option buffer filetype lint
-            set-option buffer lint_current_line 0
             hook -always -once buffer BufCloseFifo .* %{ nop %sh{ rm -r '$dir' } }
         }"
 

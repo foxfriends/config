@@ -63,33 +63,12 @@ manual control of the module loading." \
 str-list windowing_environments "tmux" "sway" "kitty"
 
 hook -group windowing global KakBegin .* %{
-    # Load all windowing environment base modules
-    echo -debug "beginning windowing environment detection"
     evaluate-commands %sh{
-        set -- ${kak_opt_windowing_environments}
-        while [ $# -gt 0 ]; do
-            echo "try %{"
-            echo "  require-module windowing-${1}-init"
-            echo "  echo -debug windowing-${1}-init loaded"
-            echo "} catch %{ echo -debug %val{error} }"
-            shift
-        done
-    }
-
-    # Then go again, loading just the first that hooks up windowing aliases.
-    evaluate-commands %sh{
-        set -- ${kak_opt_windowing_environments}
-        if [ $# -gt 0 ]; then
-            echo "try %{"
-            while [ $# -gt 0 ]; do
-                echo "  require-module windowing-${1}-bind"
-                echo "  echo -debug windowing-${1}-bind loaded"
-                echo "} catch %{ "
-                shift
-            done
-            echo "  echo -debug windowing: no module bound. Last error: %val{error}"
-            echo "}"
-        fi
+        printf "load-all"
+        printf " windowing-%s-init" $kak_opt_windowing_environments
+        printf "\\n"
+        printf "load-first"
+        printf " windowing-%s-bind" $kak_opt_windowing_environments
     }
 }
 

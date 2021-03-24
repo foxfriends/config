@@ -6,3 +6,7 @@ declare-option -docstring "command to copy text to the system clipboard" str cop
 
 map global user y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}}<ret>' -docstring 'copy to system clipboard'
 map global normal Y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}}<ret>' -docstring 'copy to system clipboard'
+
+hook -group copy global KakBegin .* %{
+    load-first %opt{copy_providers}
+}

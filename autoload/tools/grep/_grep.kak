@@ -85,20 +85,5 @@ define-command grep-previous-match -docstring 'Jump to the previous grep match' 
 }
 
 hook -group grep global KakBegin .* %{
-    echo -debug "beginning grep detection"
-
-    evaluate-commands %sh{
-        set -- ${kak_opt_grep_providers}
-        if [ $# -gt 0 ]; then
-            echo "try %{"
-            while [ $# -gt 0 ]; do
-                echo "  require-module ${1}"
-                echo "  echo -debug ${1} loaded"
-                echo "} catch %{ "
-                shift
-            done
-            echo "  echo -debug no grep provider found"
-            echo "}"
-        fi
-    }
+    load-first %opt{grep_providers}
 }

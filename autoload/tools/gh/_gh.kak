@@ -1,7 +1,7 @@
 # https://github.com/cli/cli
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-provide-module tool-gh %{
+try %{
     check-cmd gh
 
     define-command gh -docstring 'gh' -params .. %{
@@ -20,8 +20,6 @@ provide-module tool-gh %{
     #         printf "set-option buffer gh_issues %%{%s\\n%s}\\n" "$header" "$result"
     #     }
     # }
-}
-
-try %{ require-module tool-gh } catch {
-    echo -debug "gh not loaded"
+} catch %{
+    echo -debug %val{error}
 }
