@@ -5,7 +5,7 @@ define-command -docstring "use joshuto to find and open a file" joshuto %{
     mkfifo ${output}
     filedir=$(dirname "${kak_buffile}")
     if [ "$TERM" = 'xterm-kitty' ]; then
-        kitty @ new-window --new-tab --no-response --cwd $PWD bash -cl "joshuto --path=\"${filedir}\" --choosefile=\"${output}\""
+        kitty @ new-window --new-tab --no-response --cwd "$PWD" bash -cl "joshuto --path=\"${filedir}\" --choosefile=\"${output}\""
     elif [ -n "$TMUX" ]; then
         tmux new-window bash -cl "joshuto --path=\"${filedir}\" --choosefile=\"${output}\""
     fi

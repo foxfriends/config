@@ -8,7 +8,7 @@ define-command fzf -docstring "use fzf to find and open a file" %{
       cmd="fd -t f -L -E .git -E node_modules -E target -E dist -E build -E .cache -E vendor | ${cmd}"
     fi
     if [ "$TERM" = 'xterm-kitty' ]; then
-        kitty @ new-window --new-tab --no-response --cwd $PWD bash -cl "${cmd}"
+        kitty @ new-window --new-tab --no-response --cwd "$PWD" bash -cl "${cmd}"
     elif [ -n "$TMUX" ]; then
         tmux new-window bash -cl "${cmd}"
     fi
