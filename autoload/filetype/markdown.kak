@@ -4,8 +4,14 @@
 # Detection
 # ‾‾‾‾‾‾‾‾‾
 
-hook global BufCreate .*[.](markdown|md|mkd|svexy|svx) %{
+hook global BufCreate .*[.](markdown|md|mkd) %{
     set-option buffer filetype markdown
+}
+
+hook global BufCreate .*[.](svx) %{
+    set-option buffer filetype markdown
+    set buffer tabstop 2
+    set buffer indentwidth 2
 }
 
 # Initialization
