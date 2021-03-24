@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+$@ &
+pid=$!
+id=""
+
+while [ -z $id ]; do
+    id=$(swaymsg -t subscribe '[ "window" ]' | jq --argjson pid "$pid" '.container | select(.pid == $pid) | .id')
+done
+
+swaymsg [ con_id=$id ] floating enable
