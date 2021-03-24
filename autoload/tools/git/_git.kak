@@ -1,5 +1,7 @@
-declare-option -docstring "name of the client in which documentation is to be displayed" \
-    str docsclient
+# https://git-scm.com
+# ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+declare-option -docstring "name of the client to show git output in" str gitclient
 
 hook -group git-log-highlight global WinSetOption filetype=git-log %{
     add-highlighter window/git-log group
@@ -27,8 +29,8 @@ define-command -hidden git-status-jump %{
     evaluate-commands %{ # use evaluate-commands to ensure jumps are collapsed
         try %{
             execute-keys '<a-x>s^(?:\t(?:new file|modified):\s+)(\S[^\n]*)$<ret>'
-            evaluate-commands -try-client %opt{jumpclient} -verbatim -- edit -existing %reg{1}
-            try %{ focus %opt{jumpclient} }
+            evaluate-commands -try-client %opt{workclient} -verbatim -- edit -existing %reg{1}
+            try %{ focus %opt{workclient} }
         }
     }
 }
@@ -82,7 +84,7 @@ Available commands:\n  add\n  rm\n  blame\n  commit\n  checkout\n  diff\n  hide-
         mkfifo ${output}
         ( git "$@" > ${output} 2>&1 & ) > /dev/null 2>&1 < /dev/null
 
-        printf %s "evaluate-commands -try-client '$kak_opt_docsclient' %{
+        printf %s "evaluate-commands -try-client '$kak_opt_gitclient' %{
                   edit! -fifo ${output} *git*
                   set-option buffer filetype '${filetype}'
                   hook -always -once buffer BufCloseFifo .* %{ nop %sh{ rm -r $(dirname ${output}) } }

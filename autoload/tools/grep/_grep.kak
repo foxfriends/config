@@ -1,11 +1,13 @@
+# Tool: grep
+# ‾‾‾‾‾‾‾‾‾‾
+# grep performs searching in files.
+
+declare-option -docstring "name of the client to show grep results in" str grepclient
 declare-option -docstring "name of grep buffer" str grepbuf '*grep*'
-
-declare-option -docstring "modules which implement a grep provider" \
-    str-list grep_providers 'tool-grep-rg' 'tool-grep-grep'
-
 declare-option -docstring "command to perform searching in files" \
     str grepcmd
-
+declare-option -docstring "modules which implement a grep provider" \
+    str-list grep_providers 'tool-grep-rg' 'tool-grep-grep'
 declare-option -hidden int grep_current_line 0
 
 define-command -params .. -file-completion -docstring 'grep' grep %{
@@ -18,7 +20,7 @@ define-command -params .. -file-completion -docstring 'grep' grep %{
         mkfifo "${output}"
         ( ${kak_opt_grepcmd} "$@" | tr -d '\r' > "${output}" 2>&1 & ) > /dev/null 2>&1 < /dev/null
 
-        printf %s\\n "evaluate-commands -try-client '${kak_opt_tools_tool_client}' %{
+        printf %s\\n "evaluate-commands -try-client '${kak_opt_grepclient}' %{
             edit! -fifo '${output}' '${kak_opt_grepbuf}'
             set-option buffer filetype grep
             set-option buffer grep_current_line 0
@@ -44,14 +46,14 @@ define-command -hidden grep-jump %{
         try %{
             execute-keys '<a-x>s^((?:\w:)?[^:]+):(\d+):(\d+)?<ret>'
             set-option buffer grep_current_line %val{cursor_line}
-            evaluate-commands -try-client %opt{tools_action_client} -verbatim -- edit -existing %reg{1} %reg{2} %reg{3}
-            try %{ focus %opt{tools_action_client} }
+            evaluate-commands -try-client %opt{workclient} -verbatim -- edit -existing %reg{1} %reg{2} %reg{3}
+            try %{ focus %opt{workclient} }
         }
     }
 }
 
 define-command grep-next-match -docstring 'Jump to the next grep match' %{
-    evaluate-commands -try-client %opt{tools_action_client} %{
+    evaluate-commands -try-client %opt{workclient} %{
         buffer %opt{grepbuf}
         # First jump to end of buffer so that if grep_current_line == 0
         # 0g<a-l> will be a no-op and we'll jump to the first result.
@@ -60,7 +62,7 @@ define-command grep-next-match -docstring 'Jump to the next grep match' %{
         grep-jump
     }
     try %{
-        evaluate-commands -client %opt{tools_tool_client} %{
+        evaluate-commands -client %opt{grepclient} %{
             buffer %opt{grepbuf}
             execute-keys gg %opt{grep_current_line}g
         }
@@ -68,14 +70,14 @@ define-command grep-next-match -docstring 'Jump to the next grep match' %{
 }
 
 define-command grep-previous-match -docstring 'Jump to the previous grep match' %{
-    evaluate-commands -try-client %opt{tools_action_client} %{
+    evaluate-commands -try-client %opt{workclient} %{
         buffer %opt{grepbuf}
         # See comment in grep-next-match
         execute-keys "ge %opt{grep_current_line}g<a-h> <a-/>^[^:]+:\d+:<ret>"
         grep-jump
     }
     try %{
-        evaluate-commands -client %opt{tools_tool_client} %{
+        evaluate-commands -client %opt{grepclient} %{
             buffer %opt{grepbuf}
             execute-keys gg %opt{grep_current_line}g
         }

@@ -1,7 +1,7 @@
-# https://man7.org/linux/man-pages/man1/grep.1.html
+# https://man7.org/linux/man-pages/man1/find.1.html
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-provide-module tool-grep-grep %{
-    check-cmd grep
-    set-option global grepcmd 'grep -RHn'
+provide-module tool-find-find %{
+    check-cmd find
+    set-option global findcmd 'find -type f'
 }

@@ -1,14 +1,24 @@
-declare-option -docstring %{shell command to which the path of a copy of the current buffer will be passed
-The output returned by this command is expected to comply with the following format:
- {filename}:{line}:{column}: {kind}: {message}} \
-    str lintcmd
+# Tool: lint
+# ‾‾‾‾‾‾‾‾‾‾
+# lint checks a file for linting errors.
+#
+# Options
+# ‾‾‾‾‾‾‾
+# lintcmd: The command used to perform linting.
+#     The command receives a path to a copy of the current buffer and is expected to
+#     output lines in the following format:
+#     {filename}:{line}:{column}: {kind}: {message}
+
+declare-option -docstring "command to perform linting" str lintcmd
+declare-option -docstring "name of the lint buffer" str lintbuf '*lint*'
 
 declare-option -hidden line-specs lint_flags
 declare-option -hidden range-specs lint_errors
 declare-option -hidden int lint_error_count
 declare-option -hidden int lint_warning_count
+declare-option -hidden int lint-current-line
 
-define-command lint -docstring 'Parse the current buffer with a linter' %{
+define-command lint -docstring 'lint the current buffer' %{
     evaluate-commands %sh{
         if [ -z "${kak_opt_lintcmd}" ]; then
             echo 'fail The `lintcmd` option is not set'
@@ -22,11 +32,11 @@ define-command lint -docstring 'Parse the current buffer with a linter' %{
         printf '%s\n' "evaluate-commands -no-hooks write -sync $dir/${filename}"
 
         printf '%s\n' "evaluate-commands -draft %{
-                  edit! -fifo $dir/fifo -debug *lint-output*
-                  set-option buffer filetype make
-                  set-option buffer make_current_error_line 0
-                  hook -always -once buffer BufCloseFifo .* %{ nop %sh{ rm -r '$dir' } }
-              }"
+            edit! -fifo $dir/fifo -debug %opt{lintbuf}
+            set-option buffer filetype lint
+            set-option buffer lint_current_line 0
+            hook -always -once buffer BufCloseFifo .* %{ nop %sh{ rm -r '$dir' } }
+        }"
 
         ({ # do the parsing in the background and when ready send to the session
 

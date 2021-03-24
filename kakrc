@@ -59,43 +59,4 @@ define-command -docstring 'set buffer filetype <type>' -params 1 sf %{
     set buffer filetype %arg{1}
 }
 
-declare-user-mode git
-map global git a ': git add<ret>' -docstring 'add current file'
-map global git A ': git add --all<ret>' -docstring 'add all files'
-map global git c ': git commit<ret>' -docstring 'commit'
-map global git s ': git status<ret>' -docstring 'status'
-map global git j ': git next-hunk<ret>' -docstring 'goto next hunk'
-map global git k ': git prev-hunk<ret>' -docstring 'goto previous hunk'
-map global git h ': merge-take-ours<ret>' -docstring 'take first merge conflict option'
-map global git l ': merge-take-theirs<ret>' -docstring 'take second merge conflict option'
-map global git m ': merge-next-conflict<ret>' -docstring 'next merge conflict'
-map global git i ': gh issue list -a foxfriends<ret>' -docstring 'list issues'
-
-hook global BufWritePost .* "git show-diff"
-hook global BufCreate .* "git show-diff"
-
-define-command find -params 1 -shell-script-candidates %{ find -type f } %{ edit %arg{1} }
-
-hook global BufCreate .*[.]ya?ml %{
-    set buffer tabstop 2
-    set buffer indentwidth 2
-}
-
 set-option global termcmd 'kitty'
-
-declare-option str copycmd
-evaluate-commands %sh{
-    case $(uname) in
-    Darwin)
-        echo "set global copycmd 'pbcopy'"
-        ;;
-    Linux)
-        echo "set global copycmd 'xclip -sel c'"
-        ;;
-    *)
-        echo "nop"
-        ;;
-    esac
-}
-
-map global user y ': nop %sh{printf "%s" "${kak_selection}" | ${kak_opt_copycmd}}<ret>' -docstring 'copy to system clipboard'
