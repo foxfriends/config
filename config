@@ -29,6 +29,9 @@ gaps outer 0
 default_border none
 default_floating_border pixel 2
 
+client.focused #ABB2BF #282C34 #ABB2BF #e5c07b #ABB2BF
+client.unfocused #5C6370 #282C34 #ABB2BF #e5c07b #5C6370
+
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
@@ -97,6 +100,7 @@ exec_always ~/.config/sway/scripts/background
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+    bindsym $mod+z border toggle
 
     bindsym $mod+Shift+q exec ~/.config/sway/scripts/shutdownmenu
 #
@@ -199,16 +203,26 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 16px
+    bindsym $down resize grow height 16px
+    bindsym $up resize shrink height 16px
+    bindsym $right resize grow width 16px
+
+    bindsym Shift+$left resize shrink width 64px
+    bindsym Shift+$down resize grow height 64px
+    bindsym Shift+$up resize shrink height 64px
+    bindsym Shift+$right resize grow width 64px
 
     # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    bindsym Left resize shrink width 16px
+    bindsym Down resize grow height 16px
+    bindsym Up resize shrink height 16px
+    bindsym Right resize grow width 16px
+
+    bindsym Shift+Left resize shrink width 64px
+    bindsym Shift+Down resize grow height 64px
+    bindsym Shift+Up resize shrink height 64px
+    bindsym Shift+Right resize grow width 64px
 
     # Return to default mode
     bindsym Return mode "default"
