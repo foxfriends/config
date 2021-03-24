@@ -2,7 +2,14 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 # format reformats the current selection or buffer
 
+declare-option -docstring "modules that provide linters" \
+    str-list format_providers "format-eslint" "format-rustfmt"
 declare-option -docstring "command to perform formatting" str formatcmd
+
+hook -group format global KakBegin .* %{
+    require-module detection
+    load-all %opt{format_providers}
+}
 
 define-command format-buffer -docstring "Format the current buffer" %{
     evaluate-commands -draft %{
