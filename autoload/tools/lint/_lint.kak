@@ -9,7 +9,8 @@
 #     output lines in the following format:
 #     {filename}:{line}:{column}: {kind}: {message}
 
-declare-option -docstring "modules that provide linters" str-list lint_providers "lint-eslint"
+declare-option -docstring "modules that provide linters" \
+    str-list lint_providers "lint-eslint" "lint-clippy" "lint-stylelint"
 declare-option -docstring "command to perform linting" str lintcmd
 declare-option -docstring "name of the lint buffer" str lintbuf '*lint*'
 
@@ -128,7 +129,7 @@ define-command lint-enable -docstring "Activate automatic diagnostics of the cod
     hook window -group lint-diagnostics NormalIdle .* %{ lint-show }
     hook window -group lint-diagnostics WinSetOption lint_flags=.* %{ info; lint-show }
     hook window -group lint-diagnostics BufWritePost .* %{ lint }
-    lint
+    # lint
 }
 
 define-command lint-disable -docstring "Disable automatic diagnostics of the code" %{

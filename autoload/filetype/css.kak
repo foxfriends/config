@@ -6,6 +6,8 @@
 
 hook global BufCreate .*[.](css) %{
     set-option buffer filetype css
+    set buffer tabstop 2
+    set buffer indentwidth 2
 }
 
 # Initialization

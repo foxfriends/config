@@ -63,6 +63,7 @@ manual control of the module loading." \
 str-list windowing_environments "tmux" "sway" "kitty"
 
 hook -group windowing global KakBegin .* %{
+    require-module detection
     evaluate-commands %sh{
         printf "load-all"
         printf " windowing-%s-init" $kak_opt_windowing_environments
