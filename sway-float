@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
 $@ &
-pid=$!
 id=""
 
 while [ -z $id ]; do
-    id=$(swaymsg -t subscribe '[ "window" ]' | jq --argjson pid "$pid" '.container | select(.pid == $pid) | .id')
+    id=$(swaymsg -t subscribe '[ "window" ]' | jq 'select(.change == "new") | .container.id')
 done
 
-swaymsg [ con_id=$id ] floating enable
+swaymsg [ con_id=$id ] floating enable, resize set 50 ppt 80 ppt, border pixel 2
