@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+if [ -z "$SWAYSOCK" ]; then
+    echo 'Sway not detected'
+    exit 1
+fi
+
 $@ &
 id=""
 
