@@ -144,10 +144,10 @@ execution = ":focus ~"
 # A popular set of shorctuts for going up and down:
 #
 [[verbs]]
-key = "ctrl-h"
+key = "alt-h"
 execution = ":parent"
 [[verbs]]
-key = "ctrl-l"
+key = "alt-l"
 execution = ":focus"
 [[verbs]]
 key = "left"
@@ -156,16 +156,16 @@ execution = ":parent"
 key = "right"
 execution = ":focus"
 [[verbs]]
-key = "ctrl-j"
+key = "alt-j"
 execution = ":line_down"
 [[verbs]]
-key = "ctrl-k"
+key = "alt-k"
 execution = ":line_up"
 [[verbs]]
-key = "ctrl-d"
+key = "alt-d"
 execution = ":page_down"
 [[verbs]]
-key = "ctrl-u"
+key = "alt-u"
 execution = ":page_up"
 [[verbs]]
 key = "pagedown"

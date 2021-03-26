@@ -130,7 +130,7 @@ execution = ":parent"
 [[verbs]]
 key = "right"
 execution = ":focus"
-apply_to = "dir"
+apply_to = "directory"
 [[verbs]]
 key = "right"
 execution = "edit! -existing {file}"
