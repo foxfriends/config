@@ -13,7 +13,7 @@ provide-module kitty %{
 
     define-command kitty -params .. -shell-completion -docstring 'kitty' %{
         nop %sh{
-            kitty $@ > /dev/null 2>&1
+            kitty -1 $@ > /dev/null 2>&1
         }
     }
 

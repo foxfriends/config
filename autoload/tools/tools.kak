@@ -19,5 +19,5 @@ declare-option -docstring "name of the client to perform tools actions in" \
     str workclient
 
 define-command evaluate-result -params 1.. %{
-    terminal-tab "%val{config}/scripts/evaluate-result" "%val{session}" "%val{client}" "'%arg{@}'"
+    terminal-tab "%val{config}/scripts/evaluate-result" "%val{session}" "%val{client}" "%arg{@}"
 }
