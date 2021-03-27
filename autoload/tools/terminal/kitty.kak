@@ -1,16 +1,4 @@
-# https://sw.kovidgoyal.net/kitty/index.html
-# ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-
-provide-module term-kitty %{
-    require-module detection
-
-    check-cmd kitty
-
-    define-command kitty -params .. -shell-completion -docstring 'kitty' %{
-        nop %sh{
-            kitty $@ > /dev/null 2>&1
-        }
-    }
-
+provide-module terminal-kitty %{
+    require-module kitty
     set-option global termcmd 'kitty -1'
 }

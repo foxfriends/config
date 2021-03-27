@@ -1,22 +1,22 @@
 # Detection
 
 hook global BufCreate .*[.](syncat) %{
-    set-option buffer filetype syncat
+    set-option buffer filetype syncat-stylesheet
 }
 
 # Initialization
 
-hook global WinSetOption filetype=syncat %[
-    require-module syncat
+hook global WinSetOption filetype=syncat-stylesheet %[
+    require-module syntax-syncat-stylesheet
     hook -once -always window WinSetOption filetype=.* %{ remove-hooks window syncat.+ }
 ]
 
-hook -group conf-highlight global WinSetOption filetype=syncat %{
+hook -group syncat-highlight global WinSetOption filetype=syncat-stylesheet %{
     add-highlighter window/syncat ref syncat
     hook -once -always window WinSetOption filetype=.* %{ remove-highlighter window/syncat }
 }
 
-provide-module syncat %§
+provide-module syntax-syncat-stylesheet %§
 
 # Highlighters
 

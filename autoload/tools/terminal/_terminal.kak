@@ -1,5 +1,8 @@
-declare-option -docstring "modules which provide a terminal command" str-list term_providers "term-kitty"
+# Tool: terminal
+# ‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-hook -group grep global KakBegin .* %{
-    load-first %opt{term_providers}
+declare-option -docstring "modules which provide a terminal command" str-list terminal_providers "terminal-kitty"
+
+hook -group terminal global KakBegin .* %{
+    load-first %opt{terminal_providers}
 }

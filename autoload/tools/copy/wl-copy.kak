@@ -1,6 +1,5 @@
-provide-module tool-copy-wl-copy %{
+provide-module copy-wl-copy %{
     require-module detection
     check-cmd wl-copy
-
-    set global copycmd 'wl-copy'
+    set-option global copycmd 'wl-copy'
 }

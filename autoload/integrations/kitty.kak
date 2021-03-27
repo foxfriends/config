@@ -8,8 +8,14 @@ define-command -hidden is-kitty %{
     }
 }
 
-provide-module windowing-kitty-init %{
+provide-module kitty %{
     is-kitty
+
+    define-command kitty -params .. -shell-completion -docstring 'kitty' %{
+        nop %sh{
+            kitty $@ > /dev/null 2>&1
+        }
+    }
 
     define-command at-kitty -params 1.. -shell-completion -docstring 'kitty @' %{
         nop %sh{
@@ -60,16 +66,4 @@ provide-module windowing-kitty-init %{
     define-command kitty-new-vertical -params 1.. -shell-completion %{
         at-kitty launch --no-response --location hsplit --cwd "%sh{pwd}" "%arg{@}"
     }
-}
-
-provide-module windowing-kitty-bind %{
-    is-kitty
-
-    alias global terminal       kitty-new
-    alias global terminal-tab   kitty-new-tab
-    alias global focus          kitty-focus
-    alias global terminal-left  kitty-new-horizontal
-    alias global terminal-right kitty-new-horizontal
-    alias global terminal-above kitty-new-vertical
-    alias global terminal-below kitty-new-vertical
 }

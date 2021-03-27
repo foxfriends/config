@@ -1,7 +1,7 @@
 # https://man7.org/linux/man-pages/man1/grep.1.html
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
-provide-module tool-grep-grep %{
+provide-module grep-grep %{
     require-module detection
     check-cmd grep
 

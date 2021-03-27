@@ -1,6 +1,8 @@
 # https://git-scm.com
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
+# NOTE: this one could be cleaned up... it's mostly just copied from the built in one
+
 declare-option -docstring "name of the client to show git output in" str gitclient
 
 hook -group git-log-highlight global WinSetOption filetype=git-log %{

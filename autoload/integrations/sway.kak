@@ -8,7 +8,7 @@ define-command -hidden is-sway %{
     }
 }
 
-provide-module windowing-sway-init %{
+provide-module sway %{
     is-sway
 
     define-command -params 1.. swaymsg -docstring "swaymsg" %{
@@ -64,13 +64,3 @@ provide-module windowing-sway-init %{
     map global sway j :sway-new-vertical<ret> -docstring "↓ new window below"
 }
 
-provide-module windowing-sway-bind %{
-    is-sway
-
-    alias global terminal       sway-terminal
-    alias global terminal-tab   sway-terminal-tab
-    alias global terminal-left  sway-terminal-horizontal
-    alias global terminal-right sway-terminal-horizontal
-    alias global terminal-above sway-terminal-vertical
-    alias global terminal-below sway-terminal-vertical
-}

@@ -2,7 +2,7 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 # format reformats the current selection or buffer
 
-declare-option -docstring "modules that provide linters" \
+declare-option -docstring "modules that provide formatters" \
     str-list format_providers "format-eslint" "format-rustfmt"
 declare-option -docstring "command to perform formatting" str formatcmd
 

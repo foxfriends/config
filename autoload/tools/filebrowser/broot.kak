@@ -2,7 +2,6 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 
 provide-module filebrowser-broot %{
-    require-module detection
-    check-cmd broot
+    require-module broot
     alias global browse broot
 }

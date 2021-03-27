@@ -2,12 +2,19 @@
 # ‾‾‾‾‾‾‾‾‾‾
 # grep performs searching in files.
 
+declare-option -docstring "modules which implement a grep provider" \
+    str-list grep_providers 'grep-rg' 'grep-grep'
+
+hook -group grep global KakBegin .* %{
+    require-module detection
+    load-first %opt{grep_providers}
+}
+
 declare-option -docstring "name of the client to show grep results in" str grepclient
 declare-option -docstring "name of grep buffer" str grepbuf '*grep*'
 declare-option -docstring "command to perform searching in files" \
     str grepcmd
-declare-option -docstring "modules which implement a grep provider" \
-    str-list grep_providers 'tool-grep-rg' 'tool-grep-grep'
+
 declare-option -hidden int grep_current_line 0
 
 define-command -params .. -file-completion -docstring 'grep' grep %{
@@ -82,9 +89,4 @@ define-command grep-previous-match -docstring 'Jump to the previous grep match' 
             execute-keys gg %opt{grep_current_line}g
         }
     }
-}
-
-hook -group grep global KakBegin .* %{
-    require-module detection
-    load-first %opt{grep_providers}
 }

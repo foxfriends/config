@@ -2,13 +2,13 @@
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 # fuzzyfinder finds files by fuzzy matching. Sometimes it provides even more features
 
-declare-option -docstring "modules that provide fuzzyfinders" \
-    str-list fuzzyfinder_providers "broot" "fzf"
-declare-option -docstring "modules that bind fuzzyfinders" \
-    str-list fuzzyfinder_binders "broot-bind" "fzf-bind"
+declare-option -docstring "modules that implement fuzzyfinders" \
+    str-list fuzzyfinder_modules "broot" "fzf"
+declare-option -docstring "modules that provide a primary fuzzyfinder" \
+    str-list fuzzyfinder_providers "fuzzyfinder-broot" "fuzzyfinder-fzf"
 
 hook -group fuzzyfind global KakBegin .* %{
     require-module detection
-    load-all %opt{fuzzyfinder_providers}
-    load-first %opt{fuzzyfinder_binders}
+    load-all %opt{fuzzyfinder_modules}
+    load-first %opt{fuzzyfinder_providers}
 }
