@@ -31,12 +31,20 @@ provide-module windowing-sway-init %{
         swaymsg split h, exec "%arg{@}"
     }
 
+    define-command sway-new-tab -params 1.. -shell-completion -docstring "Create a new window in a new tab" %{
+        swaymsg layout tabbed, exec "%arg{@}"
+    }
+
     define-command sway-terminal-horizontal -params .. -shell-completion -docstring "Create a new terminal on the right" %{
         sway-new-horizontal %opt{termcmd} "%arg{@}"
     }
 
     define-command sway-terminal-vertical -params .. -shell-completion -docstring "Create a new terminal below" %{
         sway-new-vertical %opt{termcmd} "%arg{@}"
+    }
+
+    define-command sway-terminal-tab -params .. -shell-completion -docstring "Create a new terminal in a new tab" %{
+        sway-new-tab %opt{termcmd} "%arg{@}"
     }
 
     define-command sway-terminal -params .. -shell-completion -docstring "Create a new terminal in the current container" %{
@@ -49,6 +57,7 @@ provide-module windowing-sway-init %{
 
     declare-user-mode sway
     map global sway n :sway-new<ret> -docstring "new window in the current container"
+    map global sway t :sway-new-tab<ret> -docstring "new window in the current container"
     map global sway h :sway-new-horizontal<ret> -docstring "← new window on the left"
     map global sway l :sway-new-horizontal<ret> -docstring "→ new window on the right"
     map global sway k :sway-new-vertical<ret> -docstring "↑ new window above"
@@ -59,7 +68,7 @@ provide-module windowing-sway-bind %{
     is-sway
 
     alias global terminal       sway-terminal
-    alias global terminal-popup sway-terminal-float
+    alias global terminal-tab   sway-terminal-tab
     alias global terminal-left  sway-terminal-horizontal
     alias global terminal-right sway-terminal-horizontal
     alias global terminal-above sway-terminal-vertical

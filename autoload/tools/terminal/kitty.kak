@@ -12,5 +12,5 @@ provide-module term-kitty %{
         }
     }
 
-    set-option global termcmd kitty
+    set-option global termcmd 'kitty -1'
 }

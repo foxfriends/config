@@ -20,6 +20,12 @@ map global normal <space> ,
 map global insert <c-a> '<a-;>: lsp-hover<ret>'
 map global normal <c-a> ': lsp-hover<ret>'
 
+# fast movement
+map global normal <ret> '10j' # <c-j> comes out as <ret> 🤷
+map global normal <c-k> '10k'
+map global normal <c-h> '10h'
+map global normal <c-l> '10l'
+
 # insert mode word delete
 map global insert <a-backspace> '<esc>b<a-d>i'
 map global insert <a-del> '<esc>w<a-d>i'
@@ -37,9 +43,9 @@ map global user l ': enter-user-mode lsp<ret>' -docstring 'lsp'
 map global user k ': enter-user-mode windowing<ret>' -docstring 'windowing'
 map global user f ': format<ret>' -docstring 'format'
 map global user g ': enter-user-mode git<ret>' -docstring 'git'
-map global user p ': broot<ret>' -docstring 'broot'
-map global user '\' ': joshuto<ret>' -docstring 'joshuto'
-map global user '|' ': ranger<ret>' -docstring 'ranger'
+map global user p ': fuzzyfind<ret>' -docstring 'fuzzy find'
+map global user '\' ': browse<ret>' -docstring 'browse files'
+map global user / ': comment-line<ret>'
 
 # alias for old habits
 alias global wqa write-all-quit

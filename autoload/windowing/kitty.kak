@@ -31,7 +31,7 @@ provide-module windowing-kitty-init %{
     kitty-terminal-tab <program> [<arguments>]: create a new terminal as kitty tab
     The program passed as argument will be executed in the new terminal' \
     %{
-        at-kitty new-window --no-response --new-tab --cwd "%sh{pwd}" "$@"
+        at-kitty new-window --no-response --new-tab --cwd "%sh{pwd}" "%arg{@}"
     }
 
     define-command kitty-focus -params ..1 -client-completion -docstring '
