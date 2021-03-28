@@ -13,31 +13,31 @@ provide-module kitty %{
 
     define-command kitty -params .. -shell-completion -docstring 'kitty' %{
         nop %sh{
-            kitty -1 $@ > /dev/null 2>&1
+            kitty -1 "$@" > /dev/null 2>&1
         }
     }
 
     define-command at-kitty -params 1.. -shell-completion -docstring 'kitty @' %{
-        nop %sh{
+        echo %sh{
             if [ -z "$kak_client_env_KITTY_LISTEN_ON" ]; then
-                kitty @ $@ > /dev/null 2>&1
+                kitty @ "$@" > /dev/null 2>&1
             else
-                kitty @ --to "$kak_client_env_KITTY_LISTEN_ON" $@ > /dev/null 2>&1
+                kitty @ --to "$kak_client_env_KITTY_LISTEN_ON" "$@" > /dev/null 2>&1
             fi
         }
+
     }
 
     define-command kitty-new -params 1.. -shell-completion -docstring '
     kitty-terminal <program> [<arguments>]: create a new terminal as a kitty window
     The program passed as argument will be executed in the new terminal' %{
-        at-kitty new-window --no-response --window-type kitty --cwd "%sh{pwd}" "%arg{@}"
+        at-kitty new-window --no-response --window-type kitty --cwd "%sh{pwd}" %arg{@}
     }
 
     define-command kitty-new-tab -params 1.. -shell-completion -docstring '
     kitty-terminal-tab <program> [<arguments>]: create a new terminal as kitty tab
-    The program passed as argument will be executed in the new terminal' \
-    %{
-        at-kitty new-window --no-response --new-tab --cwd "%sh{pwd}" "%arg{@}"
+    The program passed as argument will be executed in the new terminal' %{
+        at-kitty new-window --no-response --new-tab --cwd "%sh{pwd}" %arg{@}
     }
 
     define-command kitty-focus -params ..1 -client-completion -docstring '
@@ -60,10 +60,10 @@ provide-module kitty %{
     }
 
     define-command kitty-new-horizontal -params 1.. -shell-completion %{
-        at-kitty launch --no-response --location vsplit --cwd "%sh{pwd}" "%arg{@}"
+        at-kitty launch --no-response --location vsplit --cwd "%sh{pwd}" %arg{@}
     }
 
     define-command kitty-new-vertical -params 1.. -shell-completion %{
-        at-kitty launch --no-response --location hsplit --cwd "%sh{pwd}" "%arg{@}"
+        at-kitty launch --no-response --location hsplit --cwd "%sh{pwd}" %arg{@}
     }
 }

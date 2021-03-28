@@ -1,11 +1,9 @@
 #!/usr/bin/env bash
 
-session=$1
-client=$2
-shift 2
+session="$1"
+client="$2"
 f=$(mktemp)
-
-eval "$@ $f"
+eval $3 "$f"
 
 printf %s\\n "
 evaluate-commands -try-client '${client}' %{ 

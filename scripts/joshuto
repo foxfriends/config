@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set +e
-f=$1
+f="$1"
 shift
-g=$(mktemp)
+g="$(mktemp)"
+
 joshuto --choosefile "$g" $@
-file=$(< $g)
+file=$(< "$g")
 if [ -n file ]; then
     printf "edit! -existing '%s'" "$file" > "$f"
 fi
