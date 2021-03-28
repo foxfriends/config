@@ -14,7 +14,7 @@ provide-module tmux %{
     define-command tmux -params 1.. -shell-completion -docstring 'tmux' %{
         nop %sh{
             tmux=${kak_client_env_TMUX:-$TMUX}
-            TMUX=$tmux tmux $@
+            TMUX=$tmux eval "tmux $@"
         }
     }
 
@@ -22,20 +22,20 @@ provide-module tmux %{
     tmux-terminal-vertical <program> [<arguments>]: create a new terminal as a tmux pane
     The current pane is split into two, top and bottom
     The program passed as argument will be executed in the new terminal' %{
-        tmux split-window -v "%arg{@}"
+        tmux split-window -v "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
     }
 
     define-command tmux-new-horizontal -params 1.. -shell-completion -docstring '
     tmux-terminal-horizontal <program> [<arguments>]: create a new terminal as a tmux pane
     The current pane is split into two, left and right
     The program passed as argument will be executed in the new terminal' %{
-        tmux split-window -h "%arg{@}"
+        tmux split-window -h "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
     }
 
     define-command tmux-new -params 1.. -shell-completion -docstring '
     tmux-terminal-window <program> [<arguments>] [<arguments>]: create a new terminal as a tmux window
     The program passed as argument will be executed in the new terminal' %{
-        tmux new-window "%arg{@}"
+        tmux new-window "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
     }
 
     define-command tmux-focus -params ..1 -client-completion -docstring '
