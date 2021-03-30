@@ -21,7 +21,7 @@
 [pull]
 	rebase = false
 [alias]
-	graph = "log --graph --oneline"
+	graph = "log --graph --oneline --color"
 [fetch]
 	prune = true
 	pruneTags = true
