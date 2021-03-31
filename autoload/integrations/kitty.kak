@@ -18,26 +18,25 @@ provide-module kitty %{
     }
 
     define-command at-kitty -params 1.. -shell-completion -docstring 'kitty @' %{
-        echo %sh{
+        nop %sh{
             if [ -z "$kak_client_env_KITTY_LISTEN_ON" ]; then
                 kitty @ "$@" > /dev/null 2>&1
             else
                 kitty @ --to "$kak_client_env_KITTY_LISTEN_ON" "$@" > /dev/null 2>&1
             fi
         }
-
     }
 
     define-command kitty-new -params 1.. -shell-completion -docstring '
     kitty-terminal <program> [<arguments>]: create a new terminal as a kitty window
     The program passed as argument will be executed in the new terminal' %{
-        at-kitty new-window --no-response --window-type kitty --cwd "%sh{pwd}" %arg{@}
+        at-kitty launch --no-response --copy-env --env "PATH=%sh{echo $PATH}" --type window --cwd "%sh{pwd}" %arg{@}
     }
 
     define-command kitty-new-tab -params 1.. -shell-completion -docstring '
     kitty-terminal-tab <program> [<arguments>]: create a new terminal as kitty tab
     The program passed as argument will be executed in the new terminal' %{
-        at-kitty new-window --no-response --new-tab --cwd "%sh{pwd}" %arg{@}
+        at-kitty launch --no-response --copy-env --env "PATH=%sh{echo $PATH}" --type tab --cwd "%sh{pwd}" %arg{@}
     }
 
     define-command kitty-focus -params ..1 -client-completion -docstring '

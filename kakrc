@@ -20,12 +20,6 @@ map global normal <space> ,
 map global insert <c-a> '<a-;>: lsp-hover<ret>'
 map global normal <c-a> ': lsp-hover<ret>'
 
-# fast movement
-map global normal <ret> '10j' # <c-j> comes out as <ret> 🤷
-map global normal <c-k> '10k'
-map global normal <c-h> '10h'
-map global normal <c-l> '10l'
-
 # insert mode word delete
 map global insert <a-backspace> '<esc>b<a-d>i'
 map global insert <a-del> '<esc>w<a-d>i'
