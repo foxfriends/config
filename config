@@ -31,9 +31,10 @@ default_floating_border pixel 2
 
 client.focused #ABB2BF #282C34 #ABB2BF #e5c07b #ABB2BF
 client.unfocused #5C6370 #282C34 #ABB2BF #e5c07b #5C6370
+client.focused_inactive #5C6370 #282C34 #ABB2BF #e5c07b #5C6370
 
 # Your preferred terminal emulator
-set $term kitty
+set $term 'kitty -1'
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
@@ -99,7 +100,8 @@ exec_always ~/.config/sway/scripts/background
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
+    bindsym $mod+Shift+c exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
     bindsym $mod+z border toggle
 
     bindsym $mod+Shift+q exec ~/.config/sway/scripts/shutdownmenu
