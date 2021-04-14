@@ -6,8 +6,12 @@
 
 hook global BufCreate .*\.(html?|svelte|vue) %{
     set-option buffer filetype html
-    set buffer tabstop 2
-    set buffer indentwidth 2
+    set-option buffer tabstop 2
+    set-option buffer indentwidth 2
+}
+
+hook global BufCreate .*\.svelte %{
+    set-option buffer comment_line '//'
 }
 
 hook global BufCreate .*\.xml %{

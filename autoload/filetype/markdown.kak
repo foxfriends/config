@@ -39,6 +39,10 @@ hook -group markdown-highlight global WinSetOption filetype=markdown %{
 
 provide-module markdown %{
 
+try %{
+    require-module html
+}
+
 # Highlighters
 # ‾‾‾‾‾‾‾‾‾‾‾‾
 
@@ -94,6 +98,7 @@ add-highlighter shared/markdown/inline/text/ regex <(([a-z]+://.*?)|((mailto:)?[
 add-highlighter shared/markdown/inline/text/ regex ^\[[^\]\n]*\]:\h*([^\n]*) 1:link
 add-highlighter shared/markdown/inline/text/ regex ^\h*(>\h*)+ 0:comment
 add-highlighter shared/markdown/inline/text/ regex \H\K\h\h$ 0:PrimarySelection
+add-highlighter shared/markdown/inline/text/ ref html
 
 # Commands
 # ‾‾‾‾‾‾‾‾
