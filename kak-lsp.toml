@@ -41,10 +41,16 @@ roots = ["package.json"]
 command = "css-languageserver"
 args = ["--stdio"]
 
+# [language.html]
+# filetypes = ["html"]
+# roots = ["package.json"]
+# command = "html-languageserver"
+# args = ["--stdio"]
+
 [language.html]
 filetypes = ["html"]
 roots = ["package.json"]
-command = "html-languageserver"
+command = "svelteserver"
 args = ["--stdio"]
 
 [language.ocaml]

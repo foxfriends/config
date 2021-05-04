@@ -55,7 +55,7 @@ plug "ul/kak-lsp" do %{
 } noload config %{
     eval %sh{kak-lsp --config "${kak_config}/kak-lsp.toml" --kakoune -s $kak_session}
 
-    hook global WinSetOption filetype=(rust|haskell|literate-haskell|javascript|typescript) %{
+    hook global WinSetOption filetype=(rust|haskell|literate-haskell|javascript|typescript|html) %{
         lsp-enable-window
     }
     set-option global lsp_diagnostic_line_warning_sign "⚠"

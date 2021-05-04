@@ -71,7 +71,7 @@ add-highlighter shared/css/declaration/base/ regex \b(bold|bolder|light|lighter|
 add-highlighter shared/css/declaration/base/ regex \b(repeat|no-repeat|repeat-x|repeat-y)\b 1:keyword
 add-highlighter shared/css/declaration/base/ regex \b(underline|italic|oblique|overline|strike)\b 1:keyword
 
-add-highlighter shared/css/declaration/base/ regex (#[0-9A-Fa-f]+)|((\d*\.)?\d+(ch|cm|em|ex|mm|pc|pt|px|rem|vh|vmax|vmin|vw|%|s|ms)?) 0:value
+add-highlighter shared/css/declaration/base/ regex (#[0-9A-Fa-f]+)|((\d*\.)?\d+(ch|cm|em|ex|mm|pc|pt|px|rem|vh|vmax|vmin|vw|%|s|ms|fr)?) 0:value
 add-highlighter shared/css/declaration/base/ regex ([A-Za-z0-9_-]+)\h*\( 1:builtin
 add-highlighter shared/css/declaration/base/ regex (--[a-zA-Z0-9_-]+)    1:variable
 add-highlighter shared/css/declaration/base/ regex !important            0:keyword
