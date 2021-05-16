@@ -32,7 +32,7 @@ provide-module sway %{
     }
 
     define-command sway-new-tab -params 1 -shell-completion -docstring "Create a new window in a new tab" %{
-        swaymsg layout tabbed, exec %sh{ "$kak_config/scripts/shell-quote" "$1" }
+        swaymsg split t, layout tabbed, exec %sh{ "$kak_config/scripts/shell-quote" "$1" }
     }
 
     define-command sway-terminal-horizontal -params .. -shell-completion -docstring "Create a new terminal on the right" %{
