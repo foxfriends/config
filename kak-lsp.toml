@@ -20,8 +20,8 @@ command = "scry"
 [language.javascript]
 filetypes = ["javascript"]
 roots = ["package.json"]
-command = "flow"
-args = ["lsp"]
+command = "typescript-language-server"
+args = ["--stdio"]
 
 [language.typescript]
 filetypes = ["typescript"]
