@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+swaymsg -t get_workspaces -r | jq 'map(select(.focused == true)) | { text: .[0].representation }' -c

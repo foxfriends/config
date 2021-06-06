@@ -62,7 +62,8 @@ window#waybar {
 #mode,
 #idle_inhibitor,
 #mpd,
-#window {
+#window,
+#custom-repr {
     padding: 0 16px;
 }
 
@@ -74,7 +75,8 @@ window#waybar {
     color: #abb2bf;
 }
 
-#cpu {
+#cpu,
+#custom-repr {
     border-right: 1px solid rgba(171, 178, 191, 0.5);
 }
 
