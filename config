@@ -121,7 +121,6 @@
     },
     "custom/repr": {
         "format": "{}",
-        "interval": 1,
         "return-type": "json",
         "exec": "$HOME/.config/waybar/repr 2> /dev/null"
     }
