@@ -70,3 +70,5 @@ hook -group copy global KakBegin .* %{
     require-module detection
     load-all gh jira
 }
+
+set global ui_options ncurses_set_title=false
