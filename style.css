@@ -76,11 +76,13 @@ window#waybar {
 }
 
 #cpu,
-#custom-repr {
+#custom-repr,
+#pulseaudio {
     border-right: 1px solid rgba(171, 178, 191, 0.5);
 }
 
-#memory {
+#memory,
+#pulseaudio {
     border-left: 1px solid rgba(171, 178, 191, 0.5);
 }
 
@@ -99,30 +101,6 @@ window#waybar {
         background-color: #ffffff;
         color: #000000;
     }
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
 }
 
 #temperature {

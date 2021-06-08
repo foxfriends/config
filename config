@@ -7,7 +7,7 @@
     "modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
     "modules-center": ["custom/repr", "sway/window"],
     // "modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "sway/language", "battery", "battery#bat2", "clock", "tray"],
-    "modules-right": ["network", "memory", "cpu", "clock#time", "clock#date", "tray"],
+    "modules-right": ["pulseaudio", "network", "memory", "cpu", "clock#time", "clock#date", "tray"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -123,5 +123,15 @@
         "format": "{}",
         "return-type": "json",
         "exec": "$HOME/.config/waybar/repr 2> /dev/null"
+    },
+    "pulseaudio": {
+        "format": " {volume}% {icon}",
+        "format-muted": " {volume}% {icon}",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "format-icons": {
+            "headphone": "",
+            "speaker": "🕨",
+            "hdmi": ""
+        }
     }
 }
