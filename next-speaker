@@ -10,3 +10,10 @@ current_sink_name = `pactl info`
 index = sinks.find_index { |line| line.include? current_sink_name }
 next_sink = sinks[(index + 1) % sinks.length()][0]
 `pactl set-default-sink #{next_sink}`
+
+`pactl list sink-inputs short`
+    .split("\n")
+    .map { |line| line.split("\t")[0] }
+    .each do |i|
+        `pactl move-sink-input #{i} #{next_sink}`
+    end

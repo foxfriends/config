@@ -128,6 +128,7 @@
         "format": " {volume}% {icon}",
         "format-muted": " {volume}% {icon}",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-middle": "pavucontrol",
         "on-click-right": "$HOME/.config/waybar/next-speaker",
         "format-icons": {
             "headphone": "",
