@@ -128,10 +128,17 @@
         "format": " {volume}% {icon}",
         "format-muted": " {volume}% {icon}",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "$HOME/.config/waybar/next-speaker",
         "format-icons": {
             "headphone": "",
             "speaker": "🕨",
-            "hdmi": ""
+            "hdmi": "",
+            "headset": "",
+            "hands-free": "",
+            "hifi": "﫛",
+            "car": "",
+            "phone": "",
+            "default": ""
         }
     }
 }
