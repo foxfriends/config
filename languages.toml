@@ -137,7 +137,7 @@ library = "tree-sitter-php"
 extensions = ["php"]
 
 [prolog]
-source = "https://github.com/jamesnvc/tree-sitter-prolog"
+source = "https://github.com/foxfriends/tree-sitter-prolog"
 name = "prolog"
 library = "tree-sitter-prolog"
 extensions = ["pl"]
