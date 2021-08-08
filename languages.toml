@@ -70,6 +70,12 @@ name = "go"
 library = "tree-sitter-go"
 extensions = ["go"]
 
+[graphql]
+source = "https://github.com/bkegley/tree-sitter-graphql"
+name = "graphql"
+library = "tree-sitter-graphql"
+extensions = ["graphql", "gql"]
+
 [haskell]
 source = "https://github.com/tree-sitter/tree-sitter-haskell"
 name = "haskell"
