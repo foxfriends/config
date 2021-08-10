@@ -18,6 +18,7 @@ if status --is-interactive
     source (fnm env |psub)
   end
 
+  command -q aws; and alias localaws="command aws --endpoint-url=http://localhost:4566 --profile localstack"
   command -q aws aws-mfa-secure; and alias aws="aws-mfa-secure session"
 
   # replace ls with exa
