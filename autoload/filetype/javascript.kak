@@ -1,7 +1,7 @@
 # Detection
 # ‾‾‾‾‾‾‾‾‾
 
-hook global BufCreate .*[.](js)x? %{
+hook global BufCreate .*[.][cm]?(js)x? %{
     set-option buffer filetype javascript
     set buffer tabstop 2
     set buffer indentwidth 2
