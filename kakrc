@@ -50,6 +50,9 @@ alias global Wqa write-all-quit
 alias global WQa write-all-quit
 alias global WQA write-all-quit
 
+map global goto s '<esc>: open-related<ret>' -docstring 'cycle related files (existing)'
+map global goto S '<esc>: open-related-new<ret>' -docstring 'cycle related files (create)'
+
 declare-user-mode git
 map global git a ': git add<ret>' -docstring 'add current file'
 map global git A ': git add --all<ret>' -docstring 'add all files'
