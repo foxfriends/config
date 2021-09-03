@@ -17,6 +17,16 @@ filetypes = ["crystal"]
 roots = ["shard.yml"]
 command = "scry"
 
+[language.deno]
+filetypes = ["typescript", "javascript"]
+roots = [".git"]
+command = "deno"
+args = ["lsp"]
+
+[language.deno.initialization_options]
+enable = true
+lint = true
+
 [language.javascript]
 filetypes = ["javascript"]
 roots = ["package.json"]
