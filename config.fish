@@ -3,6 +3,10 @@
 
 set -q skin; or set -Ux skin onedark
 
+if command -q ghcup
+  set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
+end
+
 if status --is-interactive
   reskin $skin
   command -q pazi; and source (pazi init fish |psub)
@@ -34,11 +38,9 @@ if status --is-interactive
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
-  
+
   command -q lesspipe; and eval (env SHELL=/bin/sh lesspipe)
 end
 
 # Local stuff can be put in ~/.config.fish
 test -f "$HOME/.config.fish"; and source "$HOME/.config.fish"
-
-set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
