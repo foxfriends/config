@@ -5,6 +5,7 @@ hook global BufCreate .*[.][cm]?(js)x? %{
     set-option buffer filetype javascript
     set buffer tabstop 2
     set buffer indentwidth 2
+    set buffer relatedfilecmd "%val{config}/scripts/js-related-file"
 }
 
 hook global BufCreate .*[.](ts)x? %{
