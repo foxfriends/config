@@ -80,7 +80,7 @@ args = ["--init={\"cacheDirectory\":\"/tmp/cquery\",\"highlight\":{\"enabled\":t
 [language.haskell]
 filetypes = ["haskell", "literate-haskell"]
 roots = ["Setup.hs", "stack.yaml", "*.cabal"]
-command = "haskell-language-server-8.10.5"
+command = "haskell-language-server-wrapper"
 args = ["--lsp"]
 
 [language.go]
