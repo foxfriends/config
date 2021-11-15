@@ -22,6 +22,7 @@
 	rebase = false
 [alias]
 	graph = "log --graph --oneline --color"
+	c = "! ~/.config/git/fuzzy-checkout"
 [fetch]
 	prune = true
 	pruneTags = true
