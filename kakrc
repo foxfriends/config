@@ -75,3 +75,5 @@ hook -group copy global KakBegin .* %{
 }
 
 set global ui_options ncurses_set_title=false
+
+eval %sh{ kks init }

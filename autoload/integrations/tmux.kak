@@ -32,6 +32,12 @@ provide-module tmux %{
         tmux split-window -h "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
     }
 
+    define-command tmux-popup -params 1.. -shell-completion -docstring '
+    tmux-popup <program> [<arguments>]: create a new terminal as a tmux popup
+    The program passed as argument will be executed in the new terminal' %{
+        tmux popup -E "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
+    }
+
     define-command tmux-new -params 1.. -shell-completion -docstring '
     tmux-terminal-window <program> [<arguments>] [<arguments>]: create a new terminal as a tmux window
     The program passed as argument will be executed in the new terminal' %{
