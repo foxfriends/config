@@ -2,5 +2,5 @@
 if [ "$1" = '-' ]; then
     git checkout -
 else
-    git branch | sed 's/^\*//' | sed 's/^\s+//' | sed 's/\s+$//' | fzf -1 -0 -q "$argv" | xargs git checkout
+    git branch | sed 's/^[* ]*//' | fzf -1 -0 -q "$@" | xargs git checkout
 fi
