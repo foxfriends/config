@@ -1,6 +1,7 @@
 provide-module windowing-tmux %{
     require-module tmux
     alias global terminal       tmux-popup
+    alias global terminal-popup tmux-popup
     alias global terminal-tab   tmux-new
     alias global terminal-left  tmux-new-horizontal
     alias global terminal-right tmux-new-horizontal
