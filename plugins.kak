@@ -39,7 +39,7 @@ plug "andreyorst/smarttab.kak" defer smarttab %{
 plug 'occivink/kakoune-vertical-selection'
 
 plug 'delapouite/kakoune-text-objects' %{
-    text-object-map
+    map global user s ': enter-user-mode selectors<ret>' -docstring 'selectors'
 }
 
 plug 'delapouite/kakoune-mirror' %{
