@@ -18,18 +18,32 @@ provide-module tmux %{
         }
     }
 
-    define-command tmux-new-vertical -shell-completion -params 1.. -docstring '
+    define-command tmux-new-up -shell-completion -params 1.. -docstring '
+    tmux-terminal-vertical <program> [<arguments>]: create a new terminal as a tmux pane
+    The current pane is split into two, top and bottom
+    The program passed as argument will be executed in the new terminal' %{
+        tmux split-window -vb "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
+    }
+
+    define-command tmux-new-down -shell-completion -params 1.. -docstring '
     tmux-terminal-vertical <program> [<arguments>]: create a new terminal as a tmux pane
     The current pane is split into two, top and bottom
     The program passed as argument will be executed in the new terminal' %{
         tmux split-window -v "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
     }
 
-    define-command tmux-new-horizontal -params 1.. -shell-completion -docstring '
+    define-command tmux-new-right -params 1.. -shell-completion -docstring '
     tmux-terminal-horizontal <program> [<arguments>]: create a new terminal as a tmux pane
     The current pane is split into two, left and right
     The program passed as argument will be executed in the new terminal' %{
         tmux split-window -h "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
+    }
+
+    define-command tmux-new-left -params 1.. -shell-completion -docstring '
+    tmux-terminal-horizontal <program> [<arguments>]: create a new terminal as a tmux pane
+    The current pane is split into two, left and right
+    The program passed as argument will be executed in the new terminal' %{
+        tmux split-window -hb "%sh{""$kak_config/scripts/quote-all"" ""$@""}"
     }
 
     define-command tmux-popup -params 1.. -shell-completion -docstring '
