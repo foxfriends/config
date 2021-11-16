@@ -23,7 +23,7 @@ if status --is-interactive
   end
 
   command -sq aws; and alias localaws="command aws --endpoint-url=http://localhost:4566 --profile localstack"
-  command -sq aws aws-mfa-secure; and alias aws="aws-mfa-secure session"
+  command -sq aws && command -sq aws-mfa-secure; and alias aws="aws-mfa-secure session"
 
   # replace ls with exa
   if command -sq exa >/dev/null
