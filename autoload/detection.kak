@@ -3,7 +3,7 @@
 provide-module detection %{
     define-command check-cmd -params 1 %{
         evaluate-commands %sh{
-            command -v "$1" > /dev/null || echo "fail $1: command not found"
+            command -v "$1" > /dev/null 2>&1 || echo "fail $1: command not found"
         }
     }
 

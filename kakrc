@@ -67,13 +67,10 @@ map global git i ': gh issue list -a foxfriends<ret>' -docstring 'list issues'
 
 hook global BufWritePost .* "git show-diff"
 hook global BufCreate .* "git show-diff"
-
-# other integration modules that need loading
-hook -group copy global KakBegin .* %{
-    require-module detection
-    load-all gh jira
-}
-
 set global ui_options ncurses_set_title=false
 
-eval %sh{ kks init }
+hook -group kks global KakBegin .* %{
+    require-module detection
+    check-cmd kks
+    eval %sh{ kks init }
+}
