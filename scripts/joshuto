@@ -4,7 +4,7 @@ f="$1"
 shift
 g="$(mktemp)"
 
-joshuto --choosefile "$g" "$@"
+joshuto --choosefiles "$g" "$@"
 file=$(< "$g")
 if [ -n file ]; then
     printf "edit! -existing '%s'" "$file" > "$f"

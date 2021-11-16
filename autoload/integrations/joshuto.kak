@@ -1,7 +1,7 @@
 # https://github.com/foxfriends/joshuto
 # ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
 # this one requires my fork (original: https://github.com/kamiyaa/joshuto/) as
-# it adds support for the --choosefile option
+# it adds support for the --choosefiles option
 
 provide-module joshuto %{
     check-cmd joshuto
