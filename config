@@ -1,15 +1,5 @@
 # Read `man 5 sway` for a complete reference.
 
-# not sure why I have this one, but maybe it's good?
-exec_always "systemctl --user import-environment"
-
-exec mako
-# needs a dbus-daemon for mako to work? is this really the right way to run it?
-exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
-
-# this does not work?
-exec ~/.config/sway/scripts/inactive-windows-transparency.py
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -19,6 +9,37 @@ set $left h
 set $down j
 set $up k
 set $right l
+
+# Your preferred terminal emulator
+set $term 'kitty -1'
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+# set $menu rofi -combi-modi window,drun -show combi -modi combi
+set $menu 'rofi -combi-modi window,drun -show combi -modi combi,ssh'
+
+set $nag exec swaynagmode
+
+### Startup programs
+
+# not sure why I have this one, but maybe it's good?
+exec_always "systemctl --user import-environment"
+
+exec mako
+# needs a dbus-daemon for mako to work? is this really the right way to run it?
+exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
+
+# start the audio
+exec pulseaudio --daemonize
+
+# this works, but I don't really like it that much
+# exec ~/.config/sway/scripts/inactive-windows-transparency.py
+exec "fish -lC flashfocus"
+bindsym $mod+n exec "fish -lC nc_flash_window"
+
+assign [class="obs" title="^Windowed Projector.*"] workspace 
+for_window [class="obs" title="^Windowed Projector.*"] fullscreen enable
+for_window [class="Spotify"] floating enable, resize set width 1920 height 1080
 
 font pango:JetbrainsMono Nerd Font 12
 focus_follows_mouse no
@@ -32,16 +53,6 @@ default_floating_border pixel 2
 client.focused #ABB2BF #282C34 #ABB2BF #e5c07b #ABB2BF
 client.unfocused #5C6370 #282C34 #ABB2BF #e5c07b #5C6370
 client.focused_inactive #5C6370 #282C34 #ABB2BF #e5c07b #5C6370
-
-# Your preferred terminal emulator
-set $term 'kitty -1'
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# set $menu rofi -combi-modi window,drun -show combi -modi combi
-set $menu 'rofi -combi-modi window,drun -show combi -modi combi,ssh'
-
-set $nag exec swaynagmode
 
 ### Output configuration
 #
@@ -101,7 +112,7 @@ exec_always ~/.config/sway/scripts/background
 
     # Reload the configuration file
     bindsym $mod+Shift+r reload
-    bindsym $mod+Shift+c exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
+    bindsym $mod+Shift+c exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
     bindsym $mod+z border toggle
 
     bindsym $mod+Shift+q exec ~/.config/sway/scripts/shutdownmenu
