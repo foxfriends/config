@@ -39,7 +39,7 @@ bindsym $mod+n exec "fish -lC nc_flash_window"
 
 assign [class="obs" title="^Windowed Projector.*"] workspace 
 for_window [class="obs" title="^Windowed Projector.*"] fullscreen enable
-for_window [class="Spotify"] floating enable, resize set width 1920 height 1080
+for_window [class="Spotify"] floating enable, resize set width 1920 height 1080, border pixel 2
 
 font pango:JetbrainsMono Nerd Font 12
 focus_follows_mouse no
