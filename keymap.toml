@@ -79,7 +79,7 @@ command = "open_with"
 keys = [ "r" ]
 
 [[mapcommand]]
-command = ": cd"
+command = ":cd"
 keys = [ "c", "d" ]
 [[mapcommand]]
 command = "cd .."
@@ -130,7 +130,7 @@ command = "select --toggle=true --all=true"
 keys = [ "t" ]
 
 [[mapcommand]]
-command = ": search "
+command = ":search "
 keys = [ "/" ]
 [[mapcommand]]
 command = "search_next"
@@ -153,10 +153,10 @@ keys = [ ";" ]
 command = ":"
 keys = [ ":" ]
 [[mapcommand]]
-command = ": mkdir "
+command = ":mkdir "
 keys = [ "m", "k" ]
 [[mapcommand]]
-command = ": rename "
+command = ":rename "
 keys = [ "c", "w" ]
 
 [[mapcommand]]
